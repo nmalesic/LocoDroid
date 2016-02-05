@@ -7,6 +7,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -41,6 +43,33 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(50.7043768, 2.9174142);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+
+        LatLng Albi = new LatLng(43.92, 2.14);
+        mMap.addMarker(new MarkerOptions().position(Albi).title("Marker in Albi"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Albi, 5));
+        LatLng Toulouse = new LatLng(43.60,1.44);
+        mMap.addMarker(new MarkerOptions().position(Toulouse).title("Marker in Toulouse"));
+
+        Circle cercle = mMap.addCircle(new CircleOptions()
+                .center(Albi)
+                .radius(50000)
+                .strokeWidth(3)
+                .strokeColor(0xFF333333)
+                .fillColor(0x503333CC));
+
+        Circle cercle2 = mMap.addCircle(new CircleOptions()
+                .center(Toulouse)
+                .radius(50000)
+                .strokeWidth(3)
+                .strokeColor(0xFF33AA33)
+                .fillColor(0x50FF33CC));
+
+        mMap.setTrafficEnabled(true);
+
+
+
+
     }
 }
