@@ -133,12 +133,12 @@ public class User {
         this.address.setAdresse2(adresse2);
     }
 
-    public String getCP() {
+    public String getCodePostal() {
         return this.address.getCodePostal();
     }
 
-    public void setCP(String CP) {
-        this.address.setCodePostal(CP);
+    public void setCodePostal(String CodePostal) {
+        this.address.setCodePostal(CodePostal);
     }
 
     public String getVille() {

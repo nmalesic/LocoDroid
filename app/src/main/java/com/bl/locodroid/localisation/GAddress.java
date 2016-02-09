@@ -30,7 +30,7 @@ public class GAddress {
 
     public GAddress(String adresse1, String adresse2, String CodePostal, String ville, String result) {
         super();
-        setTypeAddress2D(TypeAddress.PROFIL);
+        setTypeAddress(TypeAddress.PROFIL);
         this.adresse1 = adresse1;
         this.adresse2 = adresse2;
         this.CodePostal = CodePostal;
@@ -49,7 +49,7 @@ public class GAddress {
 
     public GAddress(String addressSaisie, String result) {
         super();
-        setTypeAddress2D(TypeAddress.RECHERCHE);
+        setTypeAddress(TypeAddress.RECHERCHE);
         this.addressSaisie = addressSaisie;
         this.gcoord = LocalisationUtil.result2GCoord(result);
         setGeocode(gcoord != null);
@@ -119,12 +119,12 @@ public class GAddress {
     }
 
 
-    public TypeAddress getTypeAddress2D() {
+    public TypeAddress getTypeAddress() {
         return typeAddress;
     }
 
-    public void setTypeAddress2D(TypeAddress typeAddress2D) {
-        this.typeAddress = typeAddress2D;
+    public void setTypeAddress(TypeAddress typeAddress) {
+        this.typeAddress = typeAddress;
     }
 
     public Location getLocation() {

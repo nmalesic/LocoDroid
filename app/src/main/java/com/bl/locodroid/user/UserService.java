@@ -8,6 +8,7 @@ public interface UserService {
     boolean setLocalUser(User user);
     User connect(String login, String password);
     boolean disconnect();
-    boolean inscription(User user);
-    boolean modifUser(User user);
+    boolean subscribeUser(User user);
+    boolean updateUser(User user);
+    boolean deleteUser(User user);
 }
