@@ -7,12 +7,15 @@ package com.bl.locodroid;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.bl.locodroid.model.LocoModel;
+
 public class MainActivity extends AppCompatActivity {
+
+    LocoModel model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(myIntent, 0);
             }
         });
+        model = model.getInstance();
 
     }
 }
