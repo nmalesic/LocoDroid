@@ -1,7 +1,10 @@
 package com.bl.locodroid;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -25,6 +28,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        Button but_next = (Button)findViewById(R.id.Button01);
+        but_next.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+
+                //get context() pour récupérer la vue, puis on renseigne la classe vers laquelle on veut switcher
+                Intent myIntent = new Intent(view.getContext(), LoginActivity.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
     }
 
 
@@ -72,7 +85,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Construct a CameraPosition focusing on Mountain View and animate the camera to that position.
         CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(sydney)      // Sets the center of the map to Mountain View
+                .target(Albi)  // Sets the center of the map to Mountain View
                 .zoom(12)                   // Sets the zoom
                 //.bearing(90)                // Sets the orientation of the camera to east
                 .tilt(30)                   // Sets the tilt of the camera to 30 degrees
