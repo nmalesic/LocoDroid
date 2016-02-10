@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         //Log.i("EPITEZ", "Created activity 1");
 
         Button but_next = (Button)findViewById(R.id.Button01);
+
+
         but_next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
