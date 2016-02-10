@@ -7,9 +7,9 @@ import java.util.ArrayList;
 /**
  * Created by nmalesic on 05/02/2016.
  */
-public interface LocalisationService {
-    GAddress getGAddress(String Adress);
-    GRoute getGRoute(String Adress1, String Adress2);
+public interface ILocalisationService {
+    GAddress getGAddress(String Address);
+    GRoute getGRoute(String Address1, String Address2);
     ArrayList<User> getNeighBours(User user);
     ArrayList<User> getNeighBours(GAddress gAddress);
 }
