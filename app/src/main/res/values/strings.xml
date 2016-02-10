@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">LocoDroid</string>
+    <string name="app_name">LocoDroid England</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_main">Main</string>
+
     <string name="title_activity_login">Connexion</string>
 
     <!-- Strings related to login -->
@@ -16,4 +17,7 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <string name="lib_btn1">Next</string>
+
 </resources>

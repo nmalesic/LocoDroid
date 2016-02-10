@@ -11,30 +11,30 @@ public class GAddress {
     private TypeAddress typeAddress;
     private boolean geocode = false;
 
-    // adresse saisie dans le profil
+    // profile address
     private int id;
-    private String adresse1;
-    private String adresse2;
-    private String CodePostal;
-    private String ville;
+    private String address1;
+    private String address2;
+    private String cp;
+    private String city;
     private String result;
 
-    // adresse saisie en zone de recherche
+    // address used in search
     private String addressSaisie;
 
     private Location location;
 
-    // addresse google maps
+    // address google maps
     private GoogleGeoCodeResponse gcoord;
 
 
     public GAddress(String adresse1, String adresse2, String CodePostal, String ville, String result) {
         super();
         setTypeAddress(TypeAddress.PROFIL);
-        this.adresse1 = adresse1;
-        this.adresse2 = adresse2;
-        this.CodePostal = CodePostal;
-        this.ville = ville;
+        this.address1 = adresse1;
+        this.address2 = adresse2;
+        this.cp = CodePostal;
+        this.city = ville;
         this.gcoord = LocalisationUtil.result2GCoord(result);
         setGeocode(gcoord != null);
         if (isGeocode()) {
@@ -69,36 +69,36 @@ public class GAddress {
         this.id = id;
     }
 
-    public String getAdresse1() {
-        return adresse1;
+    public String getAddress1() {
+        return address1;
     }
 
-    public void setAdresse1(String adresse1) {
-        this.adresse1 = adresse1;
+    public void setAddress1(String address1) {
+        this.address1 = address1;
     }
 
-    public String getAdresse2() {
-        return adresse2;
+    public String getAddress2() {
+        return address2;
     }
 
-    public void setAdresse2(String adresse2) {
-        this.adresse2 = adresse2;
+    public void setAddress2(String address2) {
+        this.address2 = address2;
     }
 
-    public String getCodePostal() {
-        return CodePostal;
+    public String getCp() {
+        return cp;
     }
 
-    public void setCodePostal(String codePostal) {
-        this.CodePostal = codePostal;
+    public void setCp(String cp) {
+        this.cp = cp;
     }
 
-    public String getVille() {
-        return ville;
+    public String getCity() {
+        return city;
     }
 
-    public void setVille(String ville) {
-        this.ville = ville;
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public GoogleGeoCodeResponse getGcoord() {
