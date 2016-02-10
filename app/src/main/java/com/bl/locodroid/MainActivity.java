@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 //get context() pour récupérer la vue, puis on renseigne la classe vers laquelle on veut switcher
-                Intent myIntent = new Intent(view.getContext(), MapsActivity.class);
+                Intent myIntent = new Intent(view.getContext(), UserListActivity.class);
                 startActivityForResult(myIntent, 0);
             }
         });
