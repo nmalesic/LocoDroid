@@ -7,8 +7,8 @@ import com.bl.locodroid.localisation.GAddress;
  */
 public class User {
     private int id;
-    private String nomUtil;
-    private String prenomUtil;
+    private String lastName;
+    private String firstName;
     private String pseudo;
     private String email;
     private String password;
@@ -22,8 +22,8 @@ public class User {
     private GAddress address;
 
     private String telephone;
-    private String sexe;
-    private String fumeur;
+    private String sex;
+    private String smoker;
 
     /**
      * constructeur User
@@ -35,8 +35,8 @@ public class User {
     /**
      * Constructeur User avec adresse Geocodée
      *
-     * @param nomUtil
-     * @param prenomUtil
+     * @param lastName
+     * @param firstName
      * @param pseudo
      * @param email
      * @param password
@@ -44,21 +44,21 @@ public class User {
      * @param address
      * @param telephone
      * @param sexe
-     * @param fumeur
+     * @param smoker
      */
-    public User(String nomUtil, String prenomUtil, String pseudo, String email, String password, String confirmPassword,
-                GAddress address, String telephone, String sexe, String fumeur) {
+    public User(String lastName, String firstName, String pseudo, String email, String password, String confirmPassword,
+                GAddress address, String telephone, String sexe, String smoker) {
         super();
-        this.nomUtil = nomUtil;
-        this.prenomUtil = prenomUtil;
+        this.lastName = lastName;
+        this.firstName = firstName;
         this.pseudo = pseudo;
         this.email = email;
         this.password = password;
         this.confirmPassword = confirmPassword;
         this.address = address;
         this.telephone = telephone;
-        this.sexe = sexe;
-        this.fumeur = fumeur;
+        this.sex = sexe;
+        this.smoker = smoker;
     }
 
     public int getId() {
@@ -69,20 +69,20 @@ public class User {
         this.id = id;
     }
 
-    public String getNomUtil() {
-        return nomUtil;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setNomUtil(String nomUtil) {
-        this.nomUtil = nomUtil;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getPrenomUtil() {
-        return prenomUtil;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setPrenomUtil(String prenomUtil) {
-        this.prenomUtil = prenomUtil;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getPseudo() {
@@ -117,36 +117,36 @@ public class User {
         this.confirmPassword = confirmPassword;
     }
 
-    public String getAdresse1() {
-        return this.address.getAdresse1();
+    public String getAdress1() {
+        return this.address.getAddress1();
     }
 
-    public void setAdresse1(String adresse1) {
-        this.address.setAdresse1(adresse1);
+    public void setAdress1(String adresse1) {
+        this.address.setAddress1(adresse1);
     }
 
-    public String getAdresse2() {
-        return this.address.getAdresse2();
+    public String getAdress2() {
+        return this.address.getAddress2();
     }
 
-    public void setAdresse2(String adresse2) {
-        this.address.setAdresse2(adresse2);
+    public void setAdress2(String adresse2) {
+        this.address.setAddress2(adresse2);
     }
 
-    public String getCodePostal() {
-        return this.address.getCodePostal();
+    public String getCp() {
+        return this.address.getCp();
     }
 
-    public void setCodePostal(String CodePostal) {
-        this.address.setCodePostal(CodePostal);
+    public void setCp(String CodePostal) {
+        this.address.setCp(CodePostal);
     }
 
-    public String getVille() {
-        return this.address.getVille();
+    public String getCity() {
+        return this.address.getCity();
     }
 
-    public void setVille(String ville) {
-        this.address.setVille(ville);
+    public void setCity(String ville) {
+        this.address.setCity(ville);
     }
 
     public String getTelephone() {
@@ -157,20 +157,20 @@ public class User {
         this.telephone = telephone;
     }
 
-    public String getSexe() {
-        return sexe;
+    public String getSex() {
+        return sex;
     }
 
-    public void setSexe(String sexe) {
-        this.sexe = sexe;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
-    public String getFumeur() {
-        return fumeur;
+    public String getSmoker() {
+        return smoker;
     }
 
-    public void setFumeur(String fumeur) {
-        this.fumeur = fumeur;
+    public void setSmoker(String smoker) {
+        this.smoker = smoker;
     }
 
     public GAddress getAddress() {

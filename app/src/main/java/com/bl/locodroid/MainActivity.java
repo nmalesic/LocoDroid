@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.bl.locodroid.model.LocoModel;
 
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         //Log.i("EPITEZ", "Created activity 1");
 
         Button but_next = (Button)findViewById(R.id.Button01);
+
+
         but_next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 

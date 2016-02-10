@@ -40,7 +40,10 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".UserListActivity"></activity>
         <activity android:name=".MapsActivity"></activity>
+
+
     </application>
 
 </manifest>

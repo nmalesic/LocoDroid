@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LocoDroid France</string>
+    <string name="title_activity_maps">Carte</string>
+    <string name="title_activity_main">Main</string>
+    <string name="lib_btn1">Suivant</string>
+
+</resources>
