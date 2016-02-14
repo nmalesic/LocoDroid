@@ -4,9 +4,9 @@ package com.bl.locodroid;
  * Created by SRABOIS on 10/02/2016.
  */
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,18 +14,21 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bl.locodroid.model.LocoModel;
+
 import java.util.Arrays;
 import java.util.List;
 
-public class UserListActivity extends ActionBarActivity {
+public class UserListActivity extends Activity {
+
+    LocoModel model;
 
     ListView mListView;
     List<String> prenoms = Arrays.asList("Antoine", "Benoit", "Cyril", "David", "Eloise", "Florent",
             "Gerard", "Hugo", "Ingrid", "Jonathan", "Kevin", "Logan",
             "Mathieu", "Noemie");
 
-
-    @Override
+     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userlist);
