@@ -7,6 +7,7 @@ import com.bl.locodroid.user.User;
 import com.bl.locodroid.user.UserService;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.HashMap;
 
 /**
  * Created by fcoeuret on 09/02/2016.
@@ -104,5 +105,10 @@ public class UserLocal implements IUserService {
     @Override
     public boolean deleteUser(User user) {
         return false;
+    }
+
+    @Override
+    public HashMap<String, User> listAllUser() {
+        return null;
     }
 }
