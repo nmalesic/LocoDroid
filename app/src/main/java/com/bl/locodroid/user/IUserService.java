@@ -1,5 +1,7 @@
 package com.bl.locodroid.user;
 
+import java.util.HashMap;
+
 /**
  * Created by nmalesic on 05/02/2016.
  */
@@ -11,4 +13,6 @@ public interface IUserService {
     boolean subscribeUser(User user);
     boolean updateUser(User user);
     boolean deleteUser(User user);
+
+    HashMap<String,User> listAllUser();
 }
