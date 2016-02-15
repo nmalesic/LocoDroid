@@ -10,8 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.bl.locodroid.localisation.LocalisationService;
 import com.bl.locodroid.model.LocoModel;
+import com.bl.locodroid.user.UserListActivity;
 
 public class MainActivity extends AppCompatActivity {
 
