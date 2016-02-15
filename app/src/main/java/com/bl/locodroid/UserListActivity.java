@@ -15,7 +15,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bl.locodroid.model.LocoModel;
+import com.bl.locodroid.user.User;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -28,7 +30,9 @@ public class UserListActivity extends Activity {
             "Gerard", "Hugo", "Ingrid", "Jonathan", "Kevin", "Logan",
             "Mathieu", "Noemie");
 
-     @Override
+    ArrayList<User> liste = model.getNeighBours();
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userlist);
@@ -38,8 +42,10 @@ public class UserListActivity extends Activity {
         //android.R.layout.simple_list_item_1 est une vue disponible de base dans le SDK android,
         //Contenant une TextView avec comme identifiant "@android:id/text1"
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(UserListActivity.this, R.layout.list_view_row, R.id.listText, prenoms);
-        mListView.setAdapter(adapter);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(UserListActivity.this, R.layout.list_view_row, R.id.listText, prenoms);
+
+         ArrayAdapter<User> adapter = new ArrayAdapter<User>(UserListActivity.this, R.layout.list_view_row, R.id.listText, liste);
+         mListView.setAdapter(adapter);
 
         mListView.setOnItemClickListener(new ListClickHandler());
 
