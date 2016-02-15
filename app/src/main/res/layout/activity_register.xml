@@ -6,7 +6,7 @@
     android:fillViewport="true">
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" android:background="#fff">
+        android:layout_height="wrap_content" android:background="#ffccccc">
 
         <!--  Header  Starts-->
         <LinearLayout android:id="@+id/header"
@@ -40,7 +40,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dip"
-            android:layout_below="@id/header">
+            android:layout_below="@id/header"
+            android:background="#ffcccccc">
             <!-- Full Name Label -->
             <TextView android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -73,8 +74,81 @@
                 android:layout_height="wrap_content"
                 android:password="true"
                 android:singleLine="true"
-                android:layout_marginTop="5dip"/>
+                android:layout_marginTop="5dip"
+                android:layout_marginBottom="20dip" />
             <!-- Register Button -->
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#372c24"
+                android:text="Confirm Password"
+                android:id="@+id/textView" />
+
+            <EditText
+                android:id="@+id/conf_password"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:password="true"
+                android:singleLine="true"
+                android:layout_marginBottom="20dip" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#372c24"
+                android:text="Address"
+                android:id="@+id/adress" />
+
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:password="true"
+                android:singleLine="true"
+                android:layout_marginBottom="20dip" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#372c24"
+                android:text="Telephone"
+                android:id="@+id/textView3" />
+
+            <EditText
+                android:id="@+id/Telephone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:password="true"
+                android:singleLine="true"
+                android:layout_marginBottom="20dip" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#372c24"
+                android:text="Sex"
+                android:id="@+id/textView2" />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="53dp">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="man"
+                    android:id="@+id/man" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="woman"
+                    android:id="@+id/woman" />
+            </RadioGroup>
+
             <Button android:id="@+id/btnRegister"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
