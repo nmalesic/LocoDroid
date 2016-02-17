@@ -14,6 +14,8 @@ public class User {
     private String password;
     private String confirmPassword;
 
+
+
 	/*
 	 * private String adresse1; private String adresse2; private String CP;
 	 * private String ville;

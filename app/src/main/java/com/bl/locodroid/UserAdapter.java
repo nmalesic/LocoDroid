@@ -10,18 +10,18 @@ package com.bl.locodroid;
     import android.view.LayoutInflater;
     import android.view.View;
     import android.view.ViewGroup;
-    import android.widget.BaseAdapter;
     import android.widget.TextView;
 
-    import com.bl.locodroid.R;
     import com.bl.locodroid.user.User;
 
-public class MyAdapter extends BaseAdapter {
+public class UserAdapter extends BaseAdapter {
 
         private ArrayList<User> users;
         private LayoutInflater myInflater;
 
-        public MyAdapter (Context context, ArrayList<User> _users)
+
+
+        public UserAdapter (Context context, ArrayList<User> _users)
         {
             this.myInflater = LayoutInflater.from(context);
             this.users = _users;
@@ -53,17 +53,17 @@ public class MyAdapter extends BaseAdapter {
 
             if (convertView == null)
             {
-                convertView = myInflater.inflate(R.layout.listitem, null);
+                convertView = myInflater.inflate(R.layout.list_view_row, null);
                 holder = new ViewHolder();
-                holder.text01 = (TextView) convertView.findViewById(R.id.txtNom);
-                holder.text02 = (TextView) convertView.findViewById(R.id.txtDetail);
+                holder.text01 = (TextView) convertView.findViewById(R.id.lastName);
+                holder.text02 = (TextView) convertView.findViewById(R.id.firstName);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
 
             holder.text01.setText(users.get(position).getLastName());
-            holder.text02.setText(users.get(position).getEmail());
+            holder.text02.setText(users.get(position).getFirstName());
 
             return convertView;
 

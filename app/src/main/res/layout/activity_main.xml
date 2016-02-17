@@ -13,7 +13,7 @@ android:background="#ffffff"
     android:text="ACCUEIL"
     android:shadowColor="#DDDDDD" />
 
-<Button android:text="@string/lib_btn1"
+<Button android:text="@string/btn_next"
     android:id="@+id/Button01"
     android:layout_width="250dp"
     android:textSize="18sp"
@@ -21,6 +21,12 @@ android:background="#ffffff"
     android:onClick="onClick1"
     android:layout_gravity="center_horizontal">
 </Button>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_gravity="center_horizontal" />
 
 
 </LinearLayout>

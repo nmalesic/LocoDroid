@@ -46,5 +46,10 @@
     </string>
 
     <string name="lib_btn1">Next</string>
+    <string name="btn_next">Next</string>
+    <string name="imageaccueil">image</string>
+
+    <string name="nom">Nom</string>
+    <string name="prenom">Prénom</string>
 
 </resources>
