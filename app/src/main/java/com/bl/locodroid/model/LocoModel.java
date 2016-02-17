@@ -85,16 +85,22 @@ public class LocoModel {
         a = new User("RABOIS","Sylvain","pion de 6","a@a.a","a","a", null, "0102030405","M","false");
         loc = new Location("43.5563336","1.528394");
         locoAddress = new LocoAddress("10 Avenue de Gameville","","31650","Saint-Orens-de-Gameville",loc);
+        locoAddress.setLocation(loc);
+        a.setAddress(locoAddress);
         neighBours.add(a);
 
         a = new User("CHAMAYOU","Olivier","objet composition détaché","b@b.b","b","b", null, "0602030405","M","false");
         loc = new Location("43.5175497","1.5057399");
         locoAddress = new LocoAddress("10 Rue du Pic du Midi","","31240","L'Union",loc);
+        locoAddress.setLocation(loc);
+        a.setAddress(locoAddress);
         neighBours.add(a);
 
         a = new User("COEURET","Fabrice","Singleton","c@c.c","c","c", null, "0702030405","M","false");
         loc = new Location("43.5175497","1.5057399");
         locoAddress = new LocoAddress("Place Clemence Isaure","","31320","Castanet-Tolosan",loc);
+        locoAddress.setLocation(loc);
+        a.setAddress(locoAddress);
         neighBours.add(a);
 
         lastNeighBours = neighBours;
