@@ -13,7 +13,7 @@ bin/
 gen/
 
 # Gradle files
-.gradle/
+.gradle
 build/
 
 # Local configuration file (sdk path, etc)
@@ -32,11 +32,13 @@ proguard/
 captures/
 
 *.iml
-.gradle
 /local.properties
-/.idea/workspace.xml
-/.idea/libraries
+.idea/
 .DS_Store
+Thumbs.db
 /build
 /captures
 google_maps_api.xml
+.classpath
+.project
+obj/

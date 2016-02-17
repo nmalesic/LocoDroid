@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.bl.locodroid.ProfileActivity;
 import com.bl.locodroid.R;
+import com.bl.locodroid.UserAdapter;
 import com.bl.locodroid.localisation.Location;
 import com.bl.locodroid.localisation.LocoAddress;
 import com.bl.locodroid.model.LocoModel;
@@ -28,10 +29,10 @@ public class UserListActivity extends Activity {
 
     LocoModel model;
 
+    UserAdapter userAdapter;
+
     ListView mListView;
-    List<String> prenoms = Arrays.asList("Antoine", "Benoit", "Cyril", "David", "Eloise", "Florent",
-            "Gerard", "Hugo", "Ingrid", "Jonathan", "Kevin", "Logan",
-            "Mathieu", "Noemie");
+
 
     ArrayList<User> neighBours = new ArrayList<User>();
 
@@ -39,9 +40,6 @@ public class UserListActivity extends Activity {
     Location loc;
     LocoAddress locoAddress;
 
-
-
-    //ArrayList<User> liste = model.getNeighbours();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,14 +61,9 @@ public class UserListActivity extends Activity {
         locoAddress = new LocoAddress("Place Clemence Isaure", "", "31320", "Castanet-Tolosan", loc);
         neighBours.add(a);
 
-        mListView = (ListView) findViewById(R.id.listView);
+        mListView = (ListView) findViewById(R.id.list_user);
 
-        //android.R.layout.simple_list_item_1 est une vue disponible de base dans le SDK android,
-        //Contenant une TextView avec comme identifiant "@android:id/text1"
-
-        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(UserListActivity.this, R.layout.list_view_row, R.id.listText, prenoms);
-
-        ArrayAdapter<User> adapter = new ArrayAdapter<User>(UserListActivity.this, R.layout.list_view_row, R.id.listText, neighBours);
+           ArrayAdapter<User> adapter = new ArrayAdapter<User>(UserListActivity.this, R.layout.list_view_row, R.id.lastName, neighBours);
         mListView.setAdapter(adapter);
 
 
@@ -95,7 +88,7 @@ public class UserListActivity extends Activity {
         @Override
         public void onItemClick(AdapterView<?> adapter, View view, int position, long arg3) {
             // TODO Auto-generated method stub
-            TextView listText = (TextView) view.findViewById(R.id.listText);
+            TextView listText = (TextView) view.findViewById(R.id.lastName);
             String text = listText.getText().toString();
             Intent intent = new Intent(UserListActivity.this, ProfileActivity.class);
             intent.putExtra("selected-item", text);
