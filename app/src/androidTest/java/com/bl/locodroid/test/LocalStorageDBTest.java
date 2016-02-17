@@ -64,8 +64,6 @@ public class LocalStorageDBTest extends TestCase {
 //
 //    }
 
-
-
 //    public void testConnectLocalDatabase() throws Exception {
 //        //assertEquals(1,2);
 //    }

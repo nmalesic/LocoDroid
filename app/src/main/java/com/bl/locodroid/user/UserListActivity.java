@@ -42,7 +42,7 @@ public class UserListActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userlist);
 
-        a = new User("RABOIS", "Sylvain", "pion de 6", "a@a.a", "a", "a", null, "0102030405", "M", "false");
+/*        a = new User("RABOIS", "Sylvain", "pion de 6", "a@a.a", "a", "a", null, "0102030405", "M", "false");
         loc = new Location("43.5563336", "1.528394");
         locoAddress = new LocoAddress("10 Avenue de Gameville", "", "31650", "Saint-Orens-de-Gameville", loc);
         neighBours.add(a);
@@ -55,7 +55,17 @@ public class UserListActivity extends Activity {
         a = new User("COEURET", "Fabrice", "Singleton", "c@c.c", "c", "c", null, "0702030405", "M", "false");
         loc = new Location("43.5175497", "1.5057399");
         locoAddress = new LocoAddress("Place Clemence Isaure", "", "31320", "Castanet-Tolosan", loc);
+        neighBours.add(a);*/
+
+        a = new User("RABOIS", "Sylvain", "pion de 6", "a@a.a", "a", "a", null, "0102030405", "M", "false");
+        loc = new Location("43.5563336", "1.528394");
+        locoAddress = new LocoAddress("10 Avenue de Gameville", "", "31650", "Saint-Orens-de-Gameville", loc);
+        locoAddress.setLocation(loc);
+        a.setAddress(locoAddress);
         neighBours.add(a);
+        model = LocoModel.getInstance();
+        model.setUserConnected(a);
+        neighBours = model.getNeighbours();
 
         mListView = (ListView) findViewById(R.id.list_user);
 
