@@ -64,12 +64,7 @@ public class LocalStorageDBTest extends TestCase {
 //
 //    }
 
-    public void testCreateLocalDatabase() throws Exception {
-        db = localDB.getWritableDatabase();
-        Log.i(localDB.getDatabaseName(),"name");
-        boolean ret = localDB.createLocalDatabase(db);
-        //assertEquals(true,ret);
-    }
+
 
 //    public void testConnectLocalDatabase() throws Exception {
 //        //assertEquals(1,2);

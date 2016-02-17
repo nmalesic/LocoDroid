@@ -9,21 +9,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bl.locodroid.ProfileActivity;
 import com.bl.locodroid.R;
-import com.bl.locodroid.UserAdapter;
 import com.bl.locodroid.localisation.Location;
 import com.bl.locodroid.localisation.LocoAddress;
 import com.bl.locodroid.model.LocoModel;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class UserListActivity extends Activity {
 
@@ -33,9 +29,9 @@ public class UserListActivity extends Activity {
 
     ListView mListView;
 
-
     ArrayList<User> neighBours = new ArrayList<User>();
 
+    String adresse = "Place Clemence Isaure 31320 Castanet-Tolosan";
     User a;
     Location loc;
     LocoAddress locoAddress;
@@ -63,7 +59,8 @@ public class UserListActivity extends Activity {
 
         mListView = (ListView) findViewById(R.id.list_user);
 
-           ArrayAdapter<User> adapter = new ArrayAdapter<User>(UserListActivity.this, R.layout.list_view_row, R.id.lastName, neighBours);
+        //ArrayAdapter<User> adapter = new ArrayAdapter<User>(UserListActivity.this, R.layout.list_view_row, R.id.lastName, neighBours);
+        UserAdapter adapter = new UserAdapter(UserListActivity.this, R.layout.list_view_row, neighBours);
         mListView.setAdapter(adapter);
 
 
