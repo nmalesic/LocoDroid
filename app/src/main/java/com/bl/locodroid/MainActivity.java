@@ -9,9 +9,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import com.bl.locodroid.model.LocoModel;
+import com.bl.locodroid.user.UserListActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         model = model.getInstance();
+
+        //test geocoding
+        //LocalisationService localisationService = new LocalisationService();
+        //LocoAddress locoAddress = localisationService.getLocoAddress("1 Rue du bon coin, FRELINGHIEN");
 
     }
 }

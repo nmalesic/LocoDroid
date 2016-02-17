@@ -53,10 +53,9 @@
             android:label="@string/title_activity_login" />
         <activity android:name=".RegisterActivity"></activity>
 
-
-        <activity android:name=".UserListActivity"></activity>
-
-
+        <activity android:name=".user.UserListActivity"></activity>
+   
+        <activity android:name=".ProfileActivity"></activity>
 
 
     </application>

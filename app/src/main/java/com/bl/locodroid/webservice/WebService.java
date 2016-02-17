@@ -1,6 +1,6 @@
 package com.bl.locodroid.webservice;
 
-import com.bl.locodroid.localisation.GAddress;
+import com.bl.locodroid.localisation.LocoAddress;
 import com.bl.locodroid.localisation.GRoute;
 
 /**
@@ -8,16 +8,16 @@ import com.bl.locodroid.localisation.GRoute;
  */
 public class WebService implements IWebService {
     @Override
-    public GAddress getGAddress(String Address) {
+    public LocoAddress getGAddress(String Address) {
 
-        // Call the WebService LocoMaps to download a GAddress corresponding to Address
+        // Call the WebService LocoMaps to download a LocoAddress corresponding to Address
         // if this address has already been recovered
 
         // If the WebService LocoMaps is not reachable or this address is not known by him
-        // Search in the local Storage to retrieve a GAddress corresponding to Address
+        // Search in the local Storage to retrieve a LocoAddress corresponding to Address
 
         // If WebService LocoMaps and local storage don't know this address,
-        // Call GoogleMaps WebService to retrieve a GAddress
+        // Call GoogleMaps WebService to retrieve a LocoAddress
 
 
 
