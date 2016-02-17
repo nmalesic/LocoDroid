@@ -160,6 +160,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dip"
+                android:background="@layout/roundedbutton"
                 android:text="@string/reg_new_account"/>
             <!-- Link to Login Screen -->
             <TextView android:id="@+id/link_to_login"
@@ -167,6 +168,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dip"
                 android:layout_marginBottom="40dip"
+                android:background="@layout/roundedbutton"
                 android:text="@string/existing_account"
                 android:gravity="center"
                 android:textSize="20dip"
