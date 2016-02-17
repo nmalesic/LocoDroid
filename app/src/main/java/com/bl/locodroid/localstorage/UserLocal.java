@@ -1,10 +1,8 @@
 package com.bl.locodroid.localstorage;
 
-import android.content.Context;
+import com.bl.locodroid.user.service.IUserService;
+import com.bl.locodroid.user.domain.User;
 
-import com.bl.locodroid.user.IUserService;
-import com.bl.locodroid.user.User;
-import com.bl.locodroid.user.UserService;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.HashMap;
@@ -108,7 +106,7 @@ public class UserLocal implements IUserService{
     }
 
     @Override
-    public HashMap<String, User> listAllUser() {
+    public HashMap<String, User> getAllUser() {
         return null;
     }
 }

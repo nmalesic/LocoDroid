@@ -11,6 +11,7 @@ package com.bl.locodroid.user;
     import android.widget.TextView;
 
     import com.bl.locodroid.R;
+    import com.bl.locodroid.user.domain.User;
 
 public class UserAdapter extends ArrayAdapter<User>{
 

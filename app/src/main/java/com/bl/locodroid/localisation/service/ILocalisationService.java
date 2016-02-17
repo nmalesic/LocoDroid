@@ -1,8 +1,7 @@
-package com.bl.locodroid.localisation;
+package com.bl.locodroid.localisation.service;
 
-import com.bl.locodroid.user.User;
-
-import java.util.ArrayList;
+import com.bl.locodroid.localisation.GRoute;
+import com.bl.locodroid.localisation.domain.LocoAddress;
 
 /**
  * Created by nmalesic on 05/02/2016.

@@ -1,12 +1,12 @@
 package com.bl.locodroid.model;
 
 
-import com.bl.locodroid.localisation.LocalisationService;
+import com.bl.locodroid.localisation.service.LocalisationService;
 import com.bl.locodroid.localisation.LocalisationUtil;
-import com.bl.locodroid.localisation.Location;
-import com.bl.locodroid.localisation.LocoAddress;
-import com.bl.locodroid.user.User;
-import com.bl.locodroid.user.UserService;
+import com.bl.locodroid.localisation.domain.Location;
+import com.bl.locodroid.localisation.domain.LocoAddress;
+import com.bl.locodroid.user.domain.User;
+import com.bl.locodroid.user.service.UserService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -121,7 +121,7 @@ public class LocoModel {
             listUserInRadius =  getNeighboursMock();
         } else {
 
-            HashMap<String, User> listeUser = userService.listAllUser();
+            HashMap<String, User> listeUser = userService.getAllUser();
 
             listUserInRadius = new ArrayList<User>();
 

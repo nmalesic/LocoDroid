@@ -1,9 +1,9 @@
 package com.bl.locodroid.test;
 
-import com.bl.locodroid.localisation.Location;
-import com.bl.locodroid.localisation.LocoAddress;
+import com.bl.locodroid.localisation.domain.Location;
+import com.bl.locodroid.localisation.domain.LocoAddress;
 import com.bl.locodroid.model.LocoModel;
-import com.bl.locodroid.user.User;
+import com.bl.locodroid.user.domain.User;
 
 import junit.framework.TestCase;
 
