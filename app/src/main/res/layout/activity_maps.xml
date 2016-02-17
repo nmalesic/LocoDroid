@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     tools:context="com.bl.locodroid.MapActivity" >
 
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/map"
@@ -16,7 +16,18 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Connexion"
+        android:text="@string/map_login"
         android:id="@+id/Button01"
+        android:background="@layout/rounded"
         android:layout_gravity="right|bottom" />
+
+    <SearchView
+        android:layout_width="369dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchView"
+        android:layout_gravity="center_horizontal|top"
+        android:background="@layout/rounded"
+        android:clickable="true"
+        android:layout_marginTop="10dip" />
+
 </FrameLayout>
