@@ -32,8 +32,10 @@ public class UserAdapter extends ArrayAdapter<User>{
         User personne = this.users.get(position);
         if(personne != null) {
             this.renseigneTextView(maVue, R.id.lastName, personne.getLastName() + " " + personne.getFirstName());
-            //this.renseigneTextView(maVue, R.id.firstName, personne.getFirstName());
+            //this.renseigneTextView(maVue, R.id.address, personne.getAdress1() + " " + personne.getAdress2() + " " + personne.getCodePostal() + " " + personne.getCity());
             this.renseigneTextView(maVue, R.id.email, personne.getEmail());
+            this.renseigneTextView(maVue, R.id.phone, personne.getTelephone());
+
         }
         return maVue;
     }

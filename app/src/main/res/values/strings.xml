@@ -71,13 +71,17 @@
         completions."
     </string>
 
+    <!-- Users> -->
+    <string name="nom">LastName</string>
+    <string name="prenom">FistName</string>
+    <string name="email">Email</string>
+    <string name="address">Address</string>
+    <string name="phone">Phone</string>
 
     <!-- Champs non identifiés A REVOIR -->
 
     <string name="imageaccueil">image</string>
 
-    <string name="nom">LastName</string>
-    <string name="prenom">FistName</string>
-    <string name="email">Email</string>
+
 
 </resources>
