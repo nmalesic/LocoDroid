@@ -15,9 +15,10 @@ import android.widget.TextView;
 
 import com.bl.locodroid.ProfileActivity;
 import com.bl.locodroid.R;
-import com.bl.locodroid.localisation.Location;
-import com.bl.locodroid.localisation.LocoAddress;
+import com.bl.locodroid.localisation.domain.Location;
+import com.bl.locodroid.localisation.domain.LocoAddress;
 import com.bl.locodroid.model.LocoModel;
+import com.bl.locodroid.user.domain.User;
 
 import java.util.ArrayList;
 

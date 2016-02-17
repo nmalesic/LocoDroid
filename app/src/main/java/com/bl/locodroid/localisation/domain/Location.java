@@ -1,4 +1,4 @@
-package com.bl.locodroid.localisation;
+package com.bl.locodroid.localisation.domain;
 
 public class Location {
 	public Location(String lat, String lng) {

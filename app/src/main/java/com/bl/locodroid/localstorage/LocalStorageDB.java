@@ -5,12 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
-import com.bl.locodroid.user.User;
+import com.bl.locodroid.user.domain.User;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by fcoeuret on 10/02/2016.
