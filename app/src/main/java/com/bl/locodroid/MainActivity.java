@@ -37,6 +37,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(myIntent, 0);
             }
         });
+        Button but_map = (Button)findViewById(R.id.ButtonMap);
+
+
+        but_map.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+
+                //get context() pour récupérer la vue, puis on renseigne la classe vers laquelle on veut switcher
+                Intent myIntent = new Intent(view.getContext(), MapsActivity.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
         model = model.getInstance();
 
         //test geocoding
