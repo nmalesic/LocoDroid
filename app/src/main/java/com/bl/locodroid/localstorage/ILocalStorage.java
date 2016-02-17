@@ -51,11 +51,10 @@ public interface ILocalStorage {
     public UserLocal getUserLocalByEmail(String email);
 
     /**
-     * Get a list of UserLocal
-     * @return List of USerLocal
+     * Get a list of User Neigbour in SQLite database
+     * @return List of User Neighbour
      */
-    public ArrayList<UserLocal> getListUserLocal();
-
+    public ArrayList<UserLocal> getListLocalNeighbour();
 
     /**
      * Close Local SQLite database
