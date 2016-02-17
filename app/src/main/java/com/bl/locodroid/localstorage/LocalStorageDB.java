@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by fcoeuret on 10/02/2016.
  */
-public class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorageDB {
+public class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
 
     public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "LocoDroid.db";
@@ -69,40 +69,48 @@ public class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorageDB 
         super(context, name, factory, version);
     }
 
+    /**
+     * Create Local SQLite database
+     * @param db database
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         //db.execSQL(LocalStorageDB.DATABASE_CREATE);
         db.execSQL(USER_TABLE_CREATE);
     }
 
+    /**
+     * Upgrade Local SQLite database
+     * @param db Database
+     * @param oldVersion Number of old version
+     * @param newVersion Number of new version
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(USER_TABLE_CREATE);
     }
 
-    //@Override
-    public Boolean createLocalDatabase(SQLiteDatabase db) {
-        //db.execSQL(USER_TABLE_CREATE);
-
-        return null;
-    }
-
+    /**
+     * Connect to Local SQLite Database
+     * @return true = Connect OK / false = Connect KO
+     */
     @Override
     public Boolean connectLocalDatabase() {
-
-
         return null;
     }
-
 
     @Override
     public Boolean disconnectLocalDatabase() {
-
-
         return null;
     }
 
-    public boolean subscribeUser(UserLocal userlocal)
+    /**
+     * Add UserLocal in SQLite database
+     * @param userlocal
+     * @return true = OK / false = KO
+     */
+    @Override
+    public boolean addUserLocal(UserLocal userlocal)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -128,34 +136,78 @@ public class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorageDB 
         }
     }
 
-    public ArrayList<UserLocal> readListUserLocal()
+    /**
+     * Get a UserLocal from SQLite database
+     * @param email Email of User
+     * @return UserLocal
+     */
+    @Override
+    public UserLocal getUserLocalByEmail(String email)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        UserLocal userLocal = new UserLocal();
+        userLocal = null;
+        ContentValues cv = new ContentValues();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE_NAME + " WHERE " + USER_EMAIL + " = " + email, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+            userLocal = informUserLocal(cursor);
+        }
+        return userLocal;
+    }
+
+    /**
+     * Get a list of UserLocal
+     * @return List of USerLocal
+     */
+    @Override
+    public ArrayList<UserLocal> getListUserLocal()
     {
         ArrayList<UserLocal> listUser = new ArrayList<UserLocal>();
         SQLiteDatabase db = this.getReadableDatabase();
         ContentValues cv = new ContentValues();
-        Cursor resultSet = db.rawQuery("SELECT * FROM " + USER_TABLE_NAME,null);
-        if (resultSet != null)
+        Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE_NAME,null);
+        if (cursor != null)
         {
-            resultSet.moveToFirst();
-            //Log.i("nb", resultSet.getCount() + "");
+            cursor.moveToFirst();
             do {
-                UserLocal userLocal = new UserLocal();
-                User user = new User();
-                user.setId(resultSet.getInt(resultSet.getColumnIndex(USER_ID)));
-                user.setLastName(resultSet.getString(resultSet.getColumnIndex(USER_LASTNAME)));
-                user.setFirstName(resultSet.getString(resultSet.getColumnIndex(USER_FIRSTNAME)));
-                user.setPseudo(resultSet.getString(resultSet.getColumnIndex(USER_PSEUDO)));
-                user.setEmail(resultSet.getString(resultSet.getColumnIndex(USER_EMAIL)));
-                user.setPassword(resultSet.getString(resultSet.getColumnIndex(USER_PASSWORD)));
-                user.setSex(resultSet.getString(resultSet.getColumnIndex(USER_SEX)));
-                user.setSmoker(resultSet.getString(resultSet.getColumnIndex(USER_SMOKER)));
-                user.setTelephone(resultSet.getString(resultSet.getColumnIndex(USER_TELEPHONE)));
-                userLocal.setUser(user);
-                listUser.add(userLocal);
-                }while (resultSet.moveToNext());
+                listUser.add(informUserLocal(cursor));
+                }while (cursor.moveToNext());
         }
         return listUser;
-   }
+    }
+
+    /**
+     * Close Local SQLite database
+     */
+    @Override
+    public void Close()
+    {
+
+    }
+
+    /**
+     * Inform attributes of UserLocal
+     * @param cursor cursor of UserLocal
+     * @return USerLocal
+     */
+    private UserLocal informUserLocal(Cursor cursor)
+    {
+        UserLocal ul = new UserLocal();
+        User user = new User();
+        user.setId(cursor.getInt(cursor.getColumnIndex(USER_ID)));
+        user.setLastName(cursor.getString(cursor.getColumnIndex(USER_LASTNAME)));
+        user.setFirstName(cursor.getString(cursor.getColumnIndex(USER_FIRSTNAME)));
+        user.setPseudo(cursor.getString(cursor.getColumnIndex(USER_PSEUDO)));
+        user.setEmail(cursor.getString(cursor.getColumnIndex(USER_EMAIL)));
+        user.setPassword(cursor.getString(cursor.getColumnIndex(USER_PASSWORD)));
+        user.setSex(cursor.getString(cursor.getColumnIndex(USER_SEX)));
+        user.setSmoker(cursor.getString(cursor.getColumnIndex(USER_SMOKER)));
+        user.setTelephone(cursor.getString(cursor.getColumnIndex(USER_TELEPHONE)));
+        ul.setUser(user);
+        return ul;
+    }
+
 
 
 //    LocalStorageDB localdb = new LocalStorageDB(this.getBaseContext(),LocalStorageDB.DATABASE_NAME,null,1);
