@@ -19,8 +19,18 @@ android:background="#ffffff"
     android:textSize="18sp"
     android:layout_height="55dp"
     android:onClick="onClick1"
+    android:background="@layout/rounded"
     android:layout_gravity="center_horizontal">
 </Button>
+    <Button android:text="@string/title_activity_maps"
+        android:id="@+id/ButtonMap"
+        android:layout_width="250dp"
+        android:textSize="18sp"
+        android:layout_height="55dp"
+        android:onClick="onClick1"
+        android:background="@layout/rounded"
+        android:layout_gravity="center_horizontal">
+    </Button>
 
     <ImageView
         android:layout_width="wrap_content"
