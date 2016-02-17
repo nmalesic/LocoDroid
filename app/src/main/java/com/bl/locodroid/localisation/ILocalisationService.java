@@ -8,8 +8,7 @@ import java.util.ArrayList;
  * Created by nmalesic on 05/02/2016.
  */
 public interface ILocalisationService {
-    GAddress getGAddress(String Address);
+    LocoAddress getLocoAddress(String Address);
     GRoute getGRoute(String Address1, String Address2);
-    ArrayList<User> getNeighBours(User user);
-    ArrayList<User> getNeighBours(GAddress gAddress);
+
 }

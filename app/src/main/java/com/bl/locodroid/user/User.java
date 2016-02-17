@@ -1,6 +1,6 @@
 package com.bl.locodroid.user;
 
-import com.bl.locodroid.localisation.GAddress;
+import com.bl.locodroid.localisation.LocoAddress;
 
 /**
  * Created by nmalesic on 05/02/2016.
@@ -21,7 +21,7 @@ public class User {
 	 * private String ville;
 	 */
 
-    private GAddress address;
+    private LocoAddress address;
 
     private String telephone;
     private String sex;
@@ -49,7 +49,7 @@ public class User {
      * @param smoker
      */
     public User(String lastName, String firstName, String pseudo, String email, String password, String confirmPassword,
-                GAddress address, String telephone, String sexe, String smoker) {
+                LocoAddress address, String telephone, String sexe, String smoker) {
         super();
         this.lastName = lastName;
         this.firstName = firstName;
@@ -135,12 +135,10 @@ public class User {
         this.address.setAddress2(adresse2);
     }
 
-    public String getCp() {
-        return this.address.getCp();
-    }
+    public String getCodePostal() { return this.address.getCodePostal(); }
 
-    public void setCp(String CodePostal) {
-        this.address.setCp(CodePostal);
+    public void setCodePostal(String CodePostal) {
+        this.address.setCodePostal(CodePostal);
     }
 
     public String getCity() {
@@ -175,11 +173,11 @@ public class User {
         this.smoker = smoker;
     }
 
-    public GAddress getAddress() {
+    public LocoAddress getAddress() {
         return address;
     }
 
-    public void setAddress(GAddress address) {
+    public void setAddress(LocoAddress address) {
         this.address = address;
     }
 
