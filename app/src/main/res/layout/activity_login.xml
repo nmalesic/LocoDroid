@@ -73,7 +73,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:text="Retour"
+                android:text="@string/nav_back"
                 android:id="@+id/ButtonRetour"
                 android:layout_width="wrap_content"
                 android:textSize="18sp"
@@ -82,7 +82,7 @@
                 android:layout_gravity="center_horizontal" />
 
             <Button
-                android:text="Regis000000ter"
+                android:text="@string/action_register"
                 android:id="@+id/Button01"
                 android:layout_width="wrap_content"
                 android:textSize="18sp"
