@@ -22,7 +22,8 @@
     <string name="btn_next">Next</string>
     <string name="imageaccueil">image</string>
 
-    <string name="nom">Nom</string>
-    <string name="prenom">Prénom</string>
+    <string name="nom">LastName</string>
+    <string name="prenom">FistName</string>
+    <string name="email">Email</string>
 
 </resources>
