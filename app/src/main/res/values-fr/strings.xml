@@ -4,4 +4,35 @@
     <string name="title_activity_main">Main</string>
     <string name="lib_btn1">Suivant</string>
 
+    <string name="action_sign_in">Connectez vous</string>
+    <string name="action_sign_in_short">Connection</string>
+    <string name="action_register">Inscription</string>
+
+    <!-- Register form -->
+    <!--register fields -->
+    <string name="regfield_FullName">Nom Complet</string>
+    <string name="regfield_Email">Adresse Electronique (email)</string>
+    <string name="regfield_Password">Mot de Passe</string>
+    <string name="regfield_Confirm_Password">Confirmer votre mot de passe</string>
+    <string name="regfield_Address">Adresse</string>
+    <string name="regfield_Telephone">Téléphone</string>
+    <string name="regfield_Radio_Man">Homme </string>
+    <string name="regfield_Radio_Woman">Femme </string>
+
+
+    <!-- register fields end -->
+    <string name="reg_new_account"> Enregistrez votre nouveau compte</string>
+    <string name="existing_account"> Vous possedez déjà un compte? connectez vous</string>
+
+    <string name="error_invalid_email">Cette adresse mail est invalide</string>
+    <string name="error_invalid_password">votre mot de passe est trop court</string>
+    <string name="error_incorrect_password">Mot de passe incorrect</string>
+    <string name="error_field_required">Champ obligatoire</string>
+
+
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="lib_btn1">Suivant</string>
 </resources>
