@@ -17,12 +17,10 @@ import java.util.List;
  */
 public class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
 
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "LocoDroid.db";
     private LocalStorageDB localDB;
     private Context context;
-    //LocalStorageDB mDbHelper = new LocalStorageDB(getContext());
-
 
     //Table USER
     public static final String USER_TABLE_NAME = "USER";
@@ -37,10 +35,7 @@ public class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
     public static final String USER_SEX = "Sex";
     public static final String USER_SMOKER = "Smoker";
     public static final String USER_TELEPHONE = "Telephone";
-    //public static final String USER_CONNECTED_USER = "ConnectedUSer";
-
-    //Script Create database
-    public static final String DATABASE_CREATE = "CREATE LOCODROID.DB";
+    public static final String USER_CONNECTED_USER = "ConnectedUSer";
 
     //Script Create Table USER
     public static final String USER_TABLE_CREATE =
@@ -52,10 +47,54 @@ public class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
                 USER_PASSWORD + " VARCHAR (30) NOT NULL, " +
                 USER_SEX + " VARCHAR (10), " +
                 USER_SMOKER + " BOOLEAN, " +
-                USER_TELEPHONE + " VARCHAR (20))"; //+
-                //USER_CONNECTED_USER + " BOOLEAN UNIQUE ON CONFLICT ABORT);";
+                USER_TELEPHONE + " VARCHAR (20))" +
+                USER_CONNECTED_USER + " BOOLEAN)";
 
-    //private SQLiteDatabase db = localDB.getReadableDatabase();
+    //Table ADDRESS
+    public static final String ADDRESS_TABLE_NAME = "ADDRESS";
+
+    //Attributes Table ADDRESS
+    public static final String ADDRESS_ID = "IdAddress";
+    public static final String ADDRESS_ID_USER = "IdUser";
+    public static final String ADDRESS_ADDRESS_1 = "Address1";
+    public static final String ADDRESS_ADDRESS_2 = "Address2";
+    public static final String ADDRESS_POSTAL_CODE = "PostalCode";
+    public static final String ADDRESS_CITY = "City";
+    public static final String ADDRESS_LATITUDE = "Latitude";
+    public static final String ADDRESS_LONGITUDE = "Longitude";
+    public static final String ADDRESS_TYPE_ADDRESS = "TypeAddress";
+    public static final String ADDRESS_ONELINE_ADDRESS = "OneLineAddress";
+
+    //Script Create Table ADDRESS
+    public static final String ADDRESS_TABLE_CREATE =
+            "CREATE TABLE " + ADDRESS_TABLE_NAME + " (" + ADDRESS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, " +
+                    ADDRESS_ID_USER + " INTEGER NOT NULL, " +
+                    ADDRESS_ADDRESS_1 + " VARCHAR (50), " +
+                    ADDRESS_ADDRESS_2 + " VARCHAR (50), " +
+                    ADDRESS_POSTAL_CODE + " VARCHAR (5), " +
+                    ADDRESS_CITY + " VARCHAR (80), " +
+                    ADDRESS_LATITUDE + " VARCHAR (20), " +
+                    ADDRESS_LONGITUDE + " VARCHAR (20), " +
+                    ADDRESS_TYPE_ADDRESS + " VARCHAR (10)" +
+                    ADDRESS_ONELINE_ADDRESS + " VARCHAR (1000)," +
+                    " CONSTRAINT FK_USER_ADDRESS FOREIGN KEY (" + ADDRESS_ID_USER + ") REFERENCES " + USER_TABLE_NAME + " (" + ADDRESS_ID_USER + ")";
+
+    //Table RIDE
+    public static final String RIDE_TABLE_NAME = "RIDE";
+
+    //Attributes Table RIDE
+    public static final String RIDE_ID = "IdRide";
+    public static final String RIDE_ID_USER = "IdUser";
+    public static final String RIDE_ID_USER_ONRIDE = "IdUserOnRide";
+    public static final String RIDE_DISTANCE = "Distance";
+
+    //Script Create Table RIDE
+    public static final String RIDE_TABLE_CREATE =
+            "CREATE TABLE " + RIDE_TABLE_NAME + " (" + RIDE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, " +
+                    RIDE_ID_USER + " INTEGER CONSTRAINT FK_Ride_User REFERENCES " + USER_TABLE_NAME +  "(" + USER_ID + "), " +
+                    RIDE_ID_USER_ONRIDE + " INTEGER NOT NULL, " +
+                    RIDE_DISTANCE + " DOUBLE";
+
 
     public Context getContext() {
         return context;
@@ -77,6 +116,8 @@ public class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
     public void onCreate(SQLiteDatabase db) {
         //db.execSQL(LocalStorageDB.DATABASE_CREATE);
         db.execSQL(USER_TABLE_CREATE);
+        db.execSQL(ADDRESS_TABLE_CREATE);
+        db.execSQL(RIDE_TABLE_CREATE);
     }
 
     /**
@@ -87,7 +128,7 @@ public class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
      */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(USER_TABLE_CREATE);
+        //db.execSQL(USER_TABLE_CREATE);
     }
 
     /**
@@ -157,16 +198,16 @@ public class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
     }
 
     /**
-     * Get a list of UserLocal
-     * @return List of USerLocal
+     * Get a list of User Neigbour in SQLite database
+     * @return List of User Neighbour
      */
     @Override
-    public ArrayList<UserLocal> getListUserLocal()
+    public ArrayList<UserLocal> getListLocalNeighbour()
     {
         ArrayList<UserLocal> listUser = new ArrayList<UserLocal>();
         SQLiteDatabase db = this.getReadableDatabase();
         ContentValues cv = new ContentValues();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE_NAME,null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE_NAME + " WHERE " + USER_CONNECTED_USER + " <> 1",null);
         if (cursor != null)
         {
             cursor.moveToFirst();

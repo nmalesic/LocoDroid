@@ -1,25 +1,79 @@
 <resources>
     <string name="app_name">LocoDroid England</string>
+
+   <!-- TITLES -->
+
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_main">Main</string>
-
     <string name="title_activity_login">Connexion</string>
 
+    <!--END TITLES END -->
+
+
+
+    <!-- Strings related to Navigation -->
+
+
+    <string name="nav_back">Back</string>
+    <string name="nav_next">Next</string>
+    <string name="lib_btn1">Next</string>
+    <string name="btn_next">Next</string>
+    <string name="map_login">Login</string>
+    <!--END  Strings related to Navigation END-->
+
     <!-- Strings related to login -->
+
+
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_register">Register</string>
+
+
+    <!-- FORMS -->
+
+    <!-- Login form -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
+
+
+    <!--END Login form END-->
+
+    <!-- Register form -->
+                <!--register fields -->
+            <string name="regfield_FullName">Full Name</string>
+            <string name="regfield_Email">Email</string>
+            <string name="regfield_Password">Password</string>
+            <string name="regfield_Confirm_Password">Confirm Password</string>
+            <string name="regfield_Address">Address</string>
+            <string name="regfield_Telephone">Telephone</string>
+            <string name="regfield_Radio_Group_Sex">Sex</string>
+            <string name="regfield_Radio_Man">Man</string>
+            <string name="regfield_Radio_Woman">Woman</string>
+            <!--END register fields END -->
+
+
+    <string name="reg_new_account"> Register your new account</string>
+    <string name="existing_account"> You already have an account? touch here to go back to login</string>
+    <!--END  Register form  END-->
+
+    <!--END FORMS END-->
+
+
+
+    <!-- ERRORS -->
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
+    <!--END ERRORS END -->
+
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
 
-    <string name="lib_btn1">Next</string>
-    <string name="btn_next">Next</string>
+
+    <!-- Champs non identifiés A REVOIR -->
+
     <string name="imageaccueil">image</string>
 
     <string name="nom">LastName</string>
