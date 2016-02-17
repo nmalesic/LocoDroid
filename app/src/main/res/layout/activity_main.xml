@@ -19,7 +19,7 @@ android:background="#ffffff"
     android:textSize="18sp"
     android:layout_height="55dp"
     android:onClick="onClick1"
-    android:background="@layout/rounded"
+    android:background="@layout/roundedbutton"
     android:layout_gravity="center_horizontal">
 </Button>
     <Button android:text="@string/title_activity_maps"
@@ -28,7 +28,7 @@ android:background="#ffffff"
         android:textSize="18sp"
         android:layout_height="55dp"
         android:onClick="onClick1"
-        android:background="@layout/rounded"
+        android:background="@layout/roundedbutton"
         android:layout_gravity="center_horizontal">
     </Button>
 
