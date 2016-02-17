@@ -19,7 +19,8 @@
         android:text="@string/map_login"
         android:id="@+id/Button01"
         android:background="@layout/rounded"
-        android:layout_gravity="right|bottom" />
+        android:layout_gravity="right|bottom"
+        android:padding="5dip" />
 
     <SearchView
         android:layout_width="369dp"

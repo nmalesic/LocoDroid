@@ -2,14 +2,10 @@ package com.bl.locodroid.localisation;
 
 import android.location.Address;
 
-import com.bl.locodroid.localstorage.ILocalStorage;
-import com.bl.locodroid.user.User;
+import com.bl.locodroid.localisation.domain.Location;
+import com.bl.locodroid.localisation.domain.LocoAddress;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by nmalesic on 08/02/2016.

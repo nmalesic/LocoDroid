@@ -3,8 +3,7 @@
 android:orientation="vertical"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
-    android:background="#ffffff"
-
+    android:background="#a1b9cc"
     android:weightSum="1">
 
 <TextView
@@ -16,7 +15,7 @@ android:layout_height="fill_parent"
 
 <Button android:text="@string/btn_next"
     android:id="@+id/Button01"
-    android:layout_width="250dp"
+    android:layout_width="150dp"
     android:textSize="18sp"
     android:layout_height="55dp"
     android:onClick="onClick1"
@@ -25,7 +24,7 @@ android:layout_height="fill_parent"
 </Button>
     <Button android:text="@string/title_activity_maps"
         android:id="@+id/ButtonMap"
-        android:layout_width="250dp"
+        android:layout_width="150dp"
         android:textSize="18sp"
         android:layout_height="55dp"
         android:onClick="onClick1"

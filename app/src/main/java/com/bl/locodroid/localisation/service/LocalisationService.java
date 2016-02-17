@@ -1,4 +1,4 @@
-package com.bl.locodroid.localisation;
+package com.bl.locodroid.localisation.service;
 
 import android.content.Intent;
 import android.location.Address;
@@ -8,16 +8,17 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.bl.locodroid.user.User;
+import com.bl.locodroid.localisation.GRoute;
+import com.bl.locodroid.localisation.domain.LocoAddress;
+import com.bl.locodroid.localisation.service.ILocalisationService;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by nmalesic on 10/02/2016.
  */
-public class LocalisationService extends Service implements ILocalisationService  {
+public class LocalisationService extends Service implements ILocalisationService {
 
     private static final String TAG = "LocalisationService";
     Geocoder geocoder;

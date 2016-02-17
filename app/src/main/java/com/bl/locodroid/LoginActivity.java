@@ -112,10 +112,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         but_return.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
-                //get context() pour récupérer la vue, puis on renseigne la classe vers laquelle on veut switcher
-                //Intent myIntent = new Intent(view.getContext(), MapsActivity.class);
-                //startActivityForResult(myIntent, 0);
-
                 Intent openMainActivity= new Intent(LoginActivity.this, MapsActivity.class);
                 openMainActivity.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(openMainActivity);

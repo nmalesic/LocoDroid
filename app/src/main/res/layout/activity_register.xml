@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:padding="10dip"
 
-         android:background="#ffcccccc">
+         android:background="#a1b9cc">
             <!--  android:layout_below="@id/header"-->
          <!-- Full Name Label -->
             <TextView android:layout_width="fill_parent"
@@ -173,7 +173,8 @@
                 android:text="@string/existing_account"
                 android:gravity="center"
                 android:textSize="20dip"
-                android:textColor="#025f7c"/>
+                android:textColor="#025f7c"
+                android:padding="5dip" />
 
         </LinearLayout>
         <!-- Registration Form Ends -->

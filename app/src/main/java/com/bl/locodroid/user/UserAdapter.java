@@ -12,6 +12,7 @@ package com.bl.locodroid.user;
     import android.widget.TextView;
 
     import com.bl.locodroid.R;
+    import com.bl.locodroid.user.domain.User;
     import com.bl.locodroid.model.LocoModel;
 
 public class UserAdapter extends ArrayAdapter<User>{
@@ -33,10 +34,8 @@ public class UserAdapter extends ArrayAdapter<User>{
             LayoutInflater vi = (LayoutInflater)this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             maVue = vi.inflate(this.viewRes, parent, false);
         }
-
         User personne = this.users.get(position);
         if(personne != null) {
-            
             this.renseigneTextView(maVue, R.id.lastName, personne.getLastName() + " " + personne.getFirstName());
             this.renseigneTextView(maVue, R.id.address, personne.getAdress1()+" "+personne.getAdress2()+" "+ personne.getCodePostal()+" "+personne.getCity());
             this.renseigneTextView(maVue, R.id.email, personne.getEmail());

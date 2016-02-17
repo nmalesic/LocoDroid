@@ -6,18 +6,15 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.bl.locodroid.localisation.Location;
-import com.bl.locodroid.localisation.LocoAddress;
+import com.bl.locodroid.localisation.domain.Location;
+import com.bl.locodroid.localisation.domain.LocoAddress;
 import com.bl.locodroid.model.LocoModel;
-import com.bl.locodroid.user.User;
-import com.bl.locodroid.user.UserListActivity;
+import com.bl.locodroid.user.domain.User;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.Circle;
-import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
