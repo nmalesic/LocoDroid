@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bl.locodroid.MapsActivity;
+import com.bl.locodroid.MapsUserActivity;
 import com.bl.locodroid.ProfileActivity;
 import com.bl.locodroid.R;
 import com.bl.locodroid.localisation.Location;
@@ -31,7 +33,6 @@ public class UserListActivity extends Activity {
 
     ArrayList<User> neighBours = new ArrayList<User>();
 
-    String adresse = "Place Clemence Isaure 31320 Castanet-Tolosan";
     User a;
     Location loc;
     LocoAddress locoAddress;
@@ -41,21 +42,6 @@ public class UserListActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userlist);
-
-/*        a = new User("RABOIS", "Sylvain", "pion de 6", "a@a.a", "a", "a", null, "0102030405", "M", "false");
-        loc = new Location("43.5563336", "1.528394");
-        locoAddress = new LocoAddress("10 Avenue de Gameville", "", "31650", "Saint-Orens-de-Gameville", loc);
-        neighBours.add(a);
-
-        a = new User("CHAMAYOU", "Olivier", "objet composition détaché", "b@b.b", "b", "b", null, "0602030405", "M", "false");
-        loc = new Location("43.5175497", "1.5057399");
-        locoAddress = new LocoAddress("10 Rue du Pic du Midi", "", "31240", "L'Union", loc);
-        neighBours.add(a);
-
-        a = new User("COEURET", "Fabrice", "Singleton", "c@c.c", "c", "c", null, "0702030405", "M", "false");
-        loc = new Location("43.5175497", "1.5057399");
-        locoAddress = new LocoAddress("Place Clemence Isaure", "", "31320", "Castanet-Tolosan", loc);
-        neighBours.add(a);*/
 
         a = new User("RABOIS", "Sylvain", "pion de 6", "a@a.a", "a", "a", null, "0102030405", "M", "false");
         loc = new Location("43.5563336", "1.528394");
@@ -67,13 +53,12 @@ public class UserListActivity extends Activity {
         model.setUserConnected(a);
         neighBours = model.getNeighbours();
 
+
         mListView = (ListView) findViewById(R.id.list_user);
 
         //ArrayAdapter<User> adapter = new ArrayAdapter<User>(UserListActivity.this, R.layout.list_view_row, R.id.lastName, neighBours);
         UserAdapter adapter = new UserAdapter(UserListActivity.this, R.layout.list_view_row, neighBours);
         mListView.setAdapter(adapter);
-
-
 
         mListView.setOnItemClickListener(new ListClickHandler());
 
@@ -85,6 +70,17 @@ public class UserListActivity extends Activity {
                 Intent myIntent = new Intent();
                 setResult(RESULT_OK, myIntent);
                 finish();
+            }
+        });
+
+        Button but_map = (Button)findViewById(R.id.ButtonMap);
+
+        but_map.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+
+                //get context() pour récupérer la vue, puis on renseigne la classe vers laquelle on veut switcher
+                Intent myIntent = new Intent(view.getContext(), MapsUserActivity.class);
+                startActivityForResult(myIntent, 0);
             }
         });
     }
