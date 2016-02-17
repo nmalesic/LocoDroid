@@ -97,6 +97,7 @@ public class LocoModel {
         locoAddress = new LocoAddress("Place Clemence Isaure","","31320","Castanet-Tolosan",loc);
         neighBours.add(a);
 
+        lastNeighBours = neighBours;
         return neighBours;
     }
 
@@ -135,6 +136,7 @@ public class LocoModel {
             }
         }
 
+        lastNeighBours = listUserInRadius;
         return listUserInRadius;
     }
 
