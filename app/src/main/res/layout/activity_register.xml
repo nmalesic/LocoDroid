@@ -132,7 +132,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#372c24"
-                android:text="Sex"
+                android:text="@string/regfield_Radio_Group_Sex"
                 android:id="@+id/textView2" />
 
             <RadioGroup

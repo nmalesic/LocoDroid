@@ -1,8 +1,21 @@
 <resources>
     <string name="app_name">LocoDroid France</string>
+
+    <!-- TITLES -->
     <string name="title_activity_maps">Carte</string>
-    <string name="title_activity_main">Main</string>
+    <string name="title_activity_main">Principal</string>
+    <string name="title_activity_login">Connection</string>
+    <!--END TITLES END-->
+
+
+    <!-- Strings related to Navigation -->
+
     <string name="lib_btn1">Suivant</string>
+    <string name="nav_back">Précédent</string>
+    <string name="nav_next">Suivant</string>
+    <!--END  Strings related to Navigation END-->
+
+
 
     <string name="action_sign_in">Connectez vous</string>
     <string name="action_sign_in_short">Connection</string>
@@ -16,23 +29,26 @@
     <string name="regfield_Confirm_Password">Confirmer votre mot de passe</string>
     <string name="regfield_Address">Adresse</string>
     <string name="regfield_Telephone">Téléphone</string>
+    <string name="regfield_Radio_Group_Sex">Sexe</string>
     <string name="regfield_Radio_Man">Homme </string>
     <string name="regfield_Radio_Woman">Femme </string>
 
 
-    <!-- register fields end -->
+    <!--END register fields END -->
     <string name="reg_new_account"> Enregistrez votre nouveau compte</string>
     <string name="existing_account"> Vous possedez déjà un compte? connectez vous</string>
 
+
+    <!-- ERRORS -->
     <string name="error_invalid_email">Cette adresse mail est invalide</string>
     <string name="error_invalid_password">votre mot de passe est trop court</string>
     <string name="error_incorrect_password">Mot de passe incorrect</string>
     <string name="error_field_required">Champ obligatoire</string>
-
+    <!--END ERRORS END -->
 
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
 
-    <string name="lib_btn1">Suivant</string>
+
 </resources>
