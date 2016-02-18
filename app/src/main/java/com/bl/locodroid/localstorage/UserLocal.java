@@ -1,10 +1,12 @@
 package com.bl.locodroid.localstorage;
 
+import com.bl.locodroid.localisation.domain.Location;
 import com.bl.locodroid.user.service.IUserService;
 import com.bl.locodroid.user.domain.User;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -107,6 +109,11 @@ public class UserLocal implements IUserService{
 
     @Override
     public HashMap<String, User> getAllUser() {
+        return null;
+    }
+
+    @Override
+    public ArrayList<User> getNeighbours(Location center) {
         return null;
     }
 }

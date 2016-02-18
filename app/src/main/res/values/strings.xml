@@ -21,6 +21,12 @@
     <string name="map_login">Login</string>
     <!--END  Strings related to Navigation END-->
 
+
+    <!-- background message -->
+    <string name="background_doing">Loading ...</string>
+
+    <!--END background message END-->
+
     <!-- Strings related to login -->
 
 

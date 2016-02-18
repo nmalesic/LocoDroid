@@ -5,8 +5,12 @@ package com.bl.locodroid.user;
  */
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -20,10 +24,13 @@ import com.bl.locodroid.localisation.domain.LocoAddress;
 import com.bl.locodroid.model.LocoModel;
 import com.bl.locodroid.user.domain.User;
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class UserListActivity extends Activity {
 
+    protected static ProgressDialog dialog;
     LocoModel model;
 
     UserAdapter userAdapter;
@@ -66,7 +73,40 @@ public class UserListActivity extends Activity {
         neighBours.add(a);
         model = LocoModel.getInstance();
         model.setUserConnected(a);
-        neighBours = model.getNeighbours();
+
+        class GetListUserTask extends AsyncTask<Void, Integer, ArrayList<User>> {
+
+            /** * Le AtomicBoolean pour lancer et stopper la Thread */
+            private AtomicBoolean isThreadRunnning = new AtomicBoolean();
+            /** * Le AtomicBoolean pour mettre en pause et relancer la Thread */
+            private AtomicBoolean isThreadPausing = new AtomicBoolean();
+
+            @Override
+            protected void onPreExecute(){
+                dialog = ProgressDialog.show(UserListActivity.this, "", getString(R.string.background_doing));
+            }
+
+            @Override
+            protected ArrayList<User> doInBackground(Void... params) {
+                ArrayList<User> result = null;
+                //if (isThreadRunnning.get()) {
+                    result = model.getNeighbours();
+                //}
+                return result;
+            }
+
+            @Override
+            protected void onPostExecute(ArrayList<User> result) {
+                neighBours = result;
+                UserAdapter adapter = new UserAdapter(UserListActivity.this, R.layout.list_view_row, neighBours);
+                mListView.setAdapter(adapter);
+                dialog.dismiss();
+                dialog = null;
+            }
+        }
+
+        new GetListUserTask().execute();
+        //neighBours = model.getNeighbours();
 
         mListView = (ListView) findViewById(R.id.list_user);
 
