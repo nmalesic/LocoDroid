@@ -56,6 +56,9 @@
         <activity android:name=".user.UserListActivity"></activity>
    
         <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".MapsUserActivity"></activity>
+
+
 
 
     </application>

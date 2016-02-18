@@ -124,8 +124,8 @@ public class UserWebService implements IUserWebService {
         neighBours.add(a);
 
         a = new User("webCHAMAYOU","Olivier","objet composition detache","b@b.b","b","b", null, "0602030405","M","false");
-        loc = new Location("43.5175497","1.5057399");
-        locoAddress = new LocoAddress("10 Rue du Pic du Midi","","31240","L'Union",loc);
+        loc = new Location("43.6575","1.4853");
+        locoAddress = new LocoAddress("10 Rue du Pic du Midi","","31240","L Union",loc);
         locoAddress.setLocation(loc);
         a.setAddress(locoAddress);
         neighBours.add(a);

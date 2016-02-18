@@ -79,6 +79,7 @@ public class LocoModel {
 
         ArrayList<User> neighBours = new ArrayList<User>();
 
+
         // WebService Mock
         neighBours = userService.getNeighbours(new Location());
 
@@ -97,8 +98,8 @@ public class LocoModel {
 //        neighBours.add(a);
 //
 //        a = new User("CHAMAYOU","Olivier","objet composition détaché","b@b.b","b","b", null, "0602030405","M","false");
-//        loc = new Location("43.5175497","1.5057399");
-//        locoAddress = new LocoAddress("10 Rue du Pic du Midi","","31240","L'Union",loc);
+//        loc = new Location("43.6575","1.4853");
+//        locoAddress = new LocoAddress("10 Rue du Pic du Midi","","31240","L Union",loc);
 //        locoAddress.setLocation(loc);
 //        a.setAddress(locoAddress);
 //        neighBours.add(a);
@@ -109,6 +110,7 @@ public class LocoModel {
 //        locoAddress.setLocation(loc);
 //        a.setAddress(locoAddress);
 //        neighBours.add(a);
+
 
         lastNeighBours = neighBours;
         return neighBours;

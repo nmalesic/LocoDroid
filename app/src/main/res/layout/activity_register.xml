@@ -28,6 +28,7 @@
         <!--  Header Ends -->
         <!-- Footer Start -->
         <LinearLayout android:id="@+id/footer"
+            android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="15dip"
             android:background="#14727e"
