@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /**
  * Created by fcoeuret on 10/02/2016.
  */
-public class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
+public abstract class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
 
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "LocoDroid.db";
@@ -180,7 +180,7 @@ public class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
      * @param email Email of User
      * @return UserLocal
      */
-    @Override
+   /* @Override
     public UserLocal getUserLocalByEmail(String email)
     {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -193,13 +193,13 @@ public class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
             userLocal = informUserLocal(cursor);
         }
         return userLocal;
-    }
+    } */
 
     /**
      * Get a list of User Neigbour in SQLite database
      * @return List of User Neighbour
      */
-    @Override
+    /* @Override
     public ArrayList<UserLocal> getListLocalNeighbour()
     {
         ArrayList<UserLocal> listUser = new ArrayList<UserLocal>();
@@ -214,7 +214,7 @@ public class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
                 }while (cursor.moveToNext());
         }
         return listUser;
-    }
+    } */
 
     /**
      * Close Local SQLite database
@@ -230,7 +230,7 @@ public class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
      * @param cursor cursor of UserLocal
      * @return USerLocal
      */
-    private UserLocal informUserLocal(Cursor cursor)
+    /* private UserLocal informUserLocal(Cursor cursor)
     {
         UserLocal ul = new UserLocal();
         User user = new User();
@@ -245,7 +245,7 @@ public class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
         user.setTelephone(cursor.getString(cursor.getColumnIndex(USER_TELEPHONE)));
         ul.setUser(user);
         return ul;
-    }
+    } */
 
 
 

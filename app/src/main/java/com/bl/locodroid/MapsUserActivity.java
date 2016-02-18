@@ -14,6 +14,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -87,8 +88,8 @@ public class MapsUserActivity extends FragmentActivity implements OnMapReadyCall
                 mMap.addMarker(new MarkerOptions().position(a).title(u.getLastName()+ " " + u.getFirstName()));
             }
 
-        LatLng Labege = new LatLng(43.5333,1.5333);
-
+        LatLng Labege = new LatLng(43.543254,1.512209);
+        mMap.addMarker(new MarkerOptions().position(Labege).title("NOTRE TRES CHER BERGER-LEVRAULT").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
 
         /* LatLng Albi = new LatLng(43.92, 2.14);
         mMap.addMarker(new MarkerOptions().position(Albi).title("Marker in Albi"));

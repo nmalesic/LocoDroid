@@ -10,7 +10,7 @@ import java.util.HashMap;
 /**
  * Created by fcoeuret on 09/02/2016.
  */
-public class UserLocal implements IUserService{
+public abstract class UserLocal implements IUserService{
 
     private User user;
     private static final String nomFichier = "locoDroid.txt";
