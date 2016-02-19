@@ -18,6 +18,6 @@ public interface IUserService {
     boolean updateUser(User user);
     boolean deleteUser(User user);
 
-    HashMap<String,User> getAllUser();
+    ArrayList<User> getAllUser();
     ArrayList<User> getNeighbours(Location center);
 }

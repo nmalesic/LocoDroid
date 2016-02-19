@@ -108,7 +108,7 @@ public abstract class UserLocal implements IUserService{
     }
 
     @Override
-    public HashMap<String, User> getAllUser() {
+    public ArrayList<User> getAllUser() {
         return null;
     }
 

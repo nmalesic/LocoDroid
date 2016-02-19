@@ -50,8 +50,9 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public HashMap<String, User> getAllUser() {
-        return null;
+    public ArrayList<User> getAllUser() {
+        UserWebService userWebService = new UserWebService();
+        return userWebService.getAllUser();
     }
 
     @Override

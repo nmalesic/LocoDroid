@@ -81,7 +81,8 @@ public class LocoModel {
 
 
         // WebService Mock
-        neighBours = userService.getNeighbours(new Location());
+        //neighBours = userService.getNeighbours(new Location());
+        neighBours = userService.getAllUser();
 
 
 
@@ -127,27 +128,42 @@ public class LocoModel {
         ArrayList<User> listUserInRadius = null;
 
         if (ISGETNEIGHBOURSMOCK == true) {
-            listUserInRadius =  getNeighboursMock();
+            //listUserInRadius =  getNeighboursMock();
+            listUserInRadius = userService.getAllUser();
         } else {
 
-            HashMap<String, User> listeUser = userService.getAllUser();
+//            HashMap<String, User> listeUser = userService.getAllUser();
+//
+//            listUserInRadius = new ArrayList<User>();
+//
+//            for (Map.Entry<String, User> user : listeUser.entrySet()) {
 
-            listUserInRadius = new ArrayList<User>();
+            ArrayList<User> listeUser = userService.getAllUser();
 
-            for (Map.Entry<String, User> user : listeUser.entrySet()) {
+            for (User user:listeUser) {
 
-                double dist = LocalisationUtil.distance(Double.parseDouble(user.getValue().getAddress().getLocation().lat)
+                double dist = LocalisationUtil.distance(Double.parseDouble(user.getAddress().getLocation().lat)
                         , Double.parseDouble(center.lat)
-                        , Double.parseDouble(user.getValue().getAddress().getLocation().lng)
+                        , Double.parseDouble(user.getAddress().getLocation().lng)
                         , Double.parseDouble(center.lng)
                         , (double) 0
                         , (double) 0);
 
                 //user.getKey();
                 if (dist < getRadius() * 1000) {
-                    listUserInRadius.add(user.getValue());
+                    listUserInRadius.add(user);
                 }
-
+//                double dist = LocalisationUtil.distance(Double.parseDouble(user.getValue().getAddress().getLocation().lat)
+//                        , Double.parseDouble(center.lat)
+//                        , Double.parseDouble(user.getValue().getAddress().getLocation().lng)
+//                        , Double.parseDouble(center.lng)
+//                        , (double) 0
+//                        , (double) 0);
+//
+//                //user.getKey();
+//                if (dist < getRadius() * 1000) {
+//                    listUserInRadius.add(user.getValue());
+//                }
             }
         }
 

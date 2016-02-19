@@ -48,14 +48,17 @@ public class UserWebService implements IUserWebService {
     }
 
     @Override
-    public HashMap<String, User> getAllUser() {
-        HashMap<String, User> responseHashMap = new HashMap<String, User>();
+    public ArrayList<User> getAllUser() {
+        //HashMap<String, User> responseHashMap = new HashMap<String, User>();
         ArrayList<User> response = new ArrayList<User>();
 
             HttpURLConnection conn = null;
             try {
 
-                URL url = new URL("http://www.locomaps.com/user/getAllUser");
+                //URL url = new URL("http://www.locomaps.com/user/getAllUser");
+                //URL url = new URL("localhost:8080/LocoMaps/user/getAllUser");
+                URL url = new URL("http://locomaps.cloudapp.net/LocoMaps/user/getAllUser");
+
 
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setConnectTimeout(2000);
@@ -91,11 +94,12 @@ public class UserWebService implements IUserWebService {
                 return null;
             }
 
-        for (User u: response) {
-            responseHashMap.put(u.getEmail(),u);
-        }
+//        for (User u: response) {
+//            responseHashMap.put(u.getEmail(),u);
+//        }
+//        responseHashMap
 
-        return responseHashMap;
+        return response;
     }
 
     @Override
