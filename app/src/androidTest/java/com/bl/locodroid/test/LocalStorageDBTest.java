@@ -48,8 +48,7 @@ public class LocalStorageDBTest extends TestCase {
         super.setUp();
 
         //context = getTestContext();
-        localDB = new LocalStorageDB(context, DATABASE_NAME, factory, DATABASE_VERSION);
-
+        //localDB = new LocalStorageDB(context, DATABASE_NAME, factory, DATABASE_VERSION);
     }
 
 //    public void tearDown() throws Exception {
@@ -65,7 +64,7 @@ public class LocalStorageDBTest extends TestCase {
 //    }
 
 //    public void testConnectLocalDatabase() throws Exception {
-//        //assertEquals(1,2);
+//        assertEquals(1,2);
 //    }
 //
 //    public void testDisconnectLocalDatabase() throws Exception {

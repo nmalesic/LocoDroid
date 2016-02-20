@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.bl.locodroid.localstorage.LocalStorageDB;
 import com.bl.locodroid.model.LocoModel;
 import com.bl.locodroid.user.UserListActivity;
 
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         //Log.i("EPITEZ", "Created activity 1");
+
+        LocalStorageDB localdb = new LocalStorageDB(this.getBaseContext(),"LocoDroid.db",null,1);
 
         Button but_next = (Button)findViewById(R.id.Button01);
 

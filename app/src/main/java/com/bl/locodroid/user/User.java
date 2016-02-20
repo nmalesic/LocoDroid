@@ -13,6 +13,7 @@ public class User {
     private String email;
     private String password;
     private String confirmPassword;
+    private boolean userAnonyme;
 
 
 
@@ -117,6 +118,12 @@ public class User {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    public boolean getUserAnonyme() { return userAnonyme; }
+
+    public void setUserAnonyme(boolean userAnonyme) {
+        this.userAnonyme = userAnonyme;
     }
 
     public String getAdress1() {
