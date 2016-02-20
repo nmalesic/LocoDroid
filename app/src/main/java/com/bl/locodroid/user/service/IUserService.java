@@ -1,5 +1,9 @@
-package com.bl.locodroid.user;
+package com.bl.locodroid.user.service;
 
+import com.bl.locodroid.localisation.domain.Location;
+import com.bl.locodroid.user.domain.User;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -14,5 +18,6 @@ public interface IUserService {
     boolean updateUser(User user);
     boolean deleteUser(User user);
 
-    HashMap<String,User> listAllUser();
+    ArrayList<User> getAllUser();
+    ArrayList<User> getNeighbours(Location center);
 }

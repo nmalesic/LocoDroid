@@ -5,23 +5,20 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-
 import com.bl.locodroid.localisation.Address_component;
-import com.bl.locodroid.localisation.Location;
-import com.bl.locodroid.localisation.LocoAddress;
-import com.bl.locodroid.user.User;
+import com.bl.locodroid.localisation.domain.LocoAddress;
+import com.bl.locodroid.localisation.domain.Location;
+import com.bl.locodroid.user.domain.User;
 
 import org.xml.sax.helpers.ParserFactory;
 
 import java.text.ParsePosition;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by fcoeuret on 10/02/2016.
  */
-public class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
+public abstract class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
 
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "LocoDroid.db";
@@ -363,7 +360,6 @@ public class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
         user.setAddress(address);
         return user;
     }
-
 
     /**
      * Test local SQLite database with creation of users...

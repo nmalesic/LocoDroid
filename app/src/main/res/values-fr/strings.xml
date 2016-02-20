@@ -16,6 +16,11 @@
     <string name="nav_next">Suivant</string>
     <!--END  Strings related to Navigation END-->
 
+    <!-- background message -->
+    <string name="background_doing">Chargement ...</string>
+
+    <!--END background message END-->
+
     <!-- Strings related to login -->
 
     <string name="action_sign_in">Connectez vous</string>
@@ -63,11 +68,16 @@
     </string>
 
 
+    <!-- Users> -->
+    <string name="nom">Nom</string>
+    <string name="prenom">Prénom</string>
+    <string name="email">Email</string>
+    <string name="address">Adresse</string>
+    <string name="phone">Téléphone</string>
+
     <!-- Champs non identifiés A REVOIR -->
 
     <string name="imageaccueil">image</string>
-    <string name="nom">Nom</string>
-    <string name="prenom">Prénom</string>
-    <string name="email">Adresse Electronique (email)</string>
+
 
 </resources>

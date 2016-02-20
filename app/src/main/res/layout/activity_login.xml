@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#a1b9cc"
     tools:context="com.bl.locodroid.LoginActivity">
 
     <!-- Login progress -->
@@ -28,11 +29,13 @@
             android:id="@+id/email_login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="#a1b9cc">
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip">
 
                 <AutoCompleteTextView
                     android:id="@+id/email"
@@ -40,8 +43,11 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
+                    android:background="@layout/rounded"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:paddingTop="5dip"
+                    android:paddingBottom="5dip" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -58,8 +64,11 @@
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
+                    android:background="@layout/rounded"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:paddingTop="5dip"
+                    android:paddingBottom="5dip" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -69,6 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:background="@layout/roundedbutton"
                 android:text="@string/action_sign_in"
                 android:textStyle="bold" />
 
@@ -79,7 +89,9 @@
                 android:textSize="18sp"
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
-                android:layout_gravity="center_horizontal" />
+                android:background="@layout/roundedbutton"
+                android:layout_gravity="center_horizontal"
+                android:padding="5dip" />
 
             <Button
                 android:text="@string/action_register"
@@ -88,7 +100,9 @@
                 android:textSize="18sp"
                 android:layout_height="wrap_content"
                 android:onClick="onClick1"
-                android:layout_gravity="center_horizontal" />
+                android:background="@layout/roundedbutton"
+                android:layout_gravity="center_horizontal"
+                android:padding="5dip" />
 
         </LinearLayout>
     </ScrollView>

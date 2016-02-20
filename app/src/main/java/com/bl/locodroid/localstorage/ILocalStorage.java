@@ -2,7 +2,7 @@ package com.bl.locodroid.localstorage;
 
 import android.database.sqlite.SQLiteDatabase;
 
-import com.bl.locodroid.user.User;
+import com.bl.locodroid.user.domain.User;
 
 import java.util.ArrayList;
 

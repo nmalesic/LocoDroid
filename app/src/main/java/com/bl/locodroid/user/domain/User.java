@@ -1,6 +1,6 @@
-package com.bl.locodroid.user;
+package com.bl.locodroid.user.domain;
 
-import com.bl.locodroid.localisation.LocoAddress;
+import com.bl.locodroid.localisation.domain.LocoAddress;
 
 /**
  * Created by nmalesic on 05/02/2016.

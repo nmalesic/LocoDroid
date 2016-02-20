@@ -5,24 +5,34 @@ package com.bl.locodroid.user;
  */
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bl.locodroid.MapsActivity;
+import com.bl.locodroid.MapsUserActivity;
 import com.bl.locodroid.ProfileActivity;
 import com.bl.locodroid.R;
-import com.bl.locodroid.localisation.Location;
-import com.bl.locodroid.localisation.LocoAddress;
+import com.bl.locodroid.localisation.domain.Location;
+import com.bl.locodroid.localisation.domain.LocoAddress;
 import com.bl.locodroid.model.LocoModel;
+import com.bl.locodroid.user.domain.User;
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class UserListActivity extends Activity {
 
+    protected static ProgressDialog dialog;
     LocoModel model;
 
     UserAdapter userAdapter;
@@ -31,7 +41,6 @@ public class UserListActivity extends Activity {
 
     ArrayList<User> neighBours = new ArrayList<User>();
 
-    String adresse = "Place Clemence Isaure 31320 Castanet-Tolosan";
     User a;
     Location loc;
     LocoAddress locoAddress;
@@ -45,25 +54,52 @@ public class UserListActivity extends Activity {
         a = new User("RABOIS", "Sylvain", "pion de 6", "a@a.a", "a", "a", null, "0102030405", "M", "false");
         loc = new Location("43.5563336", "1.528394");
         locoAddress = new LocoAddress("10 Avenue de Gameville", "", "31650", "Saint-Orens-de-Gameville", loc);
+        locoAddress.setLocation(loc);
+        a.setAddress(locoAddress);
         neighBours.add(a);
+        model = LocoModel.getInstance();
+        model.setUserConnected(a);
 
-        a = new User("CHAMAYOU", "Olivier", "objet composition détaché", "b@b.b", "b", "b", null, "0602030405", "M", "false");
-        loc = new Location("43.5175497", "1.5057399");
-        locoAddress = new LocoAddress("10 Rue du Pic du Midi", "", "31240", "L'Union", loc);
-        neighBours.add(a);
+        class GetListUserTask extends AsyncTask<Void, Integer, ArrayList<User>> {
 
-        a = new User("COEURET", "Fabrice", "Singleton", "c@c.c", "c", "c", null, "0702030405", "M", "false");
-        loc = new Location("43.5175497", "1.5057399");
-        locoAddress = new LocoAddress("Place Clemence Isaure", "", "31320", "Castanet-Tolosan", loc);
-        neighBours.add(a);
+            /** * Le AtomicBoolean pour lancer et stopper la Thread */
+            private AtomicBoolean isThreadRunnning = new AtomicBoolean();
+            /** * Le AtomicBoolean pour mettre en pause et relancer la Thread */
+            private AtomicBoolean isThreadPausing = new AtomicBoolean();
+
+            @Override
+            protected void onPreExecute(){
+                dialog = ProgressDialog.show(UserListActivity.this, "", getString(R.string.background_doing));
+            }
+
+            @Override
+            protected ArrayList<User> doInBackground(Void... params) {
+                ArrayList<User> result = null;
+                //if (isThreadRunnning.get()) {
+                    result = model.getNeighbours();
+                //}
+                return result;
+            }
+
+            @Override
+            protected void onPostExecute(ArrayList<User> result) {
+                neighBours = result;
+                UserAdapter adapter = new UserAdapter(UserListActivity.this, R.layout.list_view_row, neighBours);
+                mListView.setAdapter(adapter);
+                dialog.dismiss();
+                dialog = null;
+            }
+        }
+
+        new GetListUserTask().execute();
+        //neighBours = model.getNeighbours();
+
 
         mListView = (ListView) findViewById(R.id.list_user);
 
         //ArrayAdapter<User> adapter = new ArrayAdapter<User>(UserListActivity.this, R.layout.list_view_row, R.id.lastName, neighBours);
         UserAdapter adapter = new UserAdapter(UserListActivity.this, R.layout.list_view_row, neighBours);
         mListView.setAdapter(adapter);
-
-
 
         mListView.setOnItemClickListener(new ListClickHandler());
 
@@ -75,6 +111,17 @@ public class UserListActivity extends Activity {
                 Intent myIntent = new Intent();
                 setResult(RESULT_OK, myIntent);
                 finish();
+            }
+        });
+
+        Button but_map = (Button)findViewById(R.id.ButtonMap);
+
+        but_map.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+
+                //get context() pour récupérer la vue, puis on renseigne la classe vers laquelle on veut switcher
+                Intent myIntent = new Intent(view.getContext(), MapsUserActivity.class);
+                startActivityForResult(myIntent, 0);
             }
         });
     }

@@ -1,18 +1,18 @@
 package com.bl.locodroid.localstorage;
 
-import android.content.Context;
+import com.bl.locodroid.localisation.domain.Location;
+import com.bl.locodroid.user.service.IUserService;
+import com.bl.locodroid.user.domain.User;
 
-import com.bl.locodroid.user.IUserService;
-import com.bl.locodroid.user.User;
-import com.bl.locodroid.user.UserService;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  * Created by fcoeuret on 09/02/2016.
  */
-public class UserLocal implements IUserService{
+public abstract class UserLocal implements IUserService{
 
     private User user;
     private static final String nomFichier = "locoDroid.txt";
@@ -108,7 +108,12 @@ public class UserLocal implements IUserService{
     }
 
     @Override
-    public HashMap<String, User> listAllUser() {
+    public ArrayList<User> getAllUser() {
+        return null;
+    }
+
+    @Override
+    public ArrayList<User> getNeighbours(Location center) {
         return null;
     }
 }

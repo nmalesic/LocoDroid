@@ -13,22 +13,21 @@
     android:layout_height="match_parent"
     tools:context="com.bl.locodroid.MapsActivity" />
 
-    <Button
+     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/map_login"
-        android:id="@+id/Button01"
+        android:text="@string/nav_back"
+        android:id="@+id/btn_back"
         android:background="@layout/rounded"
-        android:layout_gravity="right|bottom"
-        android:padding="5dip" />
+        android:layout_gravity="right|bottom" />
 
-    <SearchView
+    <!-- <SearchView
         android:layout_width="369dp"
         android:layout_height="wrap_content"
         android:id="@+id/searchView"
         android:layout_gravity="center_horizontal|top"
         android:background="@layout/rounded"
         android:clickable="true"
-        android:layout_marginTop="10dip" />
+        android:layout_marginTop="10dip" /> -->
 
 </FrameLayout>

@@ -1,4 +1,4 @@
-package com.bl.locodroid.localisation;
+package com.bl.locodroid.localisation.domain;
 
 /**
  * coords latitude and longitude in google maps format
