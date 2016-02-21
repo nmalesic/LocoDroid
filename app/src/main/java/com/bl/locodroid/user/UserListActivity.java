@@ -11,6 +11,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -30,7 +31,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class UserListActivity extends Activity {
+public class UserListActivity extends AppCompatActivity {
 
     protected static ProgressDialog dialog;
     LocoModel model;

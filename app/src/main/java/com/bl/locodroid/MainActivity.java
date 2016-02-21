@@ -9,8 +9,11 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.bl.locodroid.model.LocoModel;
 import com.bl.locodroid.user.UserListActivity;
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //Log.i("EPITEZ", "Created activity 1");
 
-        Button but_next = (Button)findViewById(R.id.Button01);
+        Button but_next = (Button) findViewById(R.id.Button01);
 
 
         but_next.setOnClickListener(new View.OnClickListener() {
@@ -37,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(myIntent, 0);
             }
         });
-        Button but_map = (Button)findViewById(R.id.ButtonMap);
+        Button but_map = (Button) findViewById(R.id.ButtonMap);
 
 
         but_map.setOnClickListener(new View.OnClickListener() {
@@ -55,4 +58,32 @@ public class MainActivity extends AppCompatActivity {
         //LocoAddress locoAddress = localisationService.getLocoAddress("1 Rue du bon coin, FRELINGHIEN");
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+
+    }
+
+
+
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item){
+        switch (item.getItemId()){
+            case R.id.menu_about:
+                Intent myIntent = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(myIntent);
+                return true;
+            case R.id.menu_quit:
+                finish();
+            case R.id.menu_help:
+
+                //quoi  faire
+                return true;
+            default:return true;
+        }
+    }
+
+
 }
