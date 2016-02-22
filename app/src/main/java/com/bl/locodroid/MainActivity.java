@@ -34,31 +34,36 @@ public class MainActivity extends MenuActivity {
         setContentView(R.layout.activity_main);
         //Log.i("EPITEZ", "Created activity 1");
 
-       Button but_next = (Button) findViewById(R.id.Button01);
+       Button but_connect = (Button) findViewById(R.id.ButtonConnect);
 
-       //LocalStorageDB localdb = new LocalStorageDB(this.getBaseContext(),"LocoDroid.db",null,1);
-
-    
-
-        but_next.setOnClickListener(new View.OnClickListener() {
+        but_connect.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-
                 //get context() pour récupérer la vue, puis on renseigne la classe vers laquelle on veut switcher
-                Intent myIntent = new Intent(view.getContext(), UserListActivity.class);
+                Intent myIntent = new Intent(view.getContext(),LoginActivity.class);
                 startActivityForResult(myIntent, 0);
             }
         });
-       Button but_map = (Button) findViewById(R.id.ButtonMap);
 
+        Button but_register = (Button) findViewById(R.id.ButtonRegister);
 
-        but_map.setOnClickListener(new View.OnClickListener() {
+        but_register.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                //get context() pour récupérer la vue, puis on renseigne la classe vers laquelle on veut switcher
+                Intent myIntent = new Intent(view.getContext(), RegisterActivity.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
+       Button but_search = (Button) findViewById(R.id.ButtonMap);
 
+        but_search.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
                 //get context() pour récupérer la vue, puis on renseigne la classe vers laquelle on veut switcher
                 Intent myIntent = new Intent(view.getContext(), MapsActivity.class);
                 startActivityForResult(myIntent, 0);
             }
         });
+
+
         model = model.getInstance();
 
         //test geocoding
@@ -67,36 +72,13 @@ public class MainActivity extends MenuActivity {
 
     }
 
-    /*@Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
+        menu.findItem(R.id.menu_register).setVisible(false);
         return true;
 
     }
 
 
-
-    @Override
-    public boolean onOptionsItemSelected (MenuItem item){
-        switch (item.getItemId()){
-            case R.id.menu_about:
-                Intent myIntent_about = new Intent(MainActivity.this, MapsActivity.class);
-                startActivity(myIntent_about);
-                return true;
-            case R.id.menu_quit:
-                finish();
-            case R.id.menu_register:
-                Intent myIntent_register = new Intent(MainActivity.this, RegisterActivity.class);
-                startActivity(myIntent_register);
-                return true;
-
-            case R.id.menu_connect:
-                //Intent myIntent_connect = new Intent(MainActivity.this, LoginActivity.class);
-                //startActivity(myIntent_connect);
-                Toast.makeText(this,"menu_connect selected",Toast.LENGTH_LONG).show();
-                return true;
-            default:return true;
-        }
-    }*/
-
-    }
+}

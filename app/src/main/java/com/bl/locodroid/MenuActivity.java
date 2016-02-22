@@ -37,7 +37,6 @@ import com.bl.locodroid.user.UserListActivity;
  */
 public class MenuActivity  extends AppCompatActivity {
 
-        LocoModel model;
 
         @Override
         public boolean onCreateOptionsMenu(Menu menu) {

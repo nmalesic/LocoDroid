@@ -83,6 +83,7 @@
     <string name="btn_next">Suivant</string>
     <string name="main_title">LocoDroid</string>
     <string name="quit">Quitter</string>
+    <string name="action_search">Recherche</string>
 
 
 </resources>
