@@ -14,12 +14,14 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bl.locodroid.MapsActivity;
 import com.bl.locodroid.MapsUserActivity;
+import com.bl.locodroid.MenuActivity;
 import com.bl.locodroid.ProfileActivity;
 import com.bl.locodroid.R;
 import com.bl.locodroid.localisation.domain.Location;
@@ -31,7 +33,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class UserListActivity extends AppCompatActivity {
+public class UserListActivity extends MenuActivity {
 
     protected static ProgressDialog dialog;
     LocoModel model;
@@ -84,23 +86,26 @@ public class UserListActivity extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(ArrayList<User> result) {
+
                 neighBours = result;
                 UserAdapter adapter = new UserAdapter(UserListActivity.this, R.layout.list_view_row, neighBours);
+
                 mListView.setAdapter(adapter);
                 dialog.dismiss();
                 dialog = null;
             }
         }
 
+        mListView = (ListView) findViewById(R.id.list_user);
+
         new GetListUserTask().execute();
         //neighBours = model.getNeighbours();
 
 
-        mListView = (ListView) findViewById(R.id.list_user);
 
         //ArrayAdapter<User> adapter = new ArrayAdapter<User>(UserListActivity.this, R.layout.list_view_row, R.id.lastName, neighBours);
-        UserAdapter adapter = new UserAdapter(UserListActivity.this, R.layout.list_view_row, neighBours);
-        mListView.setAdapter(adapter);
+        userAdapter = new UserAdapter(UserListActivity.this, R.layout.list_view_row, neighBours);
+        mListView.setAdapter(userAdapter);
 
         mListView.setOnItemClickListener(new ListClickHandler());
 
@@ -136,14 +141,8 @@ public class UserListActivity extends AppCompatActivity {
             TextView s_text = (TextView) view.findViewById(R.id.lastName);
             String text = s_text.getText().toString();
 
-            TextView s_email = (TextView) view.findViewById(R.id.email);
-            String email = s_email.getText().toString();
-
-
             Intent intent = new Intent(UserListActivity.this, ProfileActivity.class);
             intent.putExtra("item_name", text);
-            intent.putExtra("item_mail", email);
-
 
             startActivity(intent);
 

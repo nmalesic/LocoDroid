@@ -40,6 +40,7 @@ public class MapsUserActivity extends AppCompatActivity implements OnMapReadyCal
     LocoAddress locoAddress;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,9 +132,10 @@ public class MapsUserActivity extends AppCompatActivity implements OnMapReadyCal
             loc = u.getAddress().getLocation();
             a = new LatLng(Double.parseDouble(loc.getLat()), Double.parseDouble(loc.getLng()));
             mMap.addMarker(new MarkerOptions().position(a).title(u.getLastName() + " " + u.getFirstName()));
+        }
 
-            LatLng Labege = new LatLng(43.543254, 1.512209);
-            mMap.addMarker(new MarkerOptions().position(Labege).title("NOTRE TRES CHER BERGER-LEVRAULT").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+        LatLng Labege = new LatLng(43.543254, 1.512209);
+        mMap.addMarker(new MarkerOptions().position(Labege).title("NOTRE TRES CHER BERGER-LEVRAULT").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
 
         /* LatLng Albi = new LatLng(43.92, 2.14);
         mMap.addMarker(new MarkerOptions().position(Albi).title("Marker in Albi"));
@@ -142,16 +144,14 @@ public class MapsUserActivity extends AppCompatActivity implements OnMapReadyCal
         mMap.addMarker(new MarkerOptions().position(Toulouse).title("Marker in Toulouse")); */
 
 
-            // Construct a CameraPosition focusing on Mountain View and animate the camera to that position.
-            CameraPosition cameraPosition = new CameraPosition.Builder()
-                    .target(Labege)  // Sets the center of the map to Mountain View
-                    .zoom(12)                   // Sets the zoom
-                            //.bearing(90)                // Sets the orientation of the camera to east
-                    .tilt(30)                   // Sets the tilt of the camera to 30 degrees
-                    .build();                   // Creates a CameraPosition from the builder
-            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-
-
-        }
+        // Construct a CameraPosition focusing on Mountain View and animate the camera to that position.
+        CameraPosition cameraPosition = new CameraPosition.Builder()
+                .target(Labege)  // Sets the center of the map to Mountain View
+                .zoom(12)                   // Sets the zoom
+                        //.bearing(90)                // Sets the orientation of the camera to east
+                .tilt(30)                   // Sets the tilt of the camera to 30 degrees
+                .build();                   // Creates a CameraPosition from the builder
+        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
-}
+    }
+

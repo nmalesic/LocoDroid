@@ -23,7 +23,7 @@ import com.bl.locodroid.user.UserListActivity;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends MenuActivity {
 
     LocoModel model;
 
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
        Button but_next = (Button) findViewById(R.id.Button01);
 
-       // LocalStorageDB localdb = new LocalStorageDB(this.getBaseContext(),"LocoDroid.db",null,1);
+       //LocalStorageDB localdb = new LocalStorageDB(this.getBaseContext(),"LocoDroid.db",null,1);
 
     
 
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
@@ -97,6 +97,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             default:return true;
         }
-    }
+    }*/
 
     }
