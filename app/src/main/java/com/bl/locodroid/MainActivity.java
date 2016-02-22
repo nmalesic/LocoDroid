@@ -27,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //Log.i("EPITEZ", "Created activity 1");
 
-        LocalStorageDB localdb = new LocalStorageDB(this.getBaseContext(),"LocoDroid.db",null,1);
-
         Button but_next = (Button)findViewById(R.id.Button01);
 
 

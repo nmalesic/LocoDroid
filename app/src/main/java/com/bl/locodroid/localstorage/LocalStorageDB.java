@@ -121,10 +121,10 @@ public abstract class LocalStorageDB extends SQLiteOpenHelper implements ILocalS
      */
     public LocalStorageDB(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
-        SQLiteDatabase db = this.getWritableDatabase();
-        dropTable(db);
-        onCreate(db);
-        addListUserTest();
+        //SQLiteDatabase db = this.getWritableDatabase();
+        //dropTable(db);
+        //onCreate(db);
+        //addListUserTest();
     }
 
     /**
