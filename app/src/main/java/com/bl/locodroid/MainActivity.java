@@ -34,13 +34,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //Log.i("EPITEZ", "Created activity 1");
 
-        Button but_next = (Button) findViewById(R.id.Button01);
+       Button but_next = (Button) findViewById(R.id.Button01);
 
        // LocalStorageDB localdb = new LocalStorageDB(this.getBaseContext(),"LocoDroid.db",null,1);
 
-        //Button but_next = (Button)findViewById(R.id.Button01);
-
-
+    
 
         but_next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -50,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(myIntent, 0);
             }
         });
-        Button but_map = (Button) findViewById(R.id.ButtonMap);
+       Button but_map = (Button) findViewById(R.id.ButtonMap);
 
 
         but_map.setOnClickListener(new View.OnClickListener() {
