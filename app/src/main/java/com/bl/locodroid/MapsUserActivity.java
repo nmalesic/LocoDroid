@@ -34,8 +34,6 @@ public class MapsUserActivity extends AppCompatActivity implements OnMapReadyCal
     Location loc;
     LocoAddress locoAddress;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,9 +106,6 @@ public class MapsUserActivity extends AppCompatActivity implements OnMapReadyCal
                 .tilt(30)                   // Sets the tilt of the camera to 30 degrees
                 .build();                   // Creates a CameraPosition from the builder
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-
-
-
 
 
     }

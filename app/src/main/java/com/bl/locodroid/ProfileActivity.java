@@ -24,10 +24,9 @@ public class ProfileActivity extends Activity {
 
         // fetch value from key-value pair and make it visible on TextView.
         String item = intent.getStringExtra("item_name");
-        String items = intent.getStringExtra("item_email");
 
 
-        textView.setText("you selected "+item + "with email" + items);
+        textView.setText("you selected "+item);
 
 
     }
