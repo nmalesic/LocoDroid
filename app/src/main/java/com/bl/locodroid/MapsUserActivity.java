@@ -126,13 +126,7 @@ public class MapsUserActivity extends AppCompatActivity implements OnMapReadyCal
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng a;
-
-        for (User u : neighBours) {
-            loc = u.getAddress().getLocation();
-            a = new LatLng(Double.parseDouble(loc.getLat()), Double.parseDouble(loc.getLng()));
-            mMap.addMarker(new MarkerOptions().position(a).title(u.getLastName() + " " + u.getFirstName()));
-        }
+        
 
         LatLng Labege = new LatLng(43.543254, 1.512209);
         mMap.addMarker(new MarkerOptions().position(Labege).title("NOTRE TRES CHER BERGER-LEVRAULT").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
