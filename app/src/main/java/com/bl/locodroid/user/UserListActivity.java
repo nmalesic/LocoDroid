@@ -42,7 +42,7 @@ public class UserListActivity extends MenuActivity {
 
     ListView mListView;
 
-    ArrayList<User> neighBours = new ArrayList<User>();
+    ArrayList<User> neighBours = new ArrayList<>();
 
     User a;
     Location loc;
