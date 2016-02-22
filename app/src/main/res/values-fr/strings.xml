@@ -3,7 +3,7 @@
 
     <!-- TITLES -->
     <string name="title_activity_maps">Carte</string>
-    <string name="title_activity_main">Principal</string>
+    <string name="title_activity_main">LocoDroid</string>
     <string name="title_activity_login">Connection</string>
     <string name="map_login">Connection</string>
     <!--END TITLES END-->
@@ -78,6 +78,11 @@
     <!-- Champs non identifiés A REVOIR -->
 
     <string name="imageaccueil">image</string>
+    <string name="about">A propos de</string>
+    <string name="action_settings">options 1</string>
+    <string name="btn_next">Suivant</string>
+    <string name="main_title">LocoDroid</string>
+    <string name="quit">Quitter</string>
 
 
 </resources>

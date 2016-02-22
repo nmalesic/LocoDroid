@@ -13,6 +13,7 @@ import android.widget.TextView;
  */
 public class ProfileActivity extends Activity {
     TextView textView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,9 +23,11 @@ public class ProfileActivity extends Activity {
         Intent intent = getIntent();
 
         // fetch value from key-value pair and make it visible on TextView.
-        String item = intent.getStringExtra("selected-item");
-        textView.setText("you selected "+item);
+        String item = intent.getStringExtra("item_name");
+        String items = intent.getStringExtra("item_email");
 
+
+        textView.setText("you selected "+item + "with email" + items);
 
 
     }

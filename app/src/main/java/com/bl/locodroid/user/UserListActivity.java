@@ -133,10 +133,18 @@ public class UserListActivity extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView<?> adapter, View view, int position, long arg3) {
             // TODO Auto-generated method stub
-            TextView listText = (TextView) view.findViewById(R.id.lastName);
-            String text = listText.getText().toString();
+            TextView s_text = (TextView) view.findViewById(R.id.lastName);
+            String text = s_text.getText().toString();
+
+            TextView s_email = (TextView) view.findViewById(R.id.email);
+            String email = s_email.getText().toString();
+
+
             Intent intent = new Intent(UserListActivity.this, ProfileActivity.class);
-            intent.putExtra("selected-item", text);
+            intent.putExtra("item_name", text);
+            intent.putExtra("item_mail", email);
+
+
             startActivity(intent);
 
         }

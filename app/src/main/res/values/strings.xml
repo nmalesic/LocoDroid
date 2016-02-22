@@ -4,7 +4,7 @@
    <!-- TITLES -->
 
     <string name="title_activity_maps">Map</string>
-    <string name="title_activity_main">Main</string>
+    <string name="title_activity_main">LocoDroid</string>
     <string name="title_activity_login">Connexion</string>
 
     <!--END TITLES END -->
@@ -87,9 +87,8 @@
     <!-- Champs non identifiés A REVOIR -->
 
     <string name="imageaccueil">image</string>
-    <string name="action_settings">menu option 1</string>
-    <string name="about">about Locodroid</string>
-    <string name="main_title">LocoDroid App</string>
+    <string name="about">About</string>
+    <string name="main_title">LocoDroid</string>
     <string name="quit">Quit</string>
 
 
