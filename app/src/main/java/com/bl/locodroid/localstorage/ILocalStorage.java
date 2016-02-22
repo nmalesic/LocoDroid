@@ -1,7 +1,8 @@
 package com.bl.locodroid.localstorage;
 
-import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.bl.locodroid.user.domain.User;
 
 import java.util.ArrayList;
 
@@ -37,27 +38,32 @@ public interface ILocalStorage {
     public Boolean disconnectLocalDatabase();
 
     /**
-     * Add UserLocal in SQLite database
-     * @param userlocal
+     * Add User in SQLite database
+     * @param user
      * @return true = OK / false = KO
      */
-    public boolean addUserLocal(UserLocal userlocal);
+    public boolean addUserLocal(User user);
 
     /**
-     * Get a UserLocal from SQLite database
+     * Get a User from SQLite database
      * @param email Email of User
-     * @return UserLocal
+     * @return User
      */
-    public UserLocal getUserLocalByEmail(String email);
+    public User getUserLocalByEmail(String email);
 
     /**
-     * Get a list of User Neigbour in SQLite database
+     * Add a list of Neighbour in SQLite database
+     * @param idUser
+     * @param listNeighbour
+     * @return true = OK / false = KO
+     */
+    public boolean addListLocalNeighbour(int idUser, ArrayList<User> listNeighbour);
+
+    /**
+     * Get a list of User Neighbour in SQLite database
+     * @param idUser Identifiant User
      * @return List of User Neighbour
      */
-    public ArrayList<UserLocal> getListLocalNeighbour();
+    public ArrayList<User> getListLocalNeighbour(int idUser);
 
-    /**
-     * Close Local SQLite database
-     */
-    public void Close();
 }
