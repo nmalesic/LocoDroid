@@ -12,11 +12,18 @@
         app:showAsAction="ifRoom"
         android:title="@string/action_register"/>
     <item
-        android:id="@+id/menu_register"
+    android:id="@+id/menu_register"
+    android:orderInCategory="100"
+    android:icon="@mipmap/ic_launcher"
+    app:showAsAction="ifRoom"
+    android:title="@string/action_sign_in"/>
+
+    <item
+        android:id="@+id/menu_list"
         android:orderInCategory="100"
         android:icon="@mipmap/ic_launcher"
-        app:showAsAction="ifRoom"
-        android:title="@string/action_sign_in"/>
+        app:showAsAction="never"
+        android:title="liste"/>
 
 
 
@@ -28,13 +35,12 @@
             android:icon="@mipmap/ic_launcher"
             app:showAsAction="never"/>
 
+    <item
+        android:id="@+id/menu_quit"
+        android:orderInCategory="100"
+        android:title="@string/quit"
+        app:showAsAction="never"/>
 
 
     </group>
-
-         <item
-             android:id="@+id/menu_quit"
-             android:orderInCategory="100"
-             android:title="@string/quit"
-             app:showAsAction="never"/>
-            </menu>
+</menu>

@@ -32,6 +32,8 @@ import android.widget.Toast;
 import com.bl.locodroid.localstorage.LocalStorageDB;
 import com.bl.locodroid.model.LocoModel;
 import com.bl.locodroid.user.UserListActivity;
+import com.bl.locodroid.user.domain.User;
+
 /**
  * Created by SRABOIS on 22/02/2016.
  */
@@ -61,6 +63,11 @@ public class MenuActivity  extends AppCompatActivity {
                     //Intent myIntent_connect = new Intent(MainActivity.this, LoginActivity.class);
                     //startActivity(myIntent_connect);
                     Toast.makeText(this, "menu_connect selected", Toast.LENGTH_LONG).show();
+                    return true;
+
+                case R.id.menu_list:
+                    Intent myIntent_list = new Intent(MenuActivity.this, UserListActivity.class);
+                    startActivity(myIntent_list);
                     return true;
                 default:return true;
             }

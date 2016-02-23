@@ -21,8 +21,10 @@ android:layout_height="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
-        android:src="#CCCCCC"
+        android:src="@drawable/car"
         android:layout_weight="0.87"
+        android:padding="10dp"
+
         />
 
     <Button android:text="@string/action_sign_in"
