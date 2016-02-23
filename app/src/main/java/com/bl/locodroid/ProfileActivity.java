@@ -11,7 +11,7 @@ import android.widget.TextView;
 /**
  * Created by SRABOIS on 10/02/2016.
  */
-public class ProfileActivity extends Activity {
+public class ProfileActivity extends MenuActivity {
     TextView textView;
 
     @Override
@@ -27,8 +27,6 @@ public class ProfileActivity extends Activity {
 
 
         textView.setText("you selected "+item);
-
-
     }
 
     /*

@@ -39,7 +39,8 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main">
+            android:label="@string/title_activity_main"
+            android:icon="@drawable/car">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -29,6 +29,7 @@ public class UserWebService implements IUserWebService {
 
     @Override
     public boolean disconnect() {
+
         return false;
     }
 
