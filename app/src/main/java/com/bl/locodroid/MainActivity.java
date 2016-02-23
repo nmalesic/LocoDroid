@@ -33,29 +33,29 @@ public class MainActivity extends MenuActivity {
 
         setContentView(R.layout.activity_main);
         //Log.i("EPITEZ", "Created activity 1");
+        model = model.getInstance();
 
-       Button but_connect = (Button) findViewById(R.id.ButtonConnect);
 
-        but_connect.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                //get context() pour récupérer la vue, puis on renseigne la classe vers laquelle on veut switcher
-                Intent myIntent = new Intent(view.getContext(),LoginActivity.class);
-                startActivityForResult(myIntent, 0);
-            }
-        });
+        if (model.getUserConnected()==null){
+            Button but_connect = (Button) findViewById(R.id.ButtonConnect);
+            but_connect.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    Intent myIntent = new Intent(view.getContext(),LoginActivity.class);
+                    startActivityForResult(myIntent, 0);
+                }
+            });
 
-        Button but_register = (Button) findViewById(R.id.ButtonRegister);
+            Button but_register = (Button) findViewById(R.id.ButtonRegister);
+            but_register.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    Intent myIntent = new Intent(view.getContext(), RegisterActivity.class);
+                    startActivityForResult(myIntent, 0);
+                }
+            });
+        }
 
-        but_register.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                //get context() pour récupérer la vue, puis on renseigne la classe vers laquelle on veut switcher
-                Intent myIntent = new Intent(view.getContext(), RegisterActivity.class);
-                startActivityForResult(myIntent, 0);
-            }
-        });
        Button but_search = (Button) findViewById(R.id.ButtonMap);
-
-        but_search.setOnClickListener(new View.OnClickListener() {
+       but_search.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 //get context() pour récupérer la vue, puis on renseigne la classe vers laquelle on veut switcher
                 Intent myIntent = new Intent(view.getContext(), MapsActivity.class);
@@ -64,7 +64,6 @@ public class MainActivity extends MenuActivity {
         });
 
 
-        model = model.getInstance();
 
         //test geocoding
         //LocalisationService localisationService = new LocalisationService();
@@ -74,11 +73,29 @@ public class MainActivity extends MenuActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         getMenuInflater().inflate(R.menu.main_menu, menu);
-        //menu.findItem(R.id.menu_register).setVisible(false);
+
+        if (model.getUserConnected()==null){
+            menu.findItem(R.id.menu_connect).setVisible(false);
+            menu.findItem(R.id.menu_disconnect).setVisible(false);
+            menu.findItem(R.id.menu_profile).setVisible(false);
+         }
+        else {
+            menu.findItem(R.id.menu_register).setVisible(false);
+        }
+        //il doit y avoir moyen de masquer le groupe des trois options suivantes puisqu'elles sont masquées en meme temps
+        //le groupe menu_connect est créé sur la vue du menu
+
+
+        menu.findItem(R.id.menu_search).setVisible(false);
+        menu.findItem(R.id.menu_about).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+
         return true;
 
     }
+
+
 
 
 }

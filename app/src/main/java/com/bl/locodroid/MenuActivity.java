@@ -33,7 +33,7 @@ public class MenuActivity  extends AppCompatActivity {
                     return true;
                 case R.id.menu_quit:
                     finish();
-                    return false;
+                    return true;
                 case R.id.menu_register:
                     Intent myIntent_register = new Intent(MenuActivity.this, RegisterActivity.class);
                     startActivity(myIntent_register);

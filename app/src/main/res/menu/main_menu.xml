@@ -11,14 +11,6 @@
         android:title="@string/action_home"/>
 
     <item
-        android:id="@+id/menu_connect"
-        android:orderInCategory="100"
-        android:icon="@drawable/ic_login"
-        app:showAsAction="never"
-        android:visible="true"
-        android:title="@string/action_sign_in"/>
-
-    <item
         android:id="@+id/menu_register"
         android:orderInCategory="100"
         android:icon="@mipmap/ic_register"
@@ -31,7 +23,14 @@
         android:icon="@mipmap/ic_action_search"
         app:showAsAction="ifRoom"
         android:title="@string/action_search"/>
-
+    <group android:id="@+id/connect_group">
+    <item
+        android:id="@+id/menu_connect"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_login"
+        app:showAsAction="never"
+        android:visible="true"
+        android:title="@string/action_sign_in"/>
 
     <item
         android:id="@+id/menu_profile"
@@ -46,6 +45,7 @@
         android:icon="@drawable/ic_logout"
         app:showAsAction="never"
         android:title="@string/action_log_out"/>
+    </group>
 
     <item
         android:id="@+id/menu_about"
