@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
         Button but_next = (Button)findViewById(R.id.Button01);
 
+        //fcoe : A laisser pour le moment, permet de tester en DB Locale
+       //LocalStorageDB db = new LocalStorageDB(this.getBaseContext(),"LocoDroid_test.db",null,1);
 
         but_next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
