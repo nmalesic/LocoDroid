@@ -80,7 +80,7 @@ public class MainActivity extends MenuActivity {
         menu.findItem(R.id.menu_disconnect).setVisible(false);
         menu.findItem(R.id.menu_profile).setVisible(false);
         menu.findItem(R.id.menu_register).setVisible(false);
-        menu.findItem(R.id.menu_search).setVisible(false);
+        //menu.findItem(R.id.menu_search).setVisible(false);
         menu.findItem(R.id.menu_about).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
         return true;

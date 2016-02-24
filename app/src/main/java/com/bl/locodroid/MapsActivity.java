@@ -74,13 +74,7 @@ public class MapsActivity extends MenuActivity implements OnMapReadyCallback {
 //                .strokeWidth(3)
 //                .strokeColor(0xFF333333)
 //                .fillColor(0x503333CC));
-//
-//        Circle cercle2 = mMap.addCircle(new CircleOptions()
-//                .center(Toulouse)
-//                .radius(50000)
-//                .strokeWidth(3)
-//                .strokeColor(0xFF33AA33)
-//                .fillColor(0x50FF33CC));
+
 
         //mMap.setTrafficEnabled(true);
 
