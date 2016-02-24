@@ -13,16 +13,12 @@ import com.bl.locodroid.user.UserListActivity;
  */
 public class MenuActivity  extends AppCompatActivity {
 
-
         @Override
         public boolean onCreateOptionsMenu(Menu menu) {
             getMenuInflater().inflate(R.menu.main_menu, menu);
 
             return true;
         }
-
-
-
 
         @Override
         public boolean onOptionsItemSelected (MenuItem item){
@@ -58,8 +54,8 @@ public class MenuActivity  extends AppCompatActivity {
                     return true;
 
                 case R.id.menu_profile:
-                    //Intent myIntent_profile = new Intent(MenuActivity.this, ProfileActivity.class);
-                    //startActivity(myIntent_profile);
+                    Intent myIntent_profile = new Intent(MenuActivity.this, ProfileActivity.class);
+                    startActivity(myIntent_profile);
                     Toast.makeText(this, "informations du profil", Toast.LENGTH_LONG).show();
                     return true;
                 default:return true;

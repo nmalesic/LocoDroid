@@ -76,18 +76,10 @@ public class MainActivity extends MenuActivity {
 
         getMenuInflater().inflate(R.menu.main_menu, menu);
 
-        if (model.getUserConnected()==null){
-            menu.findItem(R.id.menu_connect).setVisible(false);
-            menu.findItem(R.id.menu_disconnect).setVisible(false);
-            menu.findItem(R.id.menu_profile).setVisible(false);
-         }
-        else {
-            menu.findItem(R.id.menu_register).setVisible(false);
-        }
-        //il doit y avoir moyen de masquer le groupe des trois options suivantes puisqu'elles sont masquées en meme temps
-        //le groupe menu_connect est créé sur la vue du menu
-
-
+        menu.findItem(R.id.menu_connect).setVisible(false);
+        menu.findItem(R.id.menu_disconnect).setVisible(false);
+        menu.findItem(R.id.menu_profile).setVisible(false);
+        menu.findItem(R.id.menu_register).setVisible(false);
         menu.findItem(R.id.menu_search).setVisible(false);
         menu.findItem(R.id.menu_about).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 

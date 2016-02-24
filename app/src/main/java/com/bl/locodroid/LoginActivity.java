@@ -21,6 +21,8 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
@@ -119,6 +121,21 @@ public class LoginActivity extends MenuActivity implements LoaderCallbacks<Curso
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+
+        menu.findItem(R.id.menu_connect).setVisible(false);
+        menu.findItem(R.id.menu_disconnect).setVisible(false);
+        menu.findItem(R.id.menu_profile).setVisible(false);
+        menu.findItem(R.id.menu_register).setVisible(false);
+        menu.findItem(R.id.menu_search).setVisible(false);
+        menu.findItem(R.id.menu_about).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+
+        return true;
+
+    }
 
 
     private void populateAutoComplete() {

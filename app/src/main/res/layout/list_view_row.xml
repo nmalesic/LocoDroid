@@ -6,8 +6,6 @@
     android:background="#ffffff"
     android:weightSum="1">
 
-
-
     <TextView
         android:id="@+id/lastName"
         android:layout_width="fill_parent"

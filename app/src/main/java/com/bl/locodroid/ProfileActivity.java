@@ -5,7 +5,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 
 
 /**
@@ -19,6 +23,8 @@ public class ProfileActivity extends MenuActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         textView = (TextView) findViewById(R.id.textView);
+
+
         // get the intent from which this activity is called.
         Intent intent = getIntent();
 
@@ -29,12 +35,17 @@ public class ProfileActivity extends MenuActivity {
         textView.setText("you selected "+item);
     }
 
-    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+
+        menu.findItem(R.id.menu_connect).setVisible(false);
+        menu.findItem(R.id.menu_profile).setVisible(false);
+        menu.findItem(R.id.menu_register).setVisible(false);
+
         return true;
-    } */
+
+    }
 
 }
