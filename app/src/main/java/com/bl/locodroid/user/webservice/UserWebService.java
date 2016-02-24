@@ -24,7 +24,47 @@ import java.util.HashMap;
 public class UserWebService implements IUserWebService {
     @Override
     public User connect(String login, String password) {
-        return null;
+        User response = new User();
+
+        HttpURLConnection conn = null;
+        try {
+
+            //URL url = new URL("http://www.locomaps.com/user/getAllUser");
+            //URL url = new URL("localhost:8080/LocoMaps/user/getAllUser");
+            URL url = new URL("http://locomaps.cloudapp.net/LocoMaps/user?connectuser="+ login + "?pwd=" + password);
+
+
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setConnectTimeout(2000);
+            conn.setReadTimeout(10000);
+            conn.connect();
+
+
+            // expect HTTP 200 OK, so we don't mistakenly save error report
+            // instead of the file
+            if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
+                Log.i("DownloadTask", "Response " + conn.getResponseCode());
+                return null;  //"Server returned HTTP " + connection.getResponseCode() + " " + connection.getResponseMessage();
+            }
+
+
+            InputStream is = conn.getInputStream();
+            BufferedReader streamReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+            StringBuilder responseStrBuilder = new StringBuilder();
+
+            String inputStr;
+            while ((inputStr = streamReader.readLine()) != null)
+                responseStrBuilder.append(inputStr);
+
+            response = new Gson().fromJson(responseStrBuilder.toString(), User.class);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return response;
+
     }
 
     @Override
@@ -57,7 +97,7 @@ public class UserWebService implements IUserWebService {
 
                 //URL url = new URL("http://www.locomaps.com/user/getAllUser");
                 //URL url = new URL("localhost:8080/LocoMaps/user/getAllUser");
-                URL url = new URL("http://locomaps.cloudapp.net/LocoMaps/user/getAllUser");
+                URL url = new URL("http://locomaps.cloudapp.net/LocoMaps/user?alluser");
 
 
                 conn = (HttpURLConnection) url.openConnection();
@@ -103,46 +143,57 @@ public class UserWebService implements IUserWebService {
     }
 
     @Override
-    public ArrayList<User> getNeighbours(Location center) {
+    public ArrayList<User> getNeighbours(Location center, int radius) {
 
-        //Mock
+        ArrayList<User> response = new ArrayList<User>();
 
-        // Simulation requete Web
+        HttpURLConnection conn = null;
         try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
+
+            //URL url = new URL("http://www.locomaps.com/user/getAllUser");
+            //URL url = new URL("localhost:8080/LocoMaps/user/getAllUser");
+            URL url = new URL("http://locomaps.cloudapp.net/LocoMaps/user?getNeighbours?lat="+center.getLat()+"?lng="+center.getLng()+"?radius="+radius);
+
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setConnectTimeout(2000);
+            conn.setReadTimeout(10000);
+            conn.connect();
+
+
+            // expect HTTP 200 OK, so we don't mistakenly save error report
+            // instead of the file
+            if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
+                Log.i("DownloadTask", "Response " + conn.getResponseCode());
+                return null;  //"Server returned HTTP " + connection.getResponseCode() + " " + connection.getResponseMessage();
+            }
+
+
+            InputStream is = conn.getInputStream();
+            BufferedReader streamReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+            StringBuilder responseStrBuilder = new StringBuilder();
+
+            String inputStr;
+            while ((inputStr = streamReader.readLine()) != null)
+                responseStrBuilder.append(inputStr);
+
+            Type listType = new TypeToken<ArrayList<User>>() {
+            }.getType();
+            response = new Gson().fromJson(responseStrBuilder.toString(), listType);
+
+            //jsonArray = new JSONArray(responseStrBuilder.toString());
+
+
+        } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
 
-        ArrayList<User> neighBours = new ArrayList<User>();
+//        for (User u: response) {
+//            responseHashMap.put(u.getEmail(),u);
+//        }
+//        responseHashMap
 
-        User a;
-        Location loc;
-        LocoAddress locoAddress;
-
-        a = new User("webRABOIS","Sylvain","pion de 6","a@a.a","a","a", null, "0102030405","M","false");
-        loc = new Location("43.5563336","1.528394");
-        locoAddress = new LocoAddress("10 Avenue de Gameville","","31650","Saint-Orens-de-Gameville",loc);
-        locoAddress.setLocation(loc);
-        a.setAddress(locoAddress);
-        neighBours.add(a);
-
-        a = new User("webCHAMAYOU","Olivier","objet composition detache","b@b.b","b","b", null, "0602030405","M","false");
-        loc = new Location("43.6575","1.4853");
-        locoAddress = new LocoAddress("10 Rue du Pic du Midi","","31240","L Union",loc);
-        locoAddress.setLocation(loc);
-        a.setAddress(locoAddress);
-        neighBours.add(a);
-
-        a = new User("webCOEURET","Fabrice","Singleton","c@c.c","c","c", null, "0702030405","M","false");
-        loc = new Location("43.5175497","1.5057399");
-        locoAddress = new LocoAddress("Place Clemence Isaure","","31320","Castanet-Tolosan",loc);
-        locoAddress.setLocation(loc);
-        a.setAddress(locoAddress);
-        neighBours.add(a);
-
-
-        return neighBours;
+        return response;
 
     }
 }

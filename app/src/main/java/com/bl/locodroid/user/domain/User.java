@@ -2,10 +2,12 @@ package com.bl.locodroid.user.domain;
 
 import com.bl.locodroid.localisation.domain.LocoAddress;
 
+import java.io.Serializable;
+
 /**
  * Created by nmalesic on 05/02/2016.
  */
-public class User {
+public class User implements Serializable {
     private int id;
     private String lastName;
     private String firstName;

@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.widget.TextView;
 
+import com.bl.locodroid.user.domain.User;
+
 
 /**
  * Created by SRABOIS on 10/02/2016.
@@ -24,9 +26,10 @@ public class ProfileActivity extends Activity {
 
         // fetch value from key-value pair and make it visible on TextView.
         String item = intent.getStringExtra("item_name");
+        User u = (User) intent.getSerializableExtra("user");
 
 
-        textView.setText("you selected "+item);
+        textView.setText("you selected "+u.getFirstName() + " " + u.getLastName());
 
 
     }
