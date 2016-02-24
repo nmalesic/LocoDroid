@@ -35,6 +35,8 @@ public class MainActivity extends MenuActivity {
         //Log.i("EPITEZ", "Created activity 1");
         model = model.getInstance();
 
+        //fcoe : A laisser pour le moment, permet de tester en DB Locale
+       //LocalStorageDB db = new LocalStorageDB(this.getBaseContext(),"LocoDroid_test.db",null,1);
 
         if (model.getUserConnected()==null){
             Button but_connect = (Button) findViewById(R.id.ButtonConnect);
