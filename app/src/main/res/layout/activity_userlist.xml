@@ -24,7 +24,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Afficher sur la carte"
+        android:text="@string/action_map"
         android:id="@+id/ButtonMap"
         android:onClick="onClick1"
         android:background="@layout/roundedbutton"

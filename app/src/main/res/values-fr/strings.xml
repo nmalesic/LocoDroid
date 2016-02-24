@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">LocoDroid France</string>
+    <string name="app_name">LOCODROID France</string>
 
     <!-- TITLES -->
     <string name="title_activity_maps">Carte</string>
-    <string name="title_activity_main">Principal</string>
+    <string name="title_activity_main">LocoDroid</string>
     <string name="title_activity_login">Connection</string>
     <string name="map_login">Connection</string>
     <!--END TITLES END-->
@@ -24,7 +24,7 @@
     <!-- Strings related to login -->
 
     <string name="action_sign_in">Connectez vous</string>
-    <string name="action_sign_in_short">Connection</string>
+    <string name="action_sign_in_short">Connexion</string>
     <string name="action_register">Inscription</string>
 
     <!-- FORMS -->
@@ -78,6 +78,16 @@
     <!-- Champs non identifiés A REVOIR -->
 
     <string name="imageaccueil">image</string>
+    <string name="about">A propos de</string>
+    <string name="btn_next">Suivant</string>
+    <string name="main_title">LOCODROID</string>
+    <string name="quit">Quitter</string>
+    <string name="action_search">Rechercher</string>
+    <string name="action_home">Accueil</string>
+    <string name="action_map">Afficher sur la carte</string>
+    <string name="action_profile">Profil</string>
+    <string name="action_log_out">Déconnexion</string>
+    <string name="logout">Vous êtes déconnecté</string>
 
 
 </resources>

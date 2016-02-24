@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends MenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
