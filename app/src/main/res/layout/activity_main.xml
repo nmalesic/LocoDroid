@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:orientation="vertical"
-android:layout_width="fill_parent"
+    android:layout_width="fill_parent"
 android:layout_height="fill_parent"
     android:weightSum="1"
-    >
-    <!--android:background="#a1b9cc"-->
+    android:textAlignment="center"
+    android:orientation="vertical">
 
 
     <!--<TextView-->
@@ -18,12 +17,14 @@ android:layout_height="fill_parent"
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
-        android:src="#CCCCCC"
+        android:src="@drawable/car"
         android:layout_weight="0.87"
+        android:padding="20dp"
         />
+
 
     <Button android:text="@string/action_sign_in"
         android:id="@+id/ButtonConnect"

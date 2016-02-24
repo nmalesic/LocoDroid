@@ -27,7 +27,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class MapsUserActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class MapsUserActivity extends MenuActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     protected static ProgressDialog dialog;

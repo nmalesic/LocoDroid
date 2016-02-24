@@ -66,4 +66,19 @@ public interface ILocalStorage {
      */
     public ArrayList<User> getListLocalNeighbour(int idUser);
 
+    /**
+     * Delete a liste of neighbour in SQLite database
+     * @param idUser
+     * @return true = OK / false = KO
+     */
+    public boolean deleteListLocalNeighbour(int idUser);
+
+//    /**
+//     * Connect or disconnect a user in SQLite database
+//     * @param user User to connect or disconnect
+//     * @param connect true = User to connect / false = User to disconnect
+//     * @return true = OK / false = KO
+//     */
+//    public boolean ConnectOrDisconnectUserLocal(User user,boolean connect);
+
 }

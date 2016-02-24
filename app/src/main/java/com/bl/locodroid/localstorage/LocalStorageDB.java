@@ -18,7 +18,7 @@ import java.util.ArrayList;
 /**
  * Created by fcoeuret on 10/02/2016.
  */
-public abstract class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
+public  class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
 
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "LocoDroid.db";
@@ -122,9 +122,9 @@ public abstract class LocalStorageDB extends SQLiteOpenHelper implements ILocalS
     public LocalStorageDB(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
         //SQLiteDatabase db = this.getWritableDatabase();
-        //dropTable(db);
-        //onCreate(db);
-        //addListUserTest();
+//        dropTable(db);
+//        onCreate(db);
+//        addListUserTest();
     }
 
     /**
@@ -198,7 +198,7 @@ public abstract class LocalStorageDB extends SQLiteOpenHelper implements ILocalS
         cv.put(USER_SEX, user.getSex());
         cv.put(USER_SMOKER, user.getSmoker());
         cv.put(USER_TELEPHONE, user.getTelephone());
-        cv.put(USER_CONNECTED_USER, false);
+        cv.put(USER_CONNECTED_USER, true);
         long i = db.insert(USER_TABLE_NAME, null, cv);  //Return id saved
         if (i == -1)
         {
@@ -362,6 +362,57 @@ public abstract class LocalStorageDB extends SQLiteOpenHelper implements ILocalS
     }
 
     /**
+     * Delete a liste of neighbour in SQLite database
+     * @param idUser
+     * @return true = OK / false = KO
+     */
+    public boolean deleteListLocalNeighbour(int idUser)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int i = db.delete(NEIGHBOUR_TABLE_NAME, NEIGHBOUR_ID_USER + " = " + idUser, null);
+        //Fermeture de la base
+        db.close();
+        if (i > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+//    /**
+//     * Disconnect a user in SQLite database
+//     * @param user User to disconnect
+//     * @param connect true = User to connect / false = User to disconnect
+//     * @return true = OK / false = KO
+//     */
+//    public boolean ConnectOrDisconnectUserLocal(User user, boolean connect)
+//    {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues cv = new ContentValues();
+//        //cv.put(USER_ID,userlocal.getUser().getId());
+////        cv.put(USER_LASTNAME, user.getLastName());
+////        cv.put(USER_FIRSTNAME, user.getFirstName());
+////        cv.put(USER_PSEUDO, user.getPseudo());
+////        cv.put(USER_EMAIL, user.getEmail());
+////        cv.put(USER_PASSWORD, user.getPassword());
+////        cv.put(USER_SEX, user.getSex());
+////        cv.put(USER_SMOKER, user.getSmoker());
+////        cv.put(USER_TELEPHONE, user.getTelephone());
+//        cv.put(USER_CONNECTED_USER, connect);
+//        long i = db.insert(USER_TABLE_NAME, null, cv);  //Return id saved
+//        if (i == -1)
+//        {
+//            //Erreur lors de l'ajout
+//            return false;
+//        }
+//
+//        return true;
+//    }
+
+    /**
      * Test local SQLite database with creation of users...
      */
     public void addListUserTest() {
@@ -448,6 +499,8 @@ public abstract class LocalStorageDB extends SQLiteOpenHelper implements ILocalS
 
         ArrayList<User> ln = new ArrayList<User>();
         ln = getListLocalNeighbour(2);
+
+        deleteListLocalNeighbour(2);
      //List of neighbour
 
     }

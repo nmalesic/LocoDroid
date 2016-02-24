@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">LocoDroid England</string>
+    <string name="app_name">LOCODROID England</string>
 
    <!-- TITLES -->
 
+    <string name="main_title">LOCODROID</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_main">LocoDroid</string>
     <string name="title_activity_login">Connexion</string>
@@ -19,6 +20,12 @@
     <string name="lib_btn1">Next</string>
     <string name="btn_next">Next</string>
     <string name="map_login">Login</string>
+    <string name="about">About</string>
+    <string name="quit">Quit</string>
+    <string name="action_home">Home</string>
+    <string name="action_profile">Profile</string>
+    <string name="action_log_out">Log out</string>
+
     <!--END  Strings related to Navigation END-->
 
 
@@ -89,10 +96,9 @@
     <!-- Champs non identifiés A REVOIR -->
 
     <string name="imageaccueil">image</string>
-    <string name="about">About</string>
-    <string name="main_title">LocoDroid</string>
-    <string name="quit">Quit</string>
-    <string name="action_settings">option1</string>
+
+    <string name="action_map">Show on Map</string>
+    <string name="logout">You log out</string>
 
 
 </resources>

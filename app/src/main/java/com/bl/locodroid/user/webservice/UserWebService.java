@@ -31,7 +31,7 @@ public class UserWebService implements IUserWebService {
 
             //URL url = new URL("http://www.locomaps.com/user/getAllUser");
             //URL url = new URL("localhost:8080/LocoMaps/user/getAllUser");
-            URL url = new URL("http://locomaps.cloudapp.net/LocoMaps/user?connectuser="+ login + "?pwd=" + password);
+            URL url = new URL("http://locomaps.cloudapp.net/LocoMaps/user?connectuser="+ login + "&pwd=" + password);
 
 
             conn = (HttpURLConnection) url.openConnection();
@@ -69,6 +69,7 @@ public class UserWebService implements IUserWebService {
 
     @Override
     public boolean disconnect() {
+
         return false;
     }
 
@@ -152,7 +153,7 @@ public class UserWebService implements IUserWebService {
 
             //URL url = new URL("http://www.locomaps.com/user/getAllUser");
             //URL url = new URL("localhost:8080/LocoMaps/user/getAllUser");
-            URL url = new URL("http://locomaps.cloudapp.net/LocoMaps/user?getNeighbours?lat="+center.getLat()+"?lng="+center.getLng()+"?radius="+radius);
+            URL url = new URL("http://locomaps.cloudapp.net/LocoMaps/user?getNeighbours&lat="+center.getLat()+"&lng="+center.getLng()+"&radius="+radius);
 
             conn = (HttpURLConnection) url.openConnection();
             conn.setConnectTimeout(2000);
