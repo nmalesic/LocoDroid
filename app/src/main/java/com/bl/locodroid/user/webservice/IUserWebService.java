@@ -17,5 +17,5 @@ public interface IUserWebService {
     boolean deleteUser(User user);
 
     ArrayList<User> getAllUser();
-    ArrayList<User> getNeighbours(Location center);
+    ArrayList<User> getNeighbours(Location center, int radius);
 }

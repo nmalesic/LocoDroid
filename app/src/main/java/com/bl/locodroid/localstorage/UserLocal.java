@@ -113,7 +113,7 @@ public abstract class UserLocal implements IUserService{
     }
 
     @Override
-    public ArrayList<User> getNeighbours(Location center) {
+    public ArrayList<User> getNeighbours(Location center, int radius) {
         return null;
     }
 }

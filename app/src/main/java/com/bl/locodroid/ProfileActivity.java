@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.bl.locodroid.user.domain.User;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 
@@ -30,9 +31,12 @@ public class ProfileActivity extends MenuActivity {
 
         // fetch value from key-value pair and make it visible on TextView.
         String item = intent.getStringExtra("item_name");
-
-
         textView.setText("you selected "+item);
+        //User u = (User) intent.getSerializableExtra("user");
+
+
+        //textView.setText("you selected "+u.getFirstName() + " " + u.getLastName());
+
     }
 
     @Override

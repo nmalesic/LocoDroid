@@ -59,7 +59,7 @@ public class UserListActivity extends MenuActivity {
         locoAddress = new LocoAddress("10 Avenue de Gameville", "", "31650", "Saint-Orens-de-Gameville", loc);
         locoAddress.setLocation(loc);
         a.setAddress(locoAddress);
-        neighBours.add(a);
+//        neighBours.add(a);
         model = LocoModel.getInstance();
         model.setUserConnected(a);
 
@@ -143,6 +143,7 @@ public class UserListActivity extends MenuActivity {
 
             Intent intent = new Intent(UserListActivity.this, ProfileActivity.class);
             intent.putExtra("item_name", text);
+            //intent.putExtra("user", neighBours.get(position));
 
             startActivity(intent);
 

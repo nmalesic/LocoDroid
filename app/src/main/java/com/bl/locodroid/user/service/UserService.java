@@ -26,7 +26,8 @@ public class UserService implements IUserService {
 
     @Override
     public User connect(String login, String password) {
-        return null;
+        UserWebService userWebService = new UserWebService();
+        return userWebService.connect(login, password);
     }
 
     @Override
@@ -56,8 +57,8 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public ArrayList<User> getNeighbours(Location center) {
+    public ArrayList<User> getNeighbours(Location center, int radius) {
         UserWebService userWebService = new UserWebService();
-        return userWebService.getNeighbours(center);
+        return userWebService.getNeighbours(center, radius);
     }
 }

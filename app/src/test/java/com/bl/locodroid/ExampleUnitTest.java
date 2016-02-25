@@ -1,7 +1,7 @@
 package com.bl.locodroid;
 
 import org.junit.Test;
-import org.testng.annotations.Test;
+//import org.testing.annotations.Test;
 
 import static org.junit.Assert.*;
 
@@ -14,3 +14,4 @@ public class ExampleUnitTest {
         assertEquals(4, 2 + 2);
     }
 }
+
