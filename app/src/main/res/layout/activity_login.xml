@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
-                    android:background="@layout/rounded"
+                    android:background="@drawable/rounded"
                     android:maxLines="1"
                     android:singleLine="true"
                     android:paddingTop="5dip"
@@ -64,7 +64,7 @@
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
-                    android:background="@layout/rounded"
+                    android:background="@drawable/rounded"
                     android:maxLines="1"
                     android:singleLine="true"
                     android:paddingTop="5dip"
@@ -78,7 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="@layout/roundedbutton"
+                android:background="@drawable/roundedbutton"
                 android:text="@string/action_sign_in"
                 android:textStyle="bold" />
 
@@ -89,7 +89,7 @@
                 android:textSize="18sp"
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
-                android:background="@layout/roundedbutton"
+                android:background="@drawable/roundedbutton"
                 android:layout_gravity="center_horizontal"
                 android:padding="5dip" />
 
@@ -100,7 +100,7 @@
                 android:textSize="18sp"
                 android:layout_height="wrap_content"
                 android:onClick="onClick1"
-                android:background="@layout/roundedbutton"
+                android:background="@drawable/roundedbutton"
                 android:layout_gravity="center_horizontal"
                 android:padding="5dip" />
 

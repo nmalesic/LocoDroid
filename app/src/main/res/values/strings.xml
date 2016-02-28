@@ -99,6 +99,8 @@
 
     <string name="action_map">Show on Map</string>
     <string name="logout">You log out</string>
+    <string name="prompt_phone">phone</string>
+    <string name="prompt_mail">mail</string>
 
 
 </resources>

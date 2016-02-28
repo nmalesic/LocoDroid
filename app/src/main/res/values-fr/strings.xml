@@ -88,6 +88,8 @@
     <string name="action_profile">Profil</string>
     <string name="action_log_out">Déconnexion</string>
     <string name="logout">Vous êtes déconnecté</string>
+    <string name="prompt_phone">Téléphone</string>
+    <string name="prompt_mail">mail</string>
 
 
 </resources>

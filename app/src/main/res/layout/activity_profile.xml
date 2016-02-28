@@ -1,34 +1,196 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity" >
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_marginTop="0dp"
+        android:orientation="vertical">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/textviewshape">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView" />
+            android:id="@+id/pro_FirstName"
+            android:textSize="@dimen/title_text"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/icon_first_end_margin" />
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pro_LastName"
+            android:textSize="@dimen/title_text"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/email"/>
+            android:id="@+id/pro_Pseudo"
+            android:textSize="@dimen/normal_text"
+            android:layout_marginStart="10dp" />
 
     </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pro_Address1"
+            android:textSize="@dimen/small_text"
+            android:layout_marginStart="@dimen/icon_first_end_margin"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pro_Address2"
+            android:textSize="@dimen/small_text"
+            android:layout_marginStart="@dimen/icon_first_end_margin" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/pro_CodePostal"
+                android:textSize="@dimen/small_text"
+                android:layout_marginStart="@dimen/icon_first_end_margin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/pro_City"
+                android:textSize="@dimen/small_text"
+                android:layout_marginStart="10dp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pro_mailgroup">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pro_promptEmail"
+                    android:textSize="@dimen/extrasmall_text"
+                    android:text="@string/prompt_mail"
+                    android:layout_marginLeft="@dimen/text_first_end_margin" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pro_Email"
+                    android:textSize="@dimen/small_text"
+                    android:layout_marginLeft="@dimen/text_first_end_margin"
+                    android:gravity="top" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pro_mailaction"
+                android:gravity="end"
+                android:baselineAligned="false"
+                android:layout_gravity="end">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageViewMail"
+                    android:src="@mipmap/ic_mail"
+                    android:layout_marginLeft="@dimen/icon_margin"
+                    android:layout_marginRight="@dimen/icon_first_end_margin" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pro_phonegroup">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/pro_promptPhone"
+                android:textSize="@dimen/extrasmall_text"
+                android:layout_marginStart="@dimen/text_first_end_margin"
+                android:text="@string/prompt_phone" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/pro_Telephone"
+                android:textSize="@dimen/small_text"
+                android:layout_marginLeft="@dimen/icon_first_end_margin"
+                android:gravity="top" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pro_phoneaction"
+                android:gravity="end"
+                android:baselineAligned="false"
+                android:layout_gravity="end">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageViewPhone"
+                    android:src="@mipmap/ic_phone"
+                    android:layout_marginLeft="@dimen/icon_margin"
+                    android:layout_marginRight="@dimen/icon_margin" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageViewSms"
+                    android:src="@mipmap/ic_sms"
+                    android:layout_marginRight="@dimen/icon_first_end_margin"
+                    android:layout_marginLeft="@dimen/icon_margin" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--<include layout="@layout/activity_maps_users"/>-->
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            tools:context="com.bl.locodroid.ProfileActivity">
+                    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:map="http://schemas.android.com/apk/res-auto"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:id="@+id/profile_map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:context="com.bl.locodroid.ProfileActivity" />
+
+        </FrameLayout>
+
     </LinearLayout>
 
     <!--<fragment xmlns:android="http://schemas.android.com/apk/res/android"-->

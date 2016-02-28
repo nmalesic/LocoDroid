@@ -143,7 +143,8 @@ public class UserListActivity extends MenuActivity {
 
             Intent intent = new Intent(UserListActivity.this, ProfileActivity.class);
             intent.putExtra("item_name", text);
-            //intent.putExtra("user", neighBours.get(position));
+            User u = neighBours.get(position);
+            intent.putExtra("user", u);
 
             startActivity(intent);
 
