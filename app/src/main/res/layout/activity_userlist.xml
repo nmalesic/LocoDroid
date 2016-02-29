@@ -30,6 +30,7 @@
         android:choiceMode="singleChoice"
         android:layout_weight="1" />
 
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -38,25 +39,28 @@
         android:layout_weight="1"
         android:gravity="bottom|right">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/action_map"
-            android:id="@+id/ButtonMap"
-            android:onClick="onClick1"
-            android:background="@layout/roundedbutton" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Retour"
-            android:background="@layout/roundedbutton"
-            android:onClick="onClick1"
-            android:id="@+id/btn_back"
-            android:layout_gravity="right" />
 
-    </LinearLayout>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/action_map"
+        android:id="@+id/ButtonMap"
+        android:onClick="onClick1"
+        android:background="@drawable/roundedbutton"
+        android:layout_gravity="right" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retour"
+        android:background="@drawable/roundedbutton"
+        android:onClick="onClick1"
+        android:id="@+id/btn_back"
+        android:layout_gravity="right" />
+</LinearLayout>
 
 </LinearLayout>
+
 

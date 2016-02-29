@@ -17,8 +17,6 @@ import java.util.Map;
  */
 public class LocoModel {
 
-    private static final boolean ISGETNEIGHBOURSMOCK = false;
-
     /** Constructeur privé */
     private LocoModel()
     {
@@ -44,7 +42,7 @@ public class LocoModel {
 
     private User userConnected;
     private ArrayList<User> lastNeighBours;
-    private int radius = 5000;
+    private int radius = 5;
 
     public User getUserConnected() {
         return userConnected;
@@ -70,52 +68,6 @@ public class LocoModel {
         this.radius = radius;
     }
 
-    /**
-     * Mock
-     * @return List of few mock users
-     */
-    private ArrayList<User> getNeighboursMock()
-    {
-
-        ArrayList<User> neighBours = new ArrayList<User>();
-
-
-        // WebService Mock
-        //neighBours = userService.getNeighbours(new Location());
-        neighBours = userService.getAllUser();
-
-
-
-//
-//        User a;
-//        Location loc;
-//        LocoAddress locoAddress;
-//
-//        a = new User("RABOIS","Sylvain","pion de 6","a@a.a","a","a", null, "0102030405","M","false");
-//        loc = new Location("43.5563336","1.528394");
-//        locoAddress = new LocoAddress("10 Avenue de Gameville","","31650","Saint-Orens-de-Gameville",loc);
-//        locoAddress.setLocation(loc);
-//        a.setAddress(locoAddress);
-//        neighBours.add(a);
-//
-//        a = new User("CHAMAYOU","Olivier","objet composition détaché","b@b.b","b","b", null, "0602030405","M","false");
-//        loc = new Location("43.6575","1.4853");
-//        locoAddress = new LocoAddress("10 Rue du Pic du Midi","","31240","L Union",loc);
-//        locoAddress.setLocation(loc);
-//        a.setAddress(locoAddress);
-//        neighBours.add(a);
-//
-//        a = new User("COEURET","Fabrice","Singleton","c@c.c","c","c", null, "0702030405","M","false");
-//        loc = new Location("43.5175497","1.5057399");
-//        locoAddress = new LocoAddress("Place Clemence Isaure","","31320","Castanet-Tolosan",loc);
-//        locoAddress.setLocation(loc);
-//        a.setAddress(locoAddress);
-//        neighBours.add(a);
-
-
-        lastNeighBours = neighBours;
-        return neighBours;
-    }
 
     /**
      * Find users which have an address in the search radius in meter
@@ -123,51 +75,10 @@ public class LocoModel {
      * @return List of users in the circle
      */
     private ArrayList<User> getNeighbours(Location center) {
-        //Persistance persistance = PersistanceManager.getPersitanceSession(sessionScope); //GestionSession.getPersitanceSession(sessionScope);
 
         ArrayList<User> listUserInRadius = null;
 
-        if (ISGETNEIGHBOURSMOCK == true) {
-            //listUserInRadius =  getNeighboursMock();
-            listUserInRadius = userService.getAllUser();
-        } else {
-            listUserInRadius = userService.getNeighbours(center,getRadius());
-
-
-////            HashMap<String, User> listeUser = userService.getAllUser();
-////
-////            listUserInRadius = new ArrayList<User>();
-////
-////            for (Map.Entry<String, User> user : listeUser.entrySet()) {
-//
-//            ArrayList<User> listeUser = userService.getAllUser();
-//
-//            for (User user:listeUser) {
-//
-//                double dist = LocalisationUtil.distance(Double.parseDouble(user.getAddress().getLocation().lat)
-//                        , Double.parseDouble(center.lat)
-//                        , Double.parseDouble(user.getAddress().getLocation().lng)
-//                        , Double.parseDouble(center.lng)
-//                        , (double) 0
-//                        , (double) 0);
-//
-//                //user.getKey();
-//                if (dist < getRadius() * 1000) {
-//                    listUserInRadius.add(user);
-//                }
-////                double dist = LocalisationUtil.distance(Double.parseDouble(user.getValue().getAddress().getLocation().lat)
-////                        , Double.parseDouble(center.lat)
-////                        , Double.parseDouble(user.getValue().getAddress().getLocation().lng)
-////                        , Double.parseDouble(center.lng)
-////                        , (double) 0
-////                        , (double) 0);
-////
-////                //user.getKey();
-////                if (dist < getRadius() * 1000) {
-////                    listUserInRadius.add(user.getValue());
-////                }
-//            }
-        }
+        listUserInRadius = userService.getNeighbours(center,getRadius());
 
         lastNeighBours = listUserInRadius;
         return listUserInRadius;

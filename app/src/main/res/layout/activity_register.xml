@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dip"
                 android:singleLine="true"
-                android:background="@layout/rounded"
+                android:background="@drawable/rounded"
                 android:layout_marginBottom="20dip"/>
             <!--  Email Label -->
             <TextView android:layout_width="fill_parent"
@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dip"
                 android:singleLine="true"
-                android:background="@layout/rounded"
+                android:background="@drawable/rounded"
                 android:layout_marginBottom="20dip"/>
             <!-- Password Label -->
             <TextView android:layout_width="fill_parent"
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:password="true"
                 android:singleLine="true"
-                android:background="@layout/rounded"
+                android:background="@drawable/rounded"
                 android:layout_marginTop="5dip"
                 android:layout_marginBottom="20dip" />
             <!-- Register Button -->
@@ -98,7 +98,7 @@
                 android:layout_marginTop="5dip"
                 android:password="true"
                 android:singleLine="true"
-                android:background="@layout/rounded"
+                android:background="@drawable/rounded"
                 android:layout_marginBottom="20dip" />
 
             <TextView
@@ -114,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dip"
                 android:singleLine="true"
-                android:background="@layout/rounded"
+                android:background="@drawable/rounded"
                 android:layout_marginBottom="20dip" />
 
             <TextView
@@ -129,7 +129,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dip"
-                android:background="@layout/rounded"
+                android:background="@drawable/rounded"
                 android:singleLine="true"
                 android:layout_marginBottom="20dip" />
 
@@ -161,7 +161,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dip"
-                android:background="@layout/roundedbutton"
+                android:background="@drawable/roundedbutton"
                 android:text="@string/reg_new_account"/>
             <!-- Link to Login Screen -->
             <TextView android:id="@+id/link_to_login"
@@ -169,7 +169,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dip"
                 android:layout_marginBottom="40dip"
-                android:background="@layout/roundedbutton"
+                android:background="@drawable/roundedbutton"
                 android:text="@string/existing_account"
                 android:gravity="center"
                 android:textSize="20dip"
