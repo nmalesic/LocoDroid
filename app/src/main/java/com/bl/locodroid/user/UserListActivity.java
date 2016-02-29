@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -130,6 +131,9 @@ public class UserListActivity extends MenuActivity {
                 startActivityForResult(myIntent, 0);
             }
         });
+
+        TextView nb = (TextView) findViewById(R.id.user_nb);
+        nb.setText("Nombre de voisins trouvées : ");
     }
 
 
