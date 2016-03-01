@@ -24,7 +24,7 @@ public class MenuActivity  extends AppCompatActivity {
         public boolean onOptionsItemSelected (MenuItem item){
             switch (item.getItemId()){
                 case R.id.menu_about:
-                    Intent myIntent_about = new Intent(MenuActivity.this, MapsActivity.class);
+                    Intent myIntent_about = new Intent(MenuActivity.this, AboutActivity.class);
                     startActivity(myIntent_about);
                     return true;
                 case R.id.menu_quit:

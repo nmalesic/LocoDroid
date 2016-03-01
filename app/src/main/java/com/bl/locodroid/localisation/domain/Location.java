@@ -1,6 +1,8 @@
 package com.bl.locodroid.localisation.domain;
 
-public class Location {
+import java.io.Serializable;
+
+public class Location implements Serializable {
 	public Location(String lat, String lng) {
 		super();
 		this.lat = lat;

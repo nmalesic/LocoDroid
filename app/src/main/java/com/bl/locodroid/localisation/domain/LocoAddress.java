@@ -1,5 +1,7 @@
 package com.bl.locodroid.localisation.domain;
 
+import java.io.Serializable;
+
 /**
  * coords latitude and longitude in google maps format
  * corresponding
@@ -7,7 +9,7 @@ package com.bl.locodroid.localisation.domain;
  * or an adress typed in the user profil form
  * Created by nmalesic on 05/02/2016.
  */
-public class LocoAddress {
+public class LocoAddress implements Serializable {
 
     // profile address
     private int id;

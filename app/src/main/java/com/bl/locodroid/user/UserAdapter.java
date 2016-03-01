@@ -20,6 +20,11 @@ public class UserAdapter extends ArrayAdapter<User>{
     LocoModel model = LocoModel.getInstance();
 
     ArrayList<User> users;
+
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
     int viewRes;
 
     public UserAdapter(Context context, int tvResId, ArrayList<User> users) {

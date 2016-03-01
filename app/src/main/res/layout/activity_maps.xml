@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:text="@string/map_login"
         android:id="@+id/Button01"
-        android:background="@layout/rounded"
+        android:background="@drawable/rounded"
         android:layout_gravity="right|bottom"
         android:padding="5dip" />
 
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/searchView"
         android:layout_gravity="center_horizontal|top"
-        android:background="@layout/rounded"
+        android:background="@drawable/rounded"
         android:clickable="true"
         android:layout_marginTop="10dip" />
 

@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -90,6 +91,10 @@ public class UserListActivity extends MenuActivity {
                 neighBours = result;
                 UserAdapter adapter = new UserAdapter(UserListActivity.this, R.layout.list_view_row, neighBours);
 
+
+                TextView nb = (TextView) findViewById(R.id.user_nb);
+                nb.setText("Nombre de voisins trouvées : " + neighBours.size());
+
                 mListView.setAdapter(adapter);
                 dialog.dismiss();
                 dialog = null;
@@ -130,6 +135,7 @@ public class UserListActivity extends MenuActivity {
                 startActivityForResult(myIntent, 0);
             }
         });
+
     }
 
 
@@ -143,7 +149,8 @@ public class UserListActivity extends MenuActivity {
 
             Intent intent = new Intent(UserListActivity.this, ProfileActivity.class);
             intent.putExtra("item_name", text);
-            //intent.putExtra("user", neighBours.get(position));
+            User u = neighBours.get(position);
+            intent.putExtra("user", u);
 
             startActivity(intent);
 
