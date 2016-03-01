@@ -32,6 +32,7 @@ android:layout_height="fill_parent"
         android:textSize="18sp"
         android:layout_height="55dp"
         android:onClick="onClick1"
+        
         android:background="@layout/roundedbutton"
         android:layout_gravity="center_horizontal"
         android:layout_margin="8dp"
