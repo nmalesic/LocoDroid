@@ -91,6 +91,10 @@ public class UserListActivity extends MenuActivity {
                 neighBours = result;
                 UserAdapter adapter = new UserAdapter(UserListActivity.this, R.layout.list_view_row, neighBours);
 
+
+                TextView nb = (TextView) findViewById(R.id.user_nb);
+                nb.setText("Nombre de voisins trouvées : " + neighBours.size());
+
                 mListView.setAdapter(adapter);
                 dialog.dismiss();
                 dialog = null;
@@ -132,8 +136,6 @@ public class UserListActivity extends MenuActivity {
             }
         });
 
-        TextView nb = (TextView) findViewById(R.id.user_nb);
-        nb.setText("Nombre de voisins trouvées : ");
     }
 
 
