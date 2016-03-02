@@ -55,6 +55,7 @@ public  class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
                 USER_CONNECTED_USER + " BOOLEAN," +
                 USER_ANONYME + " BOOLEAN)";
     public static final String USER_TABLE_DROP = "DROP TABLE IF EXISTS " + USER_TABLE_NAME;
+
     public static final String USER_ANONYME_CREATE = "INSERT INTO " + USER_TABLE_NAME + " VALUES(null,\"ANONYME\",\"ANONYME\",\"ANONYME\",\"ANONYME\",\"ANONYME\",\"\",0,\"\",0,1)";
 
     //Table ADDRESS

@@ -88,8 +88,14 @@
     <string name="action_profile">Profil</string>
     <string name="action_log_out">Déconnexion</string>
     <string name="logout">Vous êtes déconnecté</string>
+
+    <string name="about_com">Locodroid est une marque déposée par l\'entreprise Los Locos. Propulsé par Android. En OneLine, ça passe !!!  Parceque l objet la relation il compose a été détaché.</string>
+    <string name="copyright">© Copyright 2016</string>
+    <string name="version">Version : 1.0.0.1</string>
+
     <string name="prompt_phone">Téléphone</string>
     <string name="prompt_mail">mail</string>
+
 
 
 </resources>

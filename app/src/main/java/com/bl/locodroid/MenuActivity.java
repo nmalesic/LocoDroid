@@ -54,9 +54,8 @@ public class MenuActivity  extends AppCompatActivity {
                     return true;
 
                 case R.id.menu_profile:
-                    Intent myIntent_profile = new Intent(MenuActivity.this, ProfileActivity.class);
+                    Intent myIntent_profile = new Intent(MenuActivity.this, UserProfileActivity.class);
                     startActivity(myIntent_profile);
-                    Toast.makeText(this, "informations du profil", Toast.LENGTH_LONG).show();
                     return true;
                 default:return true;
             }
