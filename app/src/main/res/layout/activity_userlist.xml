@@ -10,9 +10,12 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/user_nb"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:background="@drawable/textviewshape"
+        android:textSize="18dp"
+        android:textStyle="bold|italic" />
 
 
 
