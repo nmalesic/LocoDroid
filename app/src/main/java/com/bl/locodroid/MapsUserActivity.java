@@ -63,15 +63,7 @@ public class MapsUserActivity extends MenuActivity implements OnMapReadyCallback
             }
         });
 
-        a = new User("RABOIS", "Sylvain", "pion de 6", "a@a.a", "a", "a", null, "0102030405", "M", "false");
-        loc = new Location("43.5563336", "1.528394");
-        locoAddress = new LocoAddress("10 Avenue de Gameville", "", "31650", "Saint-Orens-de-Gameville", loc);
-        locoAddress.setLocation(loc);
-        a.setAddress(locoAddress);
-        neighBours.add(a);
-        model = LocoModel.getInstance(this);
-        model.setUserConnected(a);
-
+           model = LocoModel.getInstance(this);
 
         class GetMapsUserTask extends AsyncTask<Void, Integer, ArrayList<User>> {
 
@@ -97,8 +89,7 @@ public class MapsUserActivity extends MenuActivity implements OnMapReadyCallback
             @Override
             protected void onPostExecute(ArrayList<User> result) {
                 neighBours = result;
-                //UserAdapter adapter = new UserAdapter(UserListActivity.this, R.layout.list_view_row, neighBours);
-                //mListView.setAdapter(adapter);
+
                 dialog.dismiss();
                 dialog = null;
                 LatLng a;
@@ -133,21 +124,23 @@ public class MapsUserActivity extends MenuActivity implements OnMapReadyCallback
         
 
         LatLng Labege = new LatLng(43.543254, 1.512209);
-        mMap.addMarker(new MarkerOptions().position(Labege).title("NOTRE TRES CHER BERGER-LEVRAULT").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+        mMap.addMarker(new MarkerOptions().position(Labege).title("BERGER-LEVRAULT").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
 
-        /* LatLng Albi = new LatLng(43.92, 2.14);
-        mMap.addMarker(new MarkerOptions().position(Albi).title("Marker in Albi"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Albi, 5));
-        LatLng Toulouse = new LatLng(43.60,1.44);
-        mMap.addMarker(new MarkerOptions().position(Toulouse).title("Marker in Toulouse")); */
+        Double lat = Double.parseDouble(model.getUserConnected().getAddress().getLocation().getLat());
+        Double lng = Double.parseDouble(model.getUserConnected().getAddress().getLocation().getLng());
+        LatLng centre = new LatLng(lat, lng);
 
+        Circle cercle = mMap.addCircle(new CircleOptions()
+                .center(centre)
+                        .radius(model.getRadius()*1000)
+                        .strokeWidth(3)
+                        .strokeColor(0xFF333333)
+                        .fillColor(0x503333CC));
 
         // Construct a CameraPosition focusing on Mountain View and animate the camera to that position.
         CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(Labege)  // Sets the center of the map to Mountain View
-                .zoom(12)                   // Sets the zoom
-                        //.bearing(90)                // Sets the orientation of the camera to east
-                .tilt(30)                   // Sets the tilt of the camera to 30 degrees
+                .target(centre)  // Sets the center of the map to Mountain View
+                .zoom(12)
                 .build();                   // Creates a CameraPosition from the builder
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }

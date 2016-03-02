@@ -68,12 +68,12 @@ public class MapsActivity extends MenuActivity implements OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Toulouse, 8));
 
 
-//        Circle cercle = mMap.addCircle(new CircleOptions()
-//                .center(Albi)
-//                .radius(50000)
-//                .strokeWidth(3)
-//                .strokeColor(0xFF333333)
-//                .fillColor(0x503333CC));
+        Circle cercle = mMap.addCircle(new CircleOptions()
+                .center(Toulouse)
+                .radius(5000)
+                .strokeWidth(3)
+                .strokeColor(0xFF333333)
+                .fillColor(0x503333CC));
 
 
         //mMap.setTrafficEnabled(true);
@@ -83,7 +83,7 @@ public class MapsActivity extends MenuActivity implements OnMapReadyCallback {
                 .target(Toulouse)  // Sets the center of the map to Mountain View
                 .zoom(12)                   // Sets the zoom
                 //.bearing(90)                // Sets the orientation of the camera to east
-                .tilt(30)                   // Sets the tilt of the camera to 30 degrees
+                //.tilt(30)                   // Sets the tilt of the camera to 30 degrees
                 .build();                   // Creates a CameraPosition from the builder
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 

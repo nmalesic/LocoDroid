@@ -94,7 +94,11 @@ public class UserListActivity extends MenuActivity {
 
 
                 TextView nb = (TextView) findViewById(R.id.user_nb);
-                nb.setText("Nombre de voisins trouvées : " + neighBours.size());
+                if (neighBours.size()==0){
+                    nb.setText("Aucun voisin trouvé dans un rayon de " + model.getRadius() + " km");
+                } else {
+                    nb.setText( neighBours.size() + " voisins trouvés dans un rayon de  " + model.getRadius() + " km" );
+                }
 
                 mListView.setAdapter(adapter);
                 dialog.dismiss();
