@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:text="@string/nav_back"
         android:id="@+id/btn_back"
-        android:background="@drawable/rounded"
+        android:background="@drawable/roundedbutton"
         android:layout_gravity="right|bottom" />
 
     <!-- <SearchView

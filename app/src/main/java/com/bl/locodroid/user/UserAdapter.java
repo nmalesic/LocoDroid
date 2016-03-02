@@ -21,10 +21,6 @@ public class UserAdapter extends ArrayAdapter<User>{
 
     ArrayList<User> users;
 
-    public ArrayList<User> getUsers() {
-        return users;
-    }
-
     int viewRes;
 
     public UserAdapter(Context context, int tvResId, ArrayList<User> users) {
