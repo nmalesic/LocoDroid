@@ -12,13 +12,17 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.PopupMenu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bl.locodroid.MapsActivity;
 import com.bl.locodroid.MapsUserActivity;
@@ -34,7 +38,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class UserListActivity extends MenuActivity {
+public class UserListActivity extends MenuActivity implements SeekBar.OnSeekBarChangeListener{
 
     protected static ProgressDialog dialog;
     LocoModel model;
@@ -48,6 +52,8 @@ public class UserListActivity extends MenuActivity {
     User a;
     Location loc;
     LocoAddress locoAddress;
+
+    SeekBar seekBar;
 
 
     @Override
@@ -65,46 +71,7 @@ public class UserListActivity extends MenuActivity {
 //        model.context = this;
 //        model.setUserConnected(a);
 
-        class GetListUserTask extends AsyncTask<Void, Integer, ArrayList<User>> {
 
-            /** * Le AtomicBoolean pour lancer et stopper la Thread */
-            private AtomicBoolean isThreadRunnning = new AtomicBoolean();
-            /** * Le AtomicBoolean pour mettre en pause et relancer la Thread */
-            private AtomicBoolean isThreadPausing = new AtomicBoolean();
-
-            @Override
-            protected void onPreExecute(){
-                dialog = ProgressDialog.show(UserListActivity.this, "", getString(R.string.background_doing));
-            }
-
-            @Override
-            protected ArrayList<User> doInBackground(Void... params) {
-                ArrayList<User> result = null;
-                //if (isThreadRunnning.get()) {
-                    result = model.getNeighbours();
-                //}
-                return result;
-            }
-
-            @Override
-            protected void onPostExecute(ArrayList<User> result) {
-
-                neighBours = result;
-                UserAdapter adapter = new UserAdapter(UserListActivity.this, R.layout.list_view_row, neighBours);
-
-
-                TextView nb = (TextView) findViewById(R.id.user_nb);
-                if (neighBours.size()==0){
-                    nb.setText("Aucun voisin trouvé dans un rayon de " + model.getRadius() + " km");
-                } else {
-                    nb.setText( neighBours.size() + " voisins trouvés dans un rayon de  " + model.getRadius() + " km" );
-                }
-
-                mListView.setAdapter(adapter);
-                dialog.dismiss();
-                dialog = null;
-            }
-        }
 
         mListView = (ListView) findViewById(R.id.list_user);
 
@@ -141,6 +108,52 @@ public class UserListActivity extends MenuActivity {
             }
         });
 
+//        final Button btn_radius = (Button)findViewById(R.id.btn_radius);
+//
+//        btn_radius.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View view) {
+//                PopupMenu popup = new PopupMenu(UserListActivity.this, btn_radius);
+//                popup.getMenuInflater().inflate(R.menu.menu_radius, popup.getMenu());
+//
+//
+//                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+//                    public boolean onMenuItemClick(MenuItem item) {
+//                        Toast.makeText(UserListActivity.this, "You Clicked : " + item.getTitle(), Toast.LENGTH_SHORT).show();
+//                        model.setRadius(50);
+//                        new GetListUserTask().execute();
+//
+//                        return true;
+//                     }
+//                });
+//                 popup.show();
+//        }
+//        });
+
+        seekBar=(SeekBar)findViewById(R.id.seekBar1);
+        //int progress=0;
+        seekBar.setOnSeekBarChangeListener(this);
+
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        //Toast.makeText(getApplicationContext(),"seekbar progress: "+progress, Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+        //Toast.makeText(getApplicationContext(),"seekbar start: ", Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+       // Toast.makeText(getApplicationContext(),"seekbar stop: ", Toast.LENGTH_SHORT).show();
+                        model.setRadius(seekBar.getProgress());
+                         new GetListUserTask().execute();
+
+
     }
 
 
@@ -161,6 +174,47 @@ public class UserListActivity extends MenuActivity {
 
         }
 
+    }
+
+    class GetListUserTask extends AsyncTask<Void, Integer, ArrayList<User>> {
+
+        /** * Le AtomicBoolean pour lancer et stopper la Thread */
+        private AtomicBoolean isThreadRunnning = new AtomicBoolean();
+        /** * Le AtomicBoolean pour mettre en pause et relancer la Thread */
+        private AtomicBoolean isThreadPausing = new AtomicBoolean();
+
+        @Override
+        protected void onPreExecute(){
+            dialog = ProgressDialog.show(UserListActivity.this, "", getString(R.string.background_doing));
+        }
+
+        @Override
+        protected ArrayList<User> doInBackground(Void... params) {
+            ArrayList<User> result = null;
+            //if (isThreadRunnning.get()) {
+            result = model.getNeighbours();
+            //}
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<User> result) {
+
+            neighBours = result;
+            UserAdapter adapter = new UserAdapter(UserListActivity.this, R.layout.list_view_row, neighBours);
+
+
+            TextView nb = (TextView) findViewById(R.id.user_nb);
+            if (neighBours.size()==0){
+                nb.setText("Aucun voisin trouvé dans un rayon de " + model.getRadius() + " km");
+            } else {
+                nb.setText( neighBours.size() + " voisins trouvés dans un rayon de  " + model.getRadius() + " km" );
+            }
+
+            mListView.setAdapter(adapter);
+            dialog.dismiss();
+            dialog = null;
+        }
     }
 
 

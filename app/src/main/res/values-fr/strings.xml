@@ -95,7 +95,7 @@
 
     <string name="prompt_phone">Téléphone</string>
     <string name="prompt_mail">mail</string>
-
+    <string name="radius_choice">Rayon de recherche</string>
 
 
 </resources>

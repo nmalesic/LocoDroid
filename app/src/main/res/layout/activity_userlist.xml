@@ -8,16 +8,37 @@
     android:background="#ffffff"
     android:weightSum="1">
 
-    <TextView
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/user_nb"
-        android:layout_weight="1"
-        android:background="@drawable/textviewshape"
-        android:textSize="18dp"
-        android:textStyle="bold|italic" />
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/user_nb"
+            android:layout_weight="1"
+            android:background="@drawable/textviewshape"
+            android:textSize="18dp"
+            android:textStyle="bold|italic" />
+
+    </LinearLayout>
 
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <SeekBar
+            android:id="@+id/seekBar1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="39dp"
+            android:max="50"/>
+    </LinearLayout>
 
     <ListView
         android:id="@+id/list_user"
@@ -29,7 +50,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="bottom"
         android:layout_weight="1"
         android:gravity="bottom|right">
@@ -44,7 +65,8 @@
             android:id="@+id/ButtonMap"
             android:onClick="onClick1"
             android:background="@drawable/roundedbutton"
-            android:layout_gravity="right" />
+            android:layout_gravity="right"
+            android:layout_margin="5dp" />
 
         <Button
             android:layout_width="wrap_content"
@@ -53,7 +75,8 @@
             android:background="@drawable/roundedbutton"
             android:onClick="onClick1"
             android:id="@+id/btn_back"
-            android:layout_gravity="right" />
+            android:layout_gravity="right"
+            android:layout_margin="5dp" />
 
     </LinearLayout>
 
