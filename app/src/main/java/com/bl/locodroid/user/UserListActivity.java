@@ -49,9 +49,9 @@ public class UserListActivity extends MenuActivity implements SeekBar.OnSeekBarC
 
     ArrayList<User> neighBours = new ArrayList<>();
 
-    User a;
-    Location loc;
-    LocoAddress locoAddress;
+    //User a;
+    //Location loc;
+    //LocoAddress locoAddress;
 
     SeekBar seekBar;
 
@@ -108,29 +108,7 @@ public class UserListActivity extends MenuActivity implements SeekBar.OnSeekBarC
             }
         });
 
-//        final Button btn_radius = (Button)findViewById(R.id.btn_radius);
-//
-//        btn_radius.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View view) {
-//                PopupMenu popup = new PopupMenu(UserListActivity.this, btn_radius);
-//                popup.getMenuInflater().inflate(R.menu.menu_radius, popup.getMenu());
-//
-//
-//                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-//                    public boolean onMenuItemClick(MenuItem item) {
-//                        Toast.makeText(UserListActivity.this, "You Clicked : " + item.getTitle(), Toast.LENGTH_SHORT).show();
-//                        model.setRadius(50);
-//                        new GetListUserTask().execute();
-//
-//                        return true;
-//                     }
-//                });
-//                 popup.show();
-//        }
-//        });
-
         seekBar=(SeekBar)findViewById(R.id.seekBar1);
-        //int progress=0;
         seekBar.setOnSeekBarChangeListener(this);
 
     }

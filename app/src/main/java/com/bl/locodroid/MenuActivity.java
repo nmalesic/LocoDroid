@@ -6,12 +6,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.bl.locodroid.model.LocoModel;
 import com.bl.locodroid.user.UserListActivity;
 
 /**
  * Created by SRABOIS on 22/02/2016.
  */
 public class MenuActivity  extends AppCompatActivity {
+
+    LocoModel model;
 
         @Override
         public boolean onCreateOptionsMenu(Menu menu) {
@@ -22,6 +25,9 @@ public class MenuActivity  extends AppCompatActivity {
 
         @Override
         public boolean onOptionsItemSelected (MenuItem item){
+
+            model = LocoModel.getInstance(this);
+
             switch (item.getItemId()){
                 case R.id.menu_about:
                     Intent myIntent_about = new Intent(MenuActivity.this, AboutActivity.class);
@@ -41,6 +47,7 @@ public class MenuActivity  extends AppCompatActivity {
                     return true;
                 case R.id.menu_disconnect:
                     ///action de deconnexion, pas encore implementé
+                    model.disconnect();
                     Toast.makeText(this, R.string.logout, Toast.LENGTH_LONG).show();
                     return true;
                 case R.id.menu_home:

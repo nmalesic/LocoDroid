@@ -147,7 +147,8 @@ public class LocoModel {
     }
 
     public boolean disconnect() {
-        return false;
+        userConnected = null;
+        return true;
     }
 
     public boolean subscribeUser(User user) {

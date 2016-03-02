@@ -47,7 +47,6 @@ public class MainActivity extends MenuActivity {
         //fcoe : A laisser pour le moment, permet de tester en DB Locale
        //LocalStorageDB db = new LocalStorageDB(this.getBaseContext(),"LocoDroid_test.db",null,1);
 
-        if (model.getUserConnected()==null){
             Button but_connect = (Button) findViewById(R.id.ButtonConnect);
             but_connect.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
@@ -63,16 +62,27 @@ public class MainActivity extends MenuActivity {
                     startActivityForResult(myIntent, 0);
                 }
             });
-        }
+
 
        Button but_search = (Button) findViewById(R.id.ButtonMap);
        but_search.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 //get context() pour récupérer la vue, puis on renseigne la classe vers laquelle on veut switcher
-                Intent myIntent = new Intent(view.getContext(), MapsActivity.class);
+                Intent myIntent = new Intent(view.getContext(), UserListActivity.class);
                 startActivityForResult(myIntent, 0);
+                finish();
             }
         });
+
+        if (model.getUserConnected()==null){
+            but_search.setVisibility(View.INVISIBLE);
+
+        }else {
+            but_connect.setVisibility(View.INVISIBLE);
+            but_register.setVisibility(View.INVISIBLE);
+
+        }
+
 
 
 
@@ -87,12 +97,21 @@ public class MainActivity extends MenuActivity {
 
         getMenuInflater().inflate(R.menu.main_menu, menu);
 
-        menu.findItem(R.id.menu_connect).setVisible(false);
-        menu.findItem(R.id.menu_disconnect).setVisible(false);
-        menu.findItem(R.id.menu_profile).setVisible(false);
-        menu.findItem(R.id.menu_register).setVisible(false);
-        //menu.findItem(R.id.menu_search).setVisible(false);
         menu.findItem(R.id.menu_about).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+
+        if (model.getUserConnected()==null){
+
+            menu.findItem(R.id.menu_connect).setVisible(false);
+            menu.findItem(R.id.menu_disconnect).setVisible(false);
+            menu.findItem(R.id.menu_profile).setVisible(false);
+            menu.findItem(R.id.menu_register).setVisible(false);
+        }else {
+
+            menu.findItem(R.id.menu_connect).setVisible(false);
+            menu.findItem(R.id.menu_disconnect).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+            menu.findItem(R.id.menu_profile).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+            menu.findItem(R.id.menu_register).setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        }
 
         return true;
 

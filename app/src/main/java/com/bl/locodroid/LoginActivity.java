@@ -31,6 +31,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bl.locodroid.model.LocoModel;
 import com.bl.locodroid.user.domain.User;
@@ -124,7 +125,7 @@ public class LoginActivity extends MenuActivity  {
         menu.findItem(R.id.menu_connect).setVisible(false);
         menu.findItem(R.id.menu_disconnect).setVisible(false);
         menu.findItem(R.id.menu_profile).setVisible(false);
-        menu.findItem(R.id.menu_register).setVisible(false);
+        //menu.findItem(R.id.menu_register).setVisible(false);
         menu.findItem(R.id.menu_search).setVisible(false);
         menu.findItem(R.id.menu_about).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
@@ -181,6 +182,8 @@ public class LoginActivity extends MenuActivity  {
             //showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
+            Toast.makeText(this, R.string.action_connected, Toast.LENGTH_LONG).show();
+
         }
     }
 
@@ -234,6 +237,7 @@ public class LoginActivity extends MenuActivity  {
 
             if (success) {
                 model.setUserConnected(userconnected);
+
                 finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
