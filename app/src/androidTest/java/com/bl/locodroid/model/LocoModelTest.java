@@ -1,4 +1,4 @@
-package com.bl.locodroid.test;
+package com.bl.locodroid.model;
 
 import com.bl.locodroid.localisation.domain.Location;
 import com.bl.locodroid.localisation.domain.LocoAddress;

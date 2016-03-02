@@ -17,7 +17,7 @@ package com.bl.locodroid.user;
 
 public class UserAdapter extends ArrayAdapter<User>{
 
-    LocoModel model = LocoModel.getInstance();
+    //LocoModel model = LocoModel.getInstance(this);
 
     ArrayList<User> users;
     int viewRes;

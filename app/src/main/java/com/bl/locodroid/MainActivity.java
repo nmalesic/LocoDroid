@@ -33,7 +33,7 @@ public class MainActivity extends MenuActivity {
 
         setContentView(R.layout.activity_main);
         //Log.i("EPITEZ", "Created activity 1");
-        model = model.getInstance();
+        model = model.getInstance(this);
 
         //fcoe : A laisser pour le moment, permet de tester en DB Locale
        //LocalStorageDB db = new LocalStorageDB(this.getBaseContext(),"LocoDroid_test.db",null,1);

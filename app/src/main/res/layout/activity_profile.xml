@@ -85,21 +85,19 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/pro_promptEmail"
-                    android:textSize="@dimen/extrasmall_text"
-                    android:text="@string/prompt_mail"
-                    android:layout_marginLeft="@dimen/text_first_end_margin" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/pro_Email"
                     android:textSize="@dimen/small_text"
                     android:layout_marginLeft="@dimen/text_first_end_margin"
-                    android:gravity="top" />
+                    android:gravity="top"
+                    android:paddingTop="0dp"
+                    android:paddingStart="0dp"
+                    android:layout_marginTop="0dp" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
@@ -131,15 +129,10 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/pro_promptPhone"
-                android:textSize="@dimen/extrasmall_text"
-                android:layout_marginStart="@dimen/text_first_end_margin"
-                android:text="@string/prompt_phone" />
-            <TextView
+                android:layout_gravity="center_vertical">
+
+                <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/pro_Telephone"

@@ -45,10 +45,19 @@ public interface ILocalStorage {
     public boolean addUserLocal(User user);
 
     /**
+     * Get the connected User from SQLite database
+     * @param email Email of User
+     * @return User
+     */
+
+    public User getUserLocal();
+
+    /**
      * Get a User from SQLite database
      * @param email Email of User
      * @return User
      */
+
     public User getUserLocalByEmail(String email);
 
     /**

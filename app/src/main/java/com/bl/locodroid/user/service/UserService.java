@@ -1,6 +1,14 @@
 package com.bl.locodroid.user.service;
 
+import android.app.Application;
+import android.app.Service;
+import android.content.Context;
+import android.content.Intent;
+import android.os.IBinder;
+import android.support.annotation.Nullable;
+
 import com.bl.locodroid.localisation.domain.Location;
+import com.bl.locodroid.localstorage.LocalStorageDB;
 import com.bl.locodroid.user.domain.User;
 import com.bl.locodroid.user.webservice.UserWebService;
 
@@ -13,15 +21,24 @@ import java.util.HashMap;
 public class UserService implements IUserService {
 
     private User user;
+    public Context context = null;
 
-    @Override
-    public User getLocalUser() {
-        return null;
+    public UserService(Context context) {
+        this.context = context;
     }
 
     @Override
+    public User getLocalUser() {
+        LocalStorageDB localStorageDB = new LocalStorageDB(context,null,null,1);
+        this.user = localStorageDB.getUserLocal();
+        return this.user;
+    }
+    @Override
     public boolean setLocalUser(User user) {
-        return false;
+        this.user = user;
+        LocalStorageDB localStorageDB = new LocalStorageDB(context,null,null,1);
+        return localStorageDB.addUserLocal(user);
+
     }
 
     @Override
@@ -58,7 +75,23 @@ public class UserService implements IUserService {
 
     @Override
     public ArrayList<User> getNeighbours(Location center, int radius) {
+        ArrayList<User> response = null;
         UserWebService userWebService = new UserWebService();
-        return userWebService.getNeighbours(center, radius);
+        response = userWebService.getNeighbours(center, radius);
+
+//        if (response == null) {
+//            // WebService is not responding
+//            // Try to retrieve last result from local database
+//            LocalStorageDB localStorageDB = new LocalStorageDB(context,null,null,1);
+//            response = localStorageDB.getListLocalNeighbour(1);
+//        } else {
+//            // WebService is responding
+//            // Save last result in local database
+//            LocalStorageDB localStorageDB = new LocalStorageDB(context,null,null,1);
+//            localStorageDB.addListLocalNeighbour(1,response);
+//        }
+
+        return response;
     }
+
 }

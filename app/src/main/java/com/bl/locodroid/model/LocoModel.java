@@ -1,6 +1,8 @@
 package com.bl.locodroid.model;
 
 
+import android.content.Context;
+
 import com.bl.locodroid.localisation.service.LocalisationService;
 import com.bl.locodroid.localisation.LocalisationUtil;
 import com.bl.locodroid.localisation.domain.Location;
@@ -18,9 +20,10 @@ import java.util.Map;
 public class LocoModel {
 
     /** Constructeur privé */
-    private LocoModel()
+    private LocoModel(Context context)
     {
-        userService = new UserService();
+        this.context = context;
+        userService = new UserService(context);
         localisationService = new LocalisationService();
     }
 
@@ -29,11 +32,13 @@ public class LocoModel {
     private UserService userService = null;
     private LocalisationService localisationService = null;
 
+    public Context context = null;
+
     /** Point d'accès pour l'instance unique du singleton */
-    public static synchronized LocoModel getInstance()
+    public static synchronized LocoModel getInstance(Context context)
     {
         if (INSTANCE == null)
-        { 	INSTANCE = new LocoModel();
+        { 	INSTANCE = new LocoModel(context);
 
         }
         return INSTANCE;
@@ -45,11 +50,13 @@ public class LocoModel {
     private int radius = 5;
 
     public User getUserConnected() {
+        //userConnected = userService.getLocalUser();
         return userConnected;
     }
 
     public void setUserConnected(User userConnected) {
         this.userConnected = userConnected;
+        //userService.setLocalUser(userConnected);
     }
 
     public ArrayList<User> getLastNeighBours() {
@@ -77,6 +84,7 @@ public class LocoModel {
     private ArrayList<User> getNeighbours(Location center) {
 
         ArrayList<User> listUserInRadius = null;
+        userService.context = context;
 
         listUserInRadius = userService.getNeighbours(center,getRadius());
 
