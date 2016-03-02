@@ -21,6 +21,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -67,7 +69,7 @@ public class MapsUserActivity extends MenuActivity implements OnMapReadyCallback
         locoAddress.setLocation(loc);
         a.setAddress(locoAddress);
         neighBours.add(a);
-        model = LocoModel.getInstance();
+        model = LocoModel.getInstance(this);
         model.setUserConnected(a);
 
 
@@ -105,6 +107,8 @@ public class MapsUserActivity extends MenuActivity implements OnMapReadyCallback
                     a = new LatLng(Double.parseDouble(loc.getLat()), Double.parseDouble(loc.getLng()));
                     mMap.addMarker(new MarkerOptions().position(a).title(u.getLastName() + " " + u.getFirstName()));
                 }
+
+                
             }
         }
 

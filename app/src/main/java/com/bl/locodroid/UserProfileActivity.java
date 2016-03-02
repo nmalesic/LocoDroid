@@ -26,7 +26,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 /**
  * Created by SRABOIS on 10/02/2016.
  */
-public class ProfileActivity extends MenuActivity implements OnMapReadyCallback {
+public class UserProfileActivity extends MenuActivity implements OnMapReadyCallback {
     TextView textView;
     LocoModel model;
     private GoogleMap mMap;
@@ -50,7 +50,8 @@ public class ProfileActivity extends MenuActivity implements OnMapReadyCallback 
         //String item = intent.getStringExtra("item_name");
         //textView.setText("you selected "+item);
 
-        neighbourgh = (User) intent.getSerializableExtra("user");
+        //neighbourgh = (User) intent.getSerializableExtra("user");
+        neighbourgh = model.getUserConnected();
         if (neighbourgh != null){
             ViewTools.setTextViewWithEmpty((TextView) findViewById(R.id.pro_FirstName), neighbourgh.getFirstName());
             ViewTools.setTextViewWithEmpty((TextView) findViewById(R.id.pro_LastName), neighbourgh.getLastName());

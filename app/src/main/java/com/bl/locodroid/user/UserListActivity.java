@@ -55,14 +55,15 @@ public class UserListActivity extends MenuActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userlist);
 
-        a = new User("RABOIS", "Sylvain", "pion de 6", "a@a.a", "a", "a", null, "0102030405", "M", "false");
-        loc = new Location("43.5563336", "1.528394");
-        locoAddress = new LocoAddress("10 Avenue de Gameville", "", "31650", "Saint-Orens-de-Gameville", loc);
-        locoAddress.setLocation(loc);
-        a.setAddress(locoAddress);
-//        neighBours.add(a);
-        model = LocoModel.getInstance();
-        model.setUserConnected(a);
+//        a = new User("RABOIS", "Sylvain", "pion de 6", "a@a.a", "a", "a", null, "0102030405", "M", "false");
+//        loc = new Location("43.5563336", "1.528394");
+//        locoAddress = new LocoAddress("10 Avenue de Gameville", "", "31650", "Saint-Orens-de-Gameville", loc);
+//        locoAddress.setLocation(loc);
+//        a.setAddress(locoAddress);
+////        neighBours.add(a);
+        model = LocoModel.getInstance(this);
+//        model.context = this;
+//        model.setUserConnected(a);
 
         class GetListUserTask extends AsyncTask<Void, Integer, ArrayList<User>> {
 

@@ -121,7 +121,7 @@ public  class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
      * @param version version of database
      */
     public LocalStorageDB(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+        super(context, name == null?DATABASE_NAME:name, factory, DATABASE_VERSION);
         //SQLiteDatabase db = this.getWritableDatabase();
 //        dropTable(db);
 //        onCreate(db);
@@ -189,6 +189,18 @@ public  class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
     public boolean addUserLocal(User user)
     {
         SQLiteDatabase db = this.getWritableDatabase();
+
+        // delete last UserConnected and his address
+        User oldUserConnected = getUserLocal();
+
+        if (oldUserConnected != null && oldUserConnected.getEmail() != null) {
+            if (oldUserConnected.getEmail().equals(user.getEmail()))
+            deleteUserAddress(oldUserConnected.getId());
+            deleteUser(oldUserConnected.getId());
+        }
+
+
+
         ContentValues cv = new ContentValues();
         //cv.put(USER_ID,userlocal.getUser().getId());
         cv.put(USER_LASTNAME, user.getLastName());
@@ -219,6 +231,7 @@ public  class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
         }
     }
 
+
     /**
      * Add UserLocal Address in SQLite database
      * @param idUser idUser
@@ -248,6 +261,23 @@ public  class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
         {
             return true;
         }
+    }
+
+    @Override
+    public User getUserLocal() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        User user = new User();
+        user = null;
+        ContentValues cv = new ContentValues();
+        //Log.i("requete", "SELECT * FROM " + USER_TABLE_NAME + " U LEFT JOIN " + ADDRESS_TABLE_NAME + " A ON U." + USER_ID + " = A." + ADDRESS_ID_USER + " WHERE " + USER_EMAIL + " = '" + email + "'");
+        Cursor cursor = db.rawQuery("SELECT * FROM " + USER_TABLE_NAME + " U LEFT JOIN " + ADDRESS_TABLE_NAME + " A ON U." + USER_ID + " = A." + ADDRESS_ID_USER + " WHERE " + USER_CONNECTED_USER + " = '" + 1 + "'", null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+            user = informUser(cursor);
+        }
+        //Fermeture de la base
+        db.close();
+        return user;
     }
 
     /**
@@ -317,7 +347,8 @@ public  class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
         Cursor cursor = db.rawQuery("SELECT * FROM " + NEIGHBOUR_TABLE_NAME + " R" +
                 " LEFT JOIN " + USER_TABLE_NAME + " U ON R." + NEIGHBOUR_ID_USER_NEIGHBOUR + " = U." + USER_ID +
                 " LEFT JOIN " + ADDRESS_TABLE_NAME + " A ON U." + USER_ID + " = A." + ADDRESS_ID_USER +
-                " WHERE R." + NEIGHBOUR_ID_USER + " = " + idUser, null);
+                " WHERE U." + USER_CONNECTED_USER + " = 1",null);
+                //" WHERE R." + NEIGHBOUR_ID_USER + " = " + idUser, null);
         if (cursor != null)
         {
             cursor.moveToFirst();
@@ -360,6 +391,48 @@ public  class LocalStorageDB extends SQLiteOpenHelper implements ILocalStorage {
         address.setId(idAddress);
         user.setAddress(address);
         return user;
+    }
+
+    /**
+     * Delete a user in SQLite database
+     * @param idUser
+     * @return true = OK / false = KO
+     */
+    public boolean deleteUser(int idUser)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int i = db.delete(USER_TABLE_NAME, USER_ID + " = " + idUser, null);
+        //Fermeture de la base
+        db.close();
+        if (i > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    /**
+     * Delete a user in SQLite database
+     * @param idUser
+     * @return true = OK / false = KO
+     */
+    public boolean deleteUserAddress(int idUser)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int i = db.delete(ADDRESS_TABLE_NAME, ADDRESS_ID_USER + " = " + idUser, null);
+        //Fermeture de la base
+        db.close();
+        if (i > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     /**
