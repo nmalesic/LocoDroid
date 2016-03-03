@@ -130,19 +130,33 @@ public class MapsUserActivity extends MenuActivity implements OnMapReadyCallback
         Double lng = Double.parseDouble(model.getUserConnected().getAddress().getLocation().getLng());
         LatLng centre = new LatLng(lat, lng);
 
-        Circle cercle = mMap.addCircle(new CircleOptions()
-                .center(centre)
-                        .radius(model.getRadius()*1000)
-                        .strokeWidth(3)
-                        .strokeColor(0xFF333333)
-                        .fillColor(0x503333CC));
+//        Circle cercle = mMap.addCircle(new CircleOptions()
+//                .center(centre)
+//                .radius(model.getRadius() * 1000)
+//                .strokeWidth(3)
+//                .strokeColor(0xFF333333)
+//                .fillColor(0x503333CC));
+
 
         // Construct a CameraPosition focusing on Mountain View and animate the camera to that position.
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(centre)  // Sets the center of the map to Mountain View
+                //.zoom(getZoomLevel(cercle))
                 .zoom(12)
                 .build();                   // Creates a CameraPosition from the builder
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+
     }
+
+//    public int getZoomLevel(Circle circle) {
+//        int zoomLevel=0;
+//        if (circle != null){
+//            double radius = circle.getRadius();
+//            double scale = radius / 500;
+//            zoomLevel =(int) (16 - Math.log(scale) / Math.log(2));
+//        }
+//        return zoomLevel;
+//    }
     }
 

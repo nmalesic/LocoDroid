@@ -109,6 +109,7 @@ public class UserListActivity extends MenuActivity implements SeekBar.OnSeekBarC
         });
 
         seekBar=(SeekBar)findViewById(R.id.seekBar1);
+        seekBar.setProgress(model.getRadius());
         seekBar.setOnSeekBarChangeListener(this);
 
     }

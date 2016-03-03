@@ -97,6 +97,8 @@
     <string name="prompt_mail">mail</string>
     <string name="radius_choice">Rayon de recherche</string>
     <string name="action_connected">Vous êtes connecté</string>
+    <string name="bl">BERGER-LEVRAULT</string>
+    <string name="radius">Modifier le rayon de recherche</string>
 
 
 </resources>

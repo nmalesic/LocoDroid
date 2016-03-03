@@ -9,26 +9,18 @@
     android:weightSum="1">
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/textviewshape">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/user_nb"
             android:layout_weight="1"
-            android:background="@drawable/textviewshape"
             android:textSize="18dp"
             android:textStyle="bold|italic" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <TextView
             android:layout_width="wrap_content"
@@ -43,9 +35,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="39dp"
+            android:layout_marginTop="10dp"
             android:max="50" />
+
     </LinearLayout>
+
 
     <ListView
         android:id="@+id/list_user"

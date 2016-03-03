@@ -107,7 +107,9 @@
     <string name="copyright">&#169; Copyright 2016</string>
     <string name="about_com">Locodroid  is a trademark from Los Locos Company.    Android powered.    Cause the objet the link it composes has been detached </string>
     <string name="action_connected">You\'re connected</string>
-
+    <string name="bl">BERGER-LEVRAULT</string>
+    <string name="radius_choice">Radius Choice</string>
+    <string name="radius">Choose your radius</string>
 
 
 </resources>
