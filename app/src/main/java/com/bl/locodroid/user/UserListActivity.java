@@ -78,8 +78,6 @@ public class UserListActivity extends MenuActivity implements SeekBar.OnSeekBarC
         new GetListUserTask().execute();
         //neighBours = model.getNeighbours();
 
-
-
         //ArrayAdapter<User> adapter = new ArrayAdapter<User>(UserListActivity.this, R.layout.list_view_row, R.id.lastName, neighBours);
         userAdapter = new UserAdapter(UserListActivity.this, R.layout.list_view_row, neighBours);
         mListView.setAdapter(userAdapter);
@@ -116,21 +114,19 @@ public class UserListActivity extends MenuActivity implements SeekBar.OnSeekBarC
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        //Toast.makeText(getApplicationContext(),"seekbar progress: "+progress, Toast.LENGTH_SHORT).show();
 
     }
 
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
-        //Toast.makeText(getApplicationContext(),"seekbar start: ", Toast.LENGTH_SHORT).show();
 
     }
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
-       // Toast.makeText(getApplicationContext(),"seekbar stop: ", Toast.LENGTH_SHORT).show();
                         model.setRadius(seekBar.getProgress());
                          new GetListUserTask().execute();
+
 
 
     }

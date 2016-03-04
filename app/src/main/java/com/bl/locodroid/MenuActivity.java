@@ -43,12 +43,12 @@ public class MenuActivity  extends AppCompatActivity {
                 case R.id.menu_connect:
                     Intent myIntent_connect = new Intent(MenuActivity.this, LoginActivity.class);
                     startActivity(myIntent_connect);
-                    //Toast.makeText(this, "menu_connect selected", Toast.LENGTH_LONG).show();
+                    finish();
                     return true;
                 case R.id.menu_disconnect:
-                    ///action de deconnexion, pas encore implementé
                     model.disconnect();
-                    Toast.makeText(this, R.string.logout, Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(this, MainActivity.class));
+                    finish();
                     return true;
                 case R.id.menu_home:
                     Intent myIntent_home = new Intent(MenuActivity.this, MainActivity.class);

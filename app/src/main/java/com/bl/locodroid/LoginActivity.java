@@ -182,7 +182,6 @@ public class LoginActivity extends MenuActivity  {
             //showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
-            Toast.makeText(this, R.string.action_connected, Toast.LENGTH_LONG).show();
 
         }
     }
@@ -217,12 +216,12 @@ public class LoginActivity extends MenuActivity  {
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
 
-            try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
-            }
+//            try {
+//                // Simulate network access.
+//                Thread.sleep(2000);
+//            } catch (InterruptedException e) {
+//                return false;
+//            }
 
             userconnected = model.connect(mEmail, mPassword);
 
@@ -237,8 +236,8 @@ public class LoginActivity extends MenuActivity  {
 
             if (success) {
                 model.setUserConnected(userconnected);
+                gomain();
 
-                finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
@@ -250,6 +249,11 @@ public class LoginActivity extends MenuActivity  {
             mAuthTask = null;
             //showProgress(false);
         }
+    }
+
+    private void gomain(){
+        Intent go = new Intent(this, MainActivity.class);
+        startActivity(go);
     }
 }
 

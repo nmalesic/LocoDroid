@@ -74,8 +74,10 @@ public class MainActivity extends MenuActivity {
             }
         });
 
+
         if (model.getUserConnected()==null){
             but_search.setVisibility(View.INVISIBLE);
+
 
         }else {
             but_connect.setVisibility(View.INVISIBLE);
@@ -105,10 +107,12 @@ public class MainActivity extends MenuActivity {
             menu.findItem(R.id.menu_disconnect).setVisible(false);
             menu.findItem(R.id.menu_profile).setVisible(false);
             menu.findItem(R.id.menu_register).setVisible(false);
+            //en attendant la gestion de la recherche non connectee
+            menu.findItem(R.id.menu_search).setVisible(false);
         }else {
 
             menu.findItem(R.id.menu_connect).setVisible(false);
-            menu.findItem(R.id.menu_disconnect).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+            menu.findItem(R.id.menu_disconnect).setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
             menu.findItem(R.id.menu_profile).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
             menu.findItem(R.id.menu_register).setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         }

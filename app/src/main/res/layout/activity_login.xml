@@ -36,7 +36,7 @@
                     android:background="@drawable/rounded"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:paddingTop="5dip"
+                    android:paddingTop="10dip"
                     android:paddingBottom="5dip"
                     android:paddingLeft="10dip" />
 
@@ -58,7 +58,7 @@
                     android:background="@drawable/rounded"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:paddingTop="5dip"
+                    android:paddingTop="10dip"
                     android:paddingBottom="5dip"
                     android:paddingLeft="10dip" />
 
@@ -67,38 +67,39 @@
             <Button
                 android:id="@+id/email_sign_in_button"
                 style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/roundedbutton"
                 android:text="@string/action_sign_in"
                 android:textStyle="bold"
-                android:layout_marginTop="16dp" />
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal" />
 
 
 
             <Button
                 android:text="@string/action_register"
                 android:id="@+id/Button01"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:textSize="18sp"
                 android:layout_height="wrap_content"
                 android:onClick="onClick1"
                 android:background="@drawable/roundedbutton"
                 android:layout_gravity="center_horizontal"
                 android:padding="5dip"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginTop="20dp"/>
 
             <Button
                 android:text="@string/nav_back"
                 android:id="@+id/ButtonRetour"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:textSize="18sp"
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
                 android:background="@drawable/roundedbutton"
-                android:layout_gravity="bottom|center_horizontal"
+                android:layout_gravity="center_horizontal"
                 android:padding="5dip"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginTop="20dp"/>
 
         </LinearLayout>
     </ScrollView>
